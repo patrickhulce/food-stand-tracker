@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 public class TrackActivity extends Activity {
 
@@ -29,6 +31,18 @@ public class TrackActivity extends Activity {
         ViewStub body = (ViewStub) findViewById(R.id.trackStub);
         body.setLayoutResource(R.layout.tracking_info);
         body.inflate();
+        
+        Spinner spinner = (Spinner) findViewById(R.id.spinnerInfo1);
+        
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+             R.array.school_list, android.R.layout.simple_spinner_item);
+     
+        // Specify the layout to use when the list of choices appears
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        
+        // Apply the adapter to the spinner
+       // spinner.setAdapter(adapter);
     }
 
     @Override

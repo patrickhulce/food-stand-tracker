@@ -39,5 +39,26 @@
     </string-array>
 
     <string name="title_activity_weather">WeatherActivity</string>
+    <string-array name="grade_list">
+        <item >Elementary (K-5)</item>
+        <item >Middle School (6-8)</item>
+        <item >High School (9-12)</item>
+        <item >School Staff</item>
+        <item >Parent</item>
+        <item >Other</item>
+    </string-array>
+    <string name="person_title">Who\'s buying?</string>
+    <string name="purchase_choice">What are they buying?</string>
+    <string name="payment_option">How are they paying?</string>
+    <string-array name="gender">
+        <item>Boys</item>
+        <item>Girls</item>
+    </string-array>
+    <string name="total_sold">Total Sales:       </string>
+    <string name="whole_fruit_sold">Whole Fruit Sold:    </string>
+    <string name="mixed_bags_sold">Mixed Bags Sold:     </string>
+    <string name="smoothies_sold">Smoothies Sold:     </string>
+    <string name="total_transactions">Number of Transactions:    </string>
+    
 
 </resources>

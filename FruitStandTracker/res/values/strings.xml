@@ -11,31 +11,26 @@
     <string name="continue_text">Continue</string>
 
     <string-array name="school_list">
-        <item>Alain Locke</item>
+        <item>Auden Reid High School</item>
+        <item>Bartram High School</item>
+        <item>Bryant Elementary School</item>
+        <item>Comegys Elementary School</item>
         <item>Communications Technology High School</item>
-        <item>Gideon School</item>
-        <item>Huey School</item>
-        <item>Lea Henry C. School</item>
-        <item>Parkway West High School</item>
+        <item>Freire Charter School</item>
+        <item>Gideon Elementary School</item>
+        <item>Hardy Williams Middle School</item>
+        <item>High School of the Future</item>
+        <item>Huey Elementary School</item>
+        <item>Lea Elementary School</item>
+        <item>Locke Elementary School</item>
+        <item>Pepper Middle School</item>
         <item>Robeson High School</item>
-        <item>School of the Future</item>
-        <item>Shaw Anna H Middle School</item>
         <item>Sayre High School</item>
-        <item>Strawberry Mansions High School</item>
+        <item>Shaw Anna H Middle School</item>
+        <item>Strawberry Mansion High School</item>
         <item>University City High School</item>
+        <item>West Philadelphia High School</item>
         <item>Woodrow Wilson Middle School</item>
-        <item>School 14</item>
-        <item>School 15</item>
-        <item>School 16</item>
-        <item>School 17</item>
-        <item>School 18</item>
-        <item>School 19</item>
-        <item>School 20</item>
-        <item>School 21</item>
-        <item>School 22</item>
-        <item>School 23</item>
-        <item>School 24</item>
-        <item>School 25</item>
     </string-array>
 
     <string name="title_activity_weather">WeatherActivity</string>

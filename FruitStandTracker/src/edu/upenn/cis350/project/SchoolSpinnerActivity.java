@@ -6,6 +6,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 public class SchoolSpinnerActivity extends Activity implements OnItemSelectedListener{
 
@@ -31,5 +34,13 @@ public class SchoolSpinnerActivity extends Activity implements OnItemSelectedLis
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
+    
+    //code to deal with the spinner
+    Spinner spinner = (Spinner) findViewById(R.id.school);
+    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+            R.array.school_list, android.R.layout.simple_spinner_item);
+    
+    //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    //spinner.setAdapter(adapter);
     
 }

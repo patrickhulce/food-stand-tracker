@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/items"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Number of Items to Checkout:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_option"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/cash"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:onClick="cash_button"
+            android:text="Cash" />
+
+        <TextView
+            android:id="@+id/cash_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x0"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/coupon"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:onClick="coupon_button"
+            android:text="Coupons" />
+
+        <TextView
+            android:id="@+id/coupon_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x0"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/junk_food"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:onClick="junk_food_button"
+            android:text="Junk Food" />
+
+        <TextView
+            android:id="@+id/junk_food_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x0"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="94dp" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="submit_button"
+        android:text="Submit"
+        android:visibility="visible"
+        android:enabled="false" />
+
+</LinearLayout>

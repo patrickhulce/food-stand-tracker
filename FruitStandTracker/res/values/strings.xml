@@ -8,7 +8,9 @@
     <string name="date_title">What is today\'s date?</string>
     <string name="volunteers_title">Who are the volunteers?</string>
     <string name="names">First Name Last Name</string>
-    <string name="continue_text">Continue</string><string-array name="school_list">
+    <string name="continue_text">Continue</string>
+
+    <string-array name="school_list">
         <item>Alain Locke</item>
         <item>Communications Technology High School</item>
         <item>Gideon School</item>
@@ -35,6 +37,7 @@
         <item>School 24</item>
         <item>School 25</item>
     </string-array>
-    
-    
+
+    <string name="title_activity_weather">WeatherActivity</string>
+
 </resources>

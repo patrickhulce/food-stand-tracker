@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FruitStandTracker</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="school_title">What school are you at?</string>
+    <string name="date_title">What is today\'s date?</string>
+    <string name="volunteers_title">Who are the volunteers?</string>
+    <string name="names">First Name Last Name</string>
+    <string name="continue_text">Continue</string>
+
+    <string-array name="school_list">
+        <item>Alain Locke</item>
+        <item>Communications Technology High School</item>
+        <item>Gideon School</item>
+        <item>Huey School</item>
+        <item>Lea Henry C. School</item>
+        <item>Parkway West High School</item>
+        <item>Robeson High School</item>
+        <item>School of the Future</item>
+        <item>Shaw Anna H Middle School</item>
+        <item>Sayre High School</item>
+        <item>Strawberry Mansions High School</item>
+        <item>University City High School</item>
+        <item>Woodrow Wilson Middle School</item>
+        <item>School 14</item>
+        <item>School 15</item>
+        <item>School 16</item>
+        <item>School 17</item>
+        <item>School 18</item>
+        <item>School 19</item>
+        <item>School 20</item>
+        <item>School 21</item>
+        <item>School 22</item>
+        <item>School 23</item>
+        <item>School 24</item>
+        <item>School 25</item>
+    </string-array>
+
+    <string name="title_activity_weather">WeatherActivity</string>
+
+</resources>

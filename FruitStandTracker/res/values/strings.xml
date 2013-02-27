@@ -44,6 +44,30 @@
         <item >Parent</item>
         <item >Other</item>
     </string-array>
+    
+    <string name="inventory_instructions_future">Record your inventory before making mixed bags.
+         Tap on the top half of the picture of the fruit to increase the quantity.
+         Tap the bottom half to decrease quantity.
+    </string>
+        <string name="inventory_instructions">Record your inventory before making mixed bags.
+         Tap the pictures of fruit to increase quantity.
+    </string>
+    <string name="inventory2_instructions">Record the quantity of mixed bags of fruits 
+        made, and the quantity of fruits that went into making them.
+        </string>   
+    <string name="inventory_summary">Summary of Inventory</string>
+    <string name="apple_label">Apples</string>
+    <string name="pear_label">Pears</string>
+    <string name="orange_label">Oranges</string>
+    <string name="grapes_label">Grapes</string>
+    <string name="kiwi_label">Kiwi</string>
+    <string name="banana_label">Banana</string>
+    <string name="granola_label">Granola Bars</string>
+    <string name="smoothie_label">Smoothies</string>
+    
+    <string name="inventory2_summary">Summary of Inventory</string>
+    <string name="mixed_label">Mixed Bags</string>
+    
     <string name="person_title">Who\'s buying?</string>
     <string name="purchase_choice">What are they buying?</string>
     <string name="payment_option">How are they paying?</string>

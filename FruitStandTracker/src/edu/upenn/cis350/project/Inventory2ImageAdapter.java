@@ -8,10 +8,10 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class InventoryImageAdapter extends BaseAdapter {
+public class Inventory2ImageAdapter extends BaseAdapter {
 	private Context mContext;
 
-    public InventoryImageAdapter(Context c) {
+    public Inventory2ImageAdapter(Context c) {
         mContext = c;
     }
 
@@ -49,9 +49,9 @@ public class InventoryImageAdapter extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
+            R.drawable.mixedbag,
             R.drawable.apple, R.drawable.pear,
             R.drawable.orange, R.drawable.grapes,
-            R.drawable.kiwi, R.drawable.banana,
-            R.drawable.granola, R.drawable.smoothie,
+            R.drawable.kiwi, R.drawable.banana
     };
 }

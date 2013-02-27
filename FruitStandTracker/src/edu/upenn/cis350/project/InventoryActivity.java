@@ -12,9 +12,19 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class InventoryActivity extends Activity {
+	
+	int apples = 0;
+	int pears = 0;
+	int oranges = 0;
+	int bananas = 0;
+	int kiwis = 0;
+	int grapes = 0;
+	int granola = 0;
+	int smoothie = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +36,42 @@ public class InventoryActivity extends Activity {
 
 	    gridview.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-	            Toast.makeText(InventoryActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+	            switch(position) {
+	            case 0: apples++;
+	            		TextView apples_qty = (TextView) findViewById(R.id.apple_qty);
+	            		apples_qty.setText(Integer.toString(apples));
+	            		break;
+	            case 1: pears++;
+	            		TextView pears_qty = (TextView) findViewById(R.id.pear_qty);
+	            		pears_qty.setText(Integer.toString(pears));
+	            		break;
+	            case 2: oranges++;
+        				TextView oranges_qty = (TextView) findViewById(R.id.orange_qty);
+        				oranges_qty.setText(Integer.toString(oranges));	            
+	            		break;
+	            case 3: grapes++;
+						TextView grapes_qty = (TextView) findViewById(R.id.grapes_qty);
+						grapes_qty.setText(Integer.toString(grapes));	
+        				break;
+	            case 4: kiwis++;
+						TextView kiwis_qty = (TextView) findViewById(R.id.kiwi_qty);
+						kiwis_qty.setText(Integer.toString(kiwis));	
+						break;
+	            case 5: bananas++;
+						TextView bananas_qty = (TextView) findViewById(R.id.banana_qty);
+						bananas_qty.setText(Integer.toString(bananas));	
+						break;
+	            case 6: granola++;
+						TextView granolas_qty = (TextView) findViewById(R.id.granola_qty);
+						granolas_qty.setText(Integer.toString(granola));	
+	            		break;
+	            case 7: smoothie++;
+						TextView smoothies_qty = (TextView) findViewById(R.id.smoothie_qty);
+						smoothies_qty.setText(Integer.toString(smoothie));	
+	            		break;
+	            }
+	            
+	            
 	        }
 	    });
 	}
@@ -38,28 +83,6 @@ public class InventoryActivity extends Activity {
 		return true;
 	}
 	
-//	@Override
-//	public void onCreateContextMenu(ContextMenu menu, View v,
-//	                                ContextMenuInfo menuInfo) {
-//	    super.onCreateContextMenu(menu, v, menuInfo);
-//	    MenuInflater inflater = getMenuInflater();
-//	    inflater.inflate(R.menu.context_menu, menu);
-//	}
-//	
-//	@Override
-//	public boolean onContextItemSelected(MenuItem item) {
-//	    AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-//	    switch (item.getItemId()) {
-//	        case R.id.edit:
-//	            editNote(info.id);
-//	            return true;
-//	        case R.id.delete:
-//	            deleteNote(info.id);
-//	            return true;
-//	        default:
-//	            return super.onContextItemSelected(item);
-//	    }
-//	}
 	
 	public void continueToInventory2(View v) {
     	//Launch to weather

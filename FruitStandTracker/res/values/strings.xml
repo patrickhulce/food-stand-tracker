@@ -39,5 +39,7 @@
     </string-array>
 
     <string name="title_activity_weather">WeatherActivity</string>
+    <string name="title_activity_inventory">InventoryActivity</string>
+    <string name="title_activity_inventory2">Inventory2Activity</string>
 
 </resources>

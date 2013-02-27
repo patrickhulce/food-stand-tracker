@@ -11,6 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="79dp"
+        android:onClick="start_button"
         android:text="Start Tracking Session" />
 
     <View
@@ -26,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/buttonStart"
         android:layout_centerVertical="true"
+        android:onClick="resume_button"
         android:text="Resume Tracking Session" />
 
 </RelativeLayout>

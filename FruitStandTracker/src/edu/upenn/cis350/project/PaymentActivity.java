@@ -20,7 +20,7 @@ public class PaymentActivity extends Activity {
 	int junk_food;
 	
 	Button submit_button;
-	Button cash_button;
+	Button cash_button;	
 	Button coupon_button;
 	Button junk_food_button;
 	

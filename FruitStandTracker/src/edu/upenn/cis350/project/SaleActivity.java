@@ -54,25 +54,39 @@ public class SaleActivity extends Activity {
     
     public void whole_fruit_clicked(View view){
     	LinearLayout fruitview = (LinearLayout)findViewById(R.id.fruitchoice);
-    	fruitview.setVisibility(1);
+    	if(fruitview.getVisibility() == View.VISIBLE){
+    		fruitview.setVisibility(View.GONE);
+    	} else { fruitview.setVisibility(View.VISIBLE); }
     }
     
     public void updateWholeFruit(){
     	TextView text = (TextView)findViewById(R.id.whole_fruit_label);
     	whole_fruit = apples+pears+bananas+kiwis+peaches+others+grapes;
     	text.setText("x" + whole_fruit);
+        Button submit_button = (Button)findViewById(R.id.button_continue);
+    	if(gender != ""){
+    		submit_button.setEnabled(true);
+    	}
     }
     
     public void smoothie_clicked(View view){
     	TextView text = (TextView)findViewById(R.id.smoothie_label);
     	smoothie += 1;
     	text.setText("x" + smoothie);
+        Button submit_button = (Button)findViewById(R.id.button_continue);
+    	if(gender != ""){
+    		submit_button.setEnabled(true);
+    	}
     }
     
     public void mixed_bag_clicked(View view){
     	TextView text = (TextView)findViewById(R.id.mixed_bag_label);
     	mixed_bag += 1;
     	text.setText("x" + mixed_bag);
+        Button submit_button = (Button)findViewById(R.id.button_continue);
+    	if(gender != ""){
+    		submit_button.setEnabled(true);
+    	}
     }
 
     public void apples_button(View view){
@@ -139,7 +153,9 @@ public class SaleActivity extends Activity {
                     gender = "F";
                 break;
         }
-    	submit_button.setEnabled(true);
+    	if(whole_fruit+smoothie+mixed_bag > 0){
+    		submit_button.setEnabled(true);
+    	}
     }
     
     public void go_to_checkout(View view){

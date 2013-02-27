@@ -27,13 +27,7 @@ public class WeatherActivity extends Activity {
     	//Launch to inventory
     	Intent i = new Intent(this, InventoryActivity.class);
     	//Save our info
-    	i.putExtra("whole_fruit", 0);
-    	i.putExtra("smoothies", 0);
-    	i.putExtra("mixed_bags", 0);
-    	i.putExtra("transactions", 0);
-    	i.putExtra("total", 0);
-    	
-    	i.putExtras(data);
+
     	i.putExtra("weather", "sunny");
     	this.startActivity(i);
 	}

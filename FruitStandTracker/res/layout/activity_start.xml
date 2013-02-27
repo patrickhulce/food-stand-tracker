@@ -5,7 +5,7 @@
     tools:context=".StartActivity" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -14,7 +14,7 @@
         android:text="Start Tracking Session" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonResume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/button1"

@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 public class WeatherActivity extends Activity {
 	Bundle data;
+	SeekBar seekBar;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -17,7 +19,7 @@ public class WeatherActivity extends Activity {
 		data = i.getExtras();
 		setContentView(R.layout.activity_weather);
 		
-		SeekBar seekBar = (SeekBar) findViewById(R.id.temp_bar);
+		seekBar = (SeekBar) findViewById(R.id.temp_bar);
 		seekBar.setProgress(50);
 		seekBar.incrementProgressBy(1);
 		seekBar.setMax(100);
@@ -31,15 +33,17 @@ public class WeatherActivity extends Activity {
 		        seekBarValue.setText("Temperature: " + String.valueOf(progress));
 		    }
 
-		    @Override
-		    public void onStartTrackingTouch(SeekBar seekBar) {
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// Don't do anything
+				
+			}
 
-		    }
-
-		    @Override
-		    public void onStopTrackingTouch(SeekBar seekBar) {
-
-		    }
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				// Don't do anything
+				
+			}
 		});
 	}
 
@@ -54,8 +58,7 @@ public class WeatherActivity extends Activity {
     	//Launch to inventory
     	Intent i = new Intent(this, InventoryActivity.class);
     	//Save our info
-
-    	i.putExtra("weather", "sunny");
+    	i.putExtra("data", data);
     	this.startActivity(i);
 	}
 }

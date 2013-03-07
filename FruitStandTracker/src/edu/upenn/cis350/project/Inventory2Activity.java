@@ -29,7 +29,7 @@ public class Inventory2Activity extends Activity {
 		setContentView(R.layout.activity_inventory2);
 		data = getIntent().getExtras();
 	    GridView gridview = (GridView) findViewById(R.id.Inventory2Grid);
-	    gridview.setAdapter(new Inventory2ImageAdapter(this));
+	    gridview.setAdapter(new InventoryImageAdapter(this));
 
 	    gridview.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {

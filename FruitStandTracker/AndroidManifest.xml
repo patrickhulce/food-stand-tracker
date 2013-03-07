@@ -34,10 +34,10 @@
             android:name="edu.upenn.cis350.project.Inventory2Activity"
             android:label="@string/title_activity_inventory2" >
         </activity>
-        <activity android:name="SaleActivity"></activity>
-        <activity android:name="InfoActivity"></activity>
-        <activity android:name="PaymentActivity"></activity>
-        <activity android:name="TransactionBaseActivity"></activity>
+        <activity android:name="edu.upenn.cis350.project.SaleActivity"></activity>
+        <activity android:name="edu.upenn.cis350.project.InfoActivity"></activity>
+        <activity android:name="edu.upenn.cis350.project.PaymentActivity"></activity>
+        <activity android:name="edu.upenn.cis350.project.TransactionBaseActivity"></activity>
     </application>
 
 </manifest>

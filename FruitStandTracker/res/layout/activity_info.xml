@@ -13,29 +13,38 @@
    		    android:id="@+id/school"
    		    android:layout_width="fill_parent"
    		    android:layout_height="wrap_content" />
+   		
 
-    	<TextView
-    	    android:id="@+id/date_label"
+    	 <TextView 
+    	    android:id="@+id/lblDate"
+       	 	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text= "@string/current_date"
+        	android:textAppearance="?android:attr/textAppearanceLarge"/>
+    	 
+    	 <TextView
+    	    android:id="@+id/saleDate"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text=""
+        	android:textAppearance="?android:attr/textAppearanceLarge"/>
+    	 
+		<Button
+    	    android:id="@+id/change_date"
     	    android:layout_width="wrap_content"
     	    android:layout_height="wrap_content"
-    	    android:text="@string/date_title" />
-
-    	<EditText
-    	    android:id="@+id/date"
-    	    android:layout_width="match_parent"
-    	    android:layout_height="wrap_content"
-    	    android:ems="10"
-    	    android:inputType="date" >
-
-    	    <requestFocus />
-    	</EditText>
-
+    	    android:text= "@string/change_date" />
+    	
+    	
+    	
+    	
+    	
     	<TextView
     	    android:id="@+id/volunteer_label"
     	    android:layout_width="wrap_content"
     	    android:layout_height="wrap_content"
     	    android:text="@string/volunteers_title" />
-
+    	
     	<EditText
     	    android:id="@+id/volunteer1"
     	    android:layout_width="match_parent"

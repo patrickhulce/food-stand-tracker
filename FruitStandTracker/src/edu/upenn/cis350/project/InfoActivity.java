@@ -147,7 +147,6 @@ public class InfoActivity extends Activity {
 				 
 				@Override
 				public void onClick(View v) {
-					Log.i("got here", "heard click");
 					moreVolunteers();
 	 
 				}
@@ -161,9 +160,8 @@ public class InfoActivity extends Activity {
 			newVol.setId(id);
 			id++;
 			newVol.setWidth(100);
-			newVol.setHeight(90);
+			newVol.setHeight(70);
 			volLayout.addView(newVol);
-			Log.i("done", "added box");
 		}
 	
     

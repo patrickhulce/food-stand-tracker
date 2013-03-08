@@ -5,16 +5,21 @@ import java.util.Calendar;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.ViewParent;
 import android.view.ViewStub;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -29,6 +34,10 @@ public class InfoActivity extends Activity {
 	private int day;
 	
 	static final int DATE_DIALOG_ID = 999;
+	
+	private Button addVol;
+	private LinearLayout volLayout;
+	private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +59,11 @@ public class InfoActivity extends Activity {
         //for the date picker
         setCurrentDateOnView();
 		addListenerOnButton();
+		
+		//for the volunteer adder
+		addListenerAddVol();
+		volLayout = (LinearLayout) findViewById(R.id.volunteer_list);  
+        id = 5;
     }
 
     @Override
@@ -125,9 +139,40 @@ public class InfoActivity extends Activity {
 			}
 		};
 	
+		//listener for button that should add an edittext for another volunteer
+		public void addListenerAddVol(){
+			addVol = (Button) findViewById(R.id.add_volunteer);
+			
+			addVol.setOnClickListener(new View.OnClickListener() {
+				 
+				@Override
+				public void onClick(View v) {
+					Log.i("got here", "heard click");
+					moreVolunteers();
+	 
+				}
+	 
+			});
+		}
+		
+		//method that actually adds another edittext for another volunteer
+		private void moreVolunteers(){
+			EditText newVol = new EditText(this);
+			newVol.setId(id);
+			id++;
+			newVol.setWidth(100);
+			newVol.setHeight(90);
+			volLayout.addView(newVol);
+			Log.i("done", "added box");
+		}
 	
     
     public void continueToWeather(View v) {
+    	//save school
+    	//save date
+    	//save volunteers
+    	//save staff
+    	
     	//Launch to weather
     	Intent i = new Intent(this, WeatherActivity.class);
     	//Save our info

@@ -13,6 +13,8 @@
     <string name="volunteers_title">Who are the volunteers?</string>
     <string name="names">First Name Last Name</string>
     <string name="continue_text">Continue</string>
+    
+    <string name="addV">Add a Volunteer</string>
 
     <string-array name="school_list">
         <item>Auden Reid High School</item>

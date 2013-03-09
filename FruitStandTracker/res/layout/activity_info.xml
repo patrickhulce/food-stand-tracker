@@ -99,6 +99,41 @@
     	    android:text="@string/addV"/>
     	
 
+    	<LinearLayout
+    	    android:id="@+id/staff_list"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content"
+    	    android:orientation="vertical">   
+    	    
+    	    <TextView
+    	        android:id="@+id/staff_label"
+    	        android:layout_width="wrap_content"
+    	        android:layout_height="wrap_content"
+    	        android:text="@string/staff_title" 
+    	        android:textAppearance="?android:attr/textAppearanceLarge"/> 
+    	        
+    	    <EditText
+    	        android:id = "@+id/staff1"
+    	        android:layout_width="match_parent"
+    	        android:layout_height="wrap_content"
+    	        android:ems="10"
+    	        android:inputType="textPersonName"/>
+    	    
+    	    <EditText
+    	        android:id = "@+id/staff2"
+    	        android:layout_width="match_parent"
+    	        android:layout_height="wrap_content"
+    	        android:ems="10"
+    	        android:inputType="textPersonName"/>
+    	    
+    	</LinearLayout>
+    	
+    	<Button
+    	    android:id="@+id/add_staff"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/addS"/>
+    	    
     	<Button
     	    android:id="@+id/continue_info"
     	    android:layout_width="wrap_content"

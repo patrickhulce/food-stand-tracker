@@ -38,6 +38,10 @@ public class InfoActivity extends Activity {
 	private Button addVol;
 	private LinearLayout volLayout;
 	private int id;
+	
+	private Button addStaff;
+	private LinearLayout staffLayout;
+	private int sId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,11 @@ public class InfoActivity extends Activity {
 		addListenerAddVol();
 		volLayout = (LinearLayout) findViewById(R.id.volunteer_list);  
         id = 5;
+        
+        //for the staff adder
+        addListenerAddStaff();
+        staffLayout = (LinearLayout) findViewById(R.id.staff_list);
+        id = -3;
     }
 
     @Override
@@ -164,6 +173,29 @@ public class InfoActivity extends Activity {
 			volLayout.addView(newVol);
 		}
 	
+		//listener for button that should add an edittext for another staff member
+		public void addListenerAddStaff(){
+			addStaff = (Button) findViewById(R.id.add_staff);
+			
+			addStaff.setOnClickListener(new View.OnClickListener(){
+				@Override
+				public void onClick(View v){
+					moreStaff();
+					
+				}
+			});
+			
+		}
+		
+		//method that actually adds another edittext for another staff member
+		private void moreStaff(){
+			EditText newStaff = new EditText(this);
+			newStaff.setId(sId);
+			sId--;
+			newStaff.setWidth(100);
+			newStaff.setHeight(70);
+			staffLayout.addView(newStaff);	
+		}
     
     public void continueToWeather(View v) {
     	//save school

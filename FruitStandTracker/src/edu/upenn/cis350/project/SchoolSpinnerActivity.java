@@ -5,16 +5,21 @@ import com.parse.ParseObject;
 import com.parse.PushService;
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
 public class SchoolSpinnerActivity extends Activity implements OnItemSelectedListener{
-
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,15 +40,17 @@ public class SchoolSpinnerActivity extends Activity implements OnItemSelectedLis
         return true;
     }
 
+    
     public void onItemSelected(AdapterView<?> parent, View view, 
             int pos, long id) {
         // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
+        //parent.getItemAtPosition(pos);
     }
-
+     
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
+    
     
     //code to deal with the spinner
     Spinner spinner = (Spinner) findViewById(R.id.school);

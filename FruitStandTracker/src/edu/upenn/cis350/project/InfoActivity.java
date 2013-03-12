@@ -12,9 +12,11 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -41,6 +43,8 @@ public class InfoActivity extends Activity {
 	private Button addStaff;
 	private LinearLayout staffLayout;
 	private int sId;
+	
+	private LinearLayout schoolLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,24 @@ public class InfoActivity extends Activity {
         
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+            	//20 is the id of the Add a School option
+            	if(id == 20){
+            		Log.i("adding", "This is indeed the add a school option");
+            		schoolLayout = (LinearLayout) findViewById(R.id.additional_school);
+            		EditText school = new EditText(InfoActivity.this);
+            		school.setId(100);//completely arbitrary, still don't know what to do with ids
+            		school.setWidth(LayoutParams.MATCH_PARENT);
+        			school.setHeight(LayoutParams.WRAP_CONTENT);
+        			school.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
+        			school.setHint(R.string.school_hint);
+        			schoolLayout.addView(school);
+            	}
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
         
         //for the date picker
         setCurrentDateOnView();
@@ -177,6 +199,7 @@ public class InfoActivity extends Activity {
 			newVol.setWidth(LayoutParams.MATCH_PARENT);
 			newVol.setHeight(LayoutParams.WRAP_CONTENT);
 			newVol.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+			newVol.setHint(R.string.names);
 			volLayout.addView(newVol);
 		}
 	
@@ -202,6 +225,7 @@ public class InfoActivity extends Activity {
 			newStaff.setWidth(LayoutParams.MATCH_PARENT);
 			newStaff.setHeight(LayoutParams.WRAP_CONTENT);
 			newStaff.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+			newStaff.setHint(R.string.names);
 			staffLayout.addView(newStaff);	
 		}
     

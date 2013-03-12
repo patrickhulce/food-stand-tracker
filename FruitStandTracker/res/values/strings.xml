@@ -40,6 +40,7 @@
         <item>University City High School</item>
         <item>West Philadelphia High School</item>
         <item>Woodrow Wilson Middle School</item>
+        <item>Add A School</item>
     </string-array>
 
     <string name="title_activity_weather">WeatherActivity</string>

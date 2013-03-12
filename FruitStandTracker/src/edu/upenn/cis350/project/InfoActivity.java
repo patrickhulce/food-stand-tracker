@@ -2,20 +2,19 @@ package edu.upenn.cis350.project;
 
 import java.util.Calendar;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+import com.parse.PushService;
+
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import android.view.ViewParent;
-import android.view.ViewStub;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -73,6 +72,13 @@ public class InfoActivity extends Activity {
         addListenerAddStaff();
         staffLayout = (LinearLayout) findViewById(R.id.staff_list);
         id = -3;
+        
+        //for Parse
+        Parse.initialize(this, 
+        		"vKGeILnmz4ajn4OtZQoentkFSvcg9gBKch4oTavc", "qSdO1zCvQfzFrJgvcljwylR4DVO7vse31lbn8TrE"); 
+        //ParseObject testObject = new ParseObject("TestObject");
+        //testObject.put("foo", "bar");
+        //testObject.saveInBackground();
     }
 
     @Override
@@ -168,8 +174,9 @@ public class InfoActivity extends Activity {
 			EditText newVol = new EditText(this);
 			newVol.setId(id);
 			id++;
-			newVol.setWidth(100);
-			newVol.setHeight(70);
+			newVol.setWidth(LayoutParams.MATCH_PARENT);
+			newVol.setHeight(LayoutParams.WRAP_CONTENT);
+			newVol.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
 			volLayout.addView(newVol);
 		}
 	
@@ -192,8 +199,9 @@ public class InfoActivity extends Activity {
 			EditText newStaff = new EditText(this);
 			newStaff.setId(sId);
 			sId--;
-			newStaff.setWidth(100);
-			newStaff.setHeight(70);
+			newStaff.setWidth(LayoutParams.MATCH_PARENT);
+			newStaff.setHeight(LayoutParams.WRAP_CONTENT);
+			newStaff.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
 			staffLayout.addView(newStaff);	
 		}
     

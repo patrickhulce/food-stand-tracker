@@ -94,13 +94,6 @@ public class InfoActivity extends Activity {
         addListenerAddStaff();
         staffLayout = (LinearLayout) findViewById(R.id.staff_list);
         id = -3;
-        
-        //for Parse
-        Parse.initialize(this, 
-        		"vKGeILnmz4ajn4OtZQoentkFSvcg9gBKch4oTavc", "qSdO1zCvQfzFrJgvcljwylR4DVO7vse31lbn8TrE"); 
-        //ParseObject testObject = new ParseObject("TestObject");
-        //testObject.put("foo", "bar");
-        //testObject.saveInBackground();
     }
 
     @Override

@@ -48,13 +48,6 @@ public class WeatherActivity extends Activity {
 				
 			}
 		});
-		
-		 //for Parse
-        Parse.initialize(this, 
-        		"vKGeILnmz4ajn4OtZQoentkFSvcg9gBKch4oTavc", "qSdO1zCvQfzFrJgvcljwylR4DVO7vse31lbn8TrE"); 
-        //ParseObject testObject = new ParseObject("TestObject");
-        //testObject.put("foo", "bar");
-        //testObject.saveInBackground();
 	}
 
 	@Override

@@ -42,13 +42,6 @@ public class PaymentActivity extends Activity {
         submit_button = (Button)findViewById(R.id.submit);        
         
         items.setText("Number of Items to Checkout:\n" + total);
-        
-      //for Parse
-        Parse.initialize(this, 
-        		"vKGeILnmz4ajn4OtZQoentkFSvcg9gBKch4oTavc", "qSdO1zCvQfzFrJgvcljwylR4DVO7vse31lbn8TrE"); 
-        //ParseObject testObject = new ParseObject("TestObject");
-        //testObject.put("foo", "bar");
-        //testObject.saveInBackground();
     }
     
     public void updateItems(){

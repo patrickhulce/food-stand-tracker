@@ -142,8 +142,15 @@
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:text="Start a new transaction"
-        android:onClick="newTransaction" />
+        android:layout_height="149dp"
+        android:onClick="newTransaction"
+        android:text="Start a new transaction" />
+
+    <Button
+        android:id="@+id/submitbutton"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:text="Finish Session"
+        android:onClick="finishSession" />
 
 </LinearLayout>

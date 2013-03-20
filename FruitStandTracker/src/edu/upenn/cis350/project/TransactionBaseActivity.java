@@ -50,4 +50,12 @@ public class TransactionBaseActivity extends Activity {
 		this.startActivity(i);
 	}
 	 
+	public void finishSession(View view){
+		//saves the data to Parse
+		ParseObject allTransactions = new ParseObject("totalTransactionInfo");
+		for(String s: data.keySet()){
+			allTransactions.put(s, data.get(s));
+		}
+		allTransactions.saveInBackground();
+	}
 }

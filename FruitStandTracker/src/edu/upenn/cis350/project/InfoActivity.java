@@ -96,11 +96,11 @@ public class InfoActivity extends Activity {
         id = -3;
         
         //for Parse
-        Parse.initialize(this, 
-        		"vKGeILnmz4ajn4OtZQoentkFSvcg9gBKch4oTavc", "qSdO1zCvQfzFrJgvcljwylR4DVO7vse31lbn8TrE"); 
-        //ParseObject testObject = new ParseObject("TestObject");
-        //testObject.put("foo", "bar");
-        //testObject.saveInBackground();
+        //Parse.initialize(this, 
+        		//"vKGeILnmz4ajn4OtZQoentkFSvcg9gBKch4oTavc", "qSdO1zCvQfzFrJgvcljwylR4DVO7vse31lbn8TrE"); 
+        
+        Parse.initialize(this, "FgYhuudv6NX7eFOfZwoBzFzROzOPDAPRANtjfFWS", "b8Ph2auqSi5iwJ4I298nKk1iM1mfTCFCo2ttRrWA");
+
     }
 
     @Override

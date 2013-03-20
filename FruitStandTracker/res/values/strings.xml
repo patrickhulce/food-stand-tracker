@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="parseAPIkey">vKGeILnmz4ajn4OtZQoentkFSvcg9gBKch4oTavc</string>
+    <string name="parsesecretkey">qSdO1zCvQfzFrJgvcljwylR4DVO7vse31lbn8TrE</string>
     <string name="app_name">FruitStandTracker</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="school_title">What school are you at?</string>
     <string name="school_hint">Enter School Name Here</string>
-    
 
     <string name="change_date">Click to change the date</string>
     <string name="current_date">The date is (M-D-YYYY):</string>

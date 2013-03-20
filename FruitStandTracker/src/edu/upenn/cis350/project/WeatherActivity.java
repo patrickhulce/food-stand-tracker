@@ -1,5 +1,8 @@
 package edu.upenn.cis350.project;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.PushService;
@@ -49,7 +52,11 @@ public class WeatherActivity extends Activity {
 			}
 		});
         DataBaser db = DataBaser.getInstance();
-        db.databaseItThoroughly("foo", "shizzle", "coolio");
+        Map<String,Object> record = new HashMap<String,Object>();
+        record.put("shizzle", "coolio");
+        record.put("key", "val");
+        db.databaseItThoroughly("foo",record);
+
 	}
 
 	@Override

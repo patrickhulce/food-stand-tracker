@@ -9,8 +9,8 @@
         android:targetSdkVersion="16" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -37,10 +37,18 @@
             android:name="edu.upenn.cis350.project.Inventory2Activity"
             android:label="@string/title_activity_inventory2" >
         </activity>
-        <activity android:name="edu.upenn.cis350.project.SaleActivity"></activity>
-        <activity android:name="edu.upenn.cis350.project.InfoActivity"></activity>
-        <activity android:name="edu.upenn.cis350.project.PaymentActivity"></activity>
-        <activity android:name="edu.upenn.cis350.project.TransactionBaseActivity"></activity>
+        <activity android:name="edu.upenn.cis350.project.SaleActivity" >
+        </activity>
+        <activity android:name="edu.upenn.cis350.project.InfoActivity" >
+        </activity>
+        <activity android:name="edu.upenn.cis350.project.PaymentActivity" >
+        </activity>
+        <activity android:name="edu.upenn.cis350.project.TransactionBaseActivity" >
+        </activity>
+        <activity
+            android:name="edu.upenn.cis350.project.CalculateProfitActivity"
+            android:label="@string/title_activity_calculate_profit" >
+        </activity>
     </application>
 
 </manifest>

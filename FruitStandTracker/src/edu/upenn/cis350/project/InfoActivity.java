@@ -40,11 +40,23 @@ public class InfoActivity extends Activity {
 	private Button addVol;
 	private LinearLayout volLayout;
 	private int id;
+	private String vol1;
+	private String vol2;
+	private String vol3;
+	private String vol4;
+	private String vol5;
+	private String vol6;
+	private String vol7;
+	private String vol8;
 	
 	//variables for adding staff members
 	private Button addStaff;
 	private LinearLayout staffLayout;
 	private int sId;
+	private String staff1;
+	private String staff2;
+	private String staff3;
+	private String staff4;
 	
 	private LinearLayout schoolLayout;
 	private EditText addedSchool;
@@ -196,6 +208,7 @@ public class InfoActivity extends Activity {
     	}
     	case 20:
     	{
+    		school = "check";
     		Log.i("adding", "This is indeed the add a school option");
     		schoolLayout = (LinearLayout) findViewById(R.id.additional_school);
     		addedSchool = new EditText(InfoActivity.this);
@@ -352,8 +365,34 @@ public class InfoActivity extends Activity {
     
 		
 		private void getSchool(){
-			if(school == null)
+			if(!school.equals("check")){
+				return;
+			}
 	    		school = addedSchool.getText().toString();
+		}
+		
+		private void fillVolunteers(){
+			vol1 = ((EditText) findViewById(R.id.volunteer1)).getText().toString();
+			vol2 = ((EditText) findViewById(R.id.volunteer2)).getText().toString();
+			vol3 = ((EditText) findViewById(R.id.volunteer3)).getText().toString();
+			vol4 = ((EditText) findViewById(R.id.volunteer4)).getText().toString();
+			if(id > 5)
+				vol5 = ((EditText) findViewById(5)).getText().toString();
+			if(id >= 6)
+				vol6 = ((EditText) findViewById(6)).getText().toString();
+			if(id >= 7)
+				vol7 = ((EditText) findViewById(7)).getText().toString();
+			if(id >= 8)
+				vol8 = ((EditText) findViewById(8)).getText().toString();
+		}
+		
+		private void fillStaff(){
+			staff1 = ((EditText) findViewById(R.id.staff1)).getText().toString();
+			staff2 = ((EditText) findViewById(R.id.staff2)).getText().toString();
+			if(sId < -3)
+				staff3 = ((EditText) findViewById(-3)).getText().toString();
+			if(sId <= -4)
+				staff4 = ((EditText) findViewById(-4)).getText().toString();
 		}
 		
 		private String getYear(){
@@ -376,8 +415,11 @@ public class InfoActivity extends Activity {
     	
     	//save school information for later use
     	//only want to move on if a volunteer and a staff member have been inputed
+    	fillVolunteers();
+    	fillStaff();
+    	if(vol1 != null && vol1.length() > 1 && 
+    			staff1 != null && staff1.length() > 1){
     	DataBaser dataBaser = DataBaser.getInstance();
-
     	getSchool();
     	dataBaser.addInfo("school", school);  
     	
@@ -385,7 +427,28 @@ public class InfoActivity extends Activity {
     	dataBaser.addInfo("month", getMonth());
     	dataBaser.addInfo("day", getDay());
     	
+    	dataBaser.addInfo("vol1", vol1);
+    	dataBaser.addInfo("vol2", vol2);
+    	dataBaser.addInfo("vol3", vol3);
+    	dataBaser.addInfo("vol4", vol4);
+    	if(id > 5)
+			dataBaser.addInfo("vol5", vol5);
+		if(id >= 6)
+			dataBaser.addInfo("vol6", vol6);
+		if(id >= 7)
+			dataBaser.addInfo("vol7", vol7);
+		if(id >= 8)
+			dataBaser.addInfo("vol8", vol8);
+		
+		dataBaser.addInfo("staff1", staff1);
+		dataBaser.addInfo("staff2", staff2);
+		if(sId < -3)
+			dataBaser.addInfo("staff3", staff3);
+		if(sId <= -4)
+			dataBaser.addInfo("staff4", staff4);
+    	
     	this.startActivity(i);
+    	}
     }
 }
 

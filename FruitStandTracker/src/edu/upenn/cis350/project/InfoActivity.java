@@ -1,9 +1,7 @@
 package edu.upenn.cis350.project;
 
 import java.util.Calendar;
-
 import com.parse.Parse;
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -298,7 +296,7 @@ public class InfoActivity extends Activity {
 	
 		//listener for button that should add an edittext for another volunteer
 		public void addListenerAddVol(){
-			id = 5;
+			id = 4;
 			addVol = (Button) findViewById(R.id.add_volunteer);
 			
 			addVol.setOnClickListener(new View.OnClickListener() {
@@ -332,7 +330,7 @@ public class InfoActivity extends Activity {
 	
 		//listener for button that should add an edittext for another staff member
 		public void addListenerAddStaff(){
-			sId = -3;
+			sId = -2;
 			addStaff = (Button) findViewById(R.id.add_staff);
 			
 			addStaff.setOnClickListener(new View.OnClickListener(){

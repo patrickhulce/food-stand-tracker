@@ -49,11 +49,7 @@ public class TransactionBaseActivity extends Activity {
         smoothies.setText(_smoothies);
         mixedbags.setText(_mixedbags);
         totalsales.setText(_totalsales);
-        transactions.setText(_transactions);
-      
-        //for Parse
-        Parse.initialize(this, 
-        		getString(R.string.parseAPIkey), getString(R.string.parsesecretkey)); 
+        transactions.setText(_transactions); 
 
     }
 
@@ -68,6 +64,9 @@ public class TransactionBaseActivity extends Activity {
 	}
 	 
 	public void finishSession(View view){
+        //for Parse
+        Parse.initialize(this, 
+        		getString(R.string.parseAPIkey), getString(R.string.parsesecretkey));
 		//saves the data to Parse
 		ParseObject allTransactions = new ParseObject("totalTransactionInfo");
 		for(String s: data.keySet()){
@@ -79,5 +78,6 @@ public class TransactionBaseActivity extends Activity {
 		//Continue on to calculations
 		Intent i = new Intent(this,CalculateRevenueActivity.class);
 		i.putExtras(data);
+		this.startActivity(i);
 	}
 }

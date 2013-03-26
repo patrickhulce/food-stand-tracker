@@ -23,9 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class InfoActivity extends Activity {
-	private DataBaser dataBaser;
-	
+public class InfoActivity extends Activity {	
 	private String school; 
 	
 	private TextView saleDisplayDate;
@@ -83,15 +81,10 @@ public class InfoActivity extends Activity {
 		//for the volunteer adder
 		addListenerAddVol();
 		volLayout = (LinearLayout) findViewById(R.id.volunteer_list);  
-        id = 5;
         
         //for the staff adder
         addListenerAddStaff();
         staffLayout = (LinearLayout) findViewById(R.id.staff_list);
-        id = -3;
-        
-        //for databasing
-        dataBaser = DataBaser.getInstance();
         
         //for Parse
         Parse.initialize(this, 
@@ -246,7 +239,6 @@ public class InfoActivity extends Activity {
 	}
  
 	public void addListenerOnButton() {
-		 
 		changeDate = (Button) findViewById(R.id.change_date);
  
 		changeDate.setOnClickListener(new View.OnClickListener() {
@@ -293,14 +285,19 @@ public class InfoActivity extends Activity {
 	
 		//listener for button that should add an edittext for another volunteer
 		public void addListenerAddVol(){
+			id = 5;
 			addVol = (Button) findViewById(R.id.add_volunteer);
 			
 			addVol.setOnClickListener(new View.OnClickListener() {
 				 
 				@Override
 				public void onClick(View v) {
-					moreVolunteers();
-	 
+					//I'm only going to allow for 8 volunteers at this time
+					//four original volunteers, plus 4 volunteers that may be added
+					//in addition
+					if(id < 9){
+						moreVolunteers();
+					}
 				}
 	 
 			});
@@ -308,25 +305,33 @@ public class InfoActivity extends Activity {
 		
 		//method that actually adds another edittext for another volunteer
 		private void moreVolunteers(){
-			EditText newVol = new EditText(this);
-			newVol.setId(id);
-			id++;
-			newVol.setWidth(LayoutParams.MATCH_PARENT);
-			newVol.setHeight(LayoutParams.WRAP_CONTENT);
-			newVol.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-			newVol.setHint(R.string.names);
-			volLayout.addView(newVol);
+				
+				EditText newVol = new EditText(this);
+				newVol.setId(id);
+				id++;
+				newVol.setWidth(LayoutParams.MATCH_PARENT);
+				newVol.setHeight(LayoutParams.WRAP_CONTENT);
+				newVol.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+				newVol.setHint(R.string.names);
+				volLayout.addView(newVol);
+			
 		}
 	
 		//listener for button that should add an edittext for another staff member
 		public void addListenerAddStaff(){
+			sId = -3;
 			addStaff = (Button) findViewById(R.id.add_staff);
 			
 			addStaff.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View v){
-					moreStaff();
-					
+					//I'm only going to allow for 4 staff members at this time
+					//two original staff members, plus 2 staff members that may be
+					//added in addition
+					if(sId > -5){
+						Log.i("sID is ", "" + sId);
+						moreStaff();
+					}					
 				}
 			});
 			
@@ -342,34 +347,44 @@ public class InfoActivity extends Activity {
 			newStaff.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
 			newStaff.setHint(R.string.names);
 			staffLayout.addView(newStaff);	
+			
 		}
     
 		
-		public void getSchool(){
+		private void getSchool(){
 			if(school == null)
 	    		school = addedSchool.getText().toString();
 		}
 		
-		public int getYear(){
-			return year;
+		private String getYear(){
+			return Integer.toString(year);
 		}
 		
-		public int getMonth(){
-			return month;
+		private String getMonth(){
+			return Integer.toString(month);
 		}
 		
-		public int getDay(){
-			return day;
+		private String getDay(){
+			return Integer.toString(day);
 		}
 	
     public void continueToWeather(View v){
-    	//save school information for later use
-    	getSchool();
-    	dataBaser.addInfo("school", school);    	
     	//Launch to weather
     	Intent i = new Intent(this, WeatherActivity.class);
     	//Save our info
     	i.putExtra("herma", "derp");
+    	
+    	//save school information for later use
+    	//only want to move on if a volunteer and a staff member have been inputed
+    	DataBaser dataBaser = DataBaser.getInstance();
+
+    	getSchool();
+    	dataBaser.addInfo("school", school);  
+    	
+    	dataBaser.addInfo("year", getYear());
+    	dataBaser.addInfo("month", getMonth());
+    	dataBaser.addInfo("day", getDay());
+    	
     	this.startActivity(i);
     }
 }

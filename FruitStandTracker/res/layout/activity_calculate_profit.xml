@@ -11,44 +11,105 @@
         android:layout_centerHorizontal="true" >
 
         <TableRow
-            android:id="@+id/tableRow1"
+            android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
-
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/revenue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Apples: 10 x $0.50 = " />
-
-            <EditText
-                android:id="@+id/editText1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="numberDecimal" >
-
-                <requestFocus />
-            </EditText>
-
+                android:text="Total Revenue = $XX.XX" />
         </TableRow>
-
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/fruitstandcost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fruit Stand Cost = $10" />
         </TableRow>
-
         <TableRow
-            android:id="@+id/tableRow3"
+            android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/smoothiecost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smoothie Cost = $XX.XX" />
         </TableRow>
-
         <TableRow
-            android:id="@+id/tableRow4"
+            android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/totalCostsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Costs : " />
+            <EditText
+                android:id="@+id/totalCosts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="numberDecimal" >
+            </EditText>
+            </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/donationsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Donations : " />
+            <EditText
+                android:id="@+id/donationsAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="numberDecimal" >
+            </EditText>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/profitLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profit : " />
+            <EditText
+                android:id="@+id/profit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="numberDecimal" >
+            </EditText>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/endingCashboxLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Cashbox Amount: " />
+
+            <EditText
+                android:id="@+id/endingCashbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="numberDecimal" >
+            </EditText>
+
         </TableRow>
     </TableLayout>
 

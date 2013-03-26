@@ -22,13 +22,14 @@ public class TransactionBaseActivity extends Activity {
         
         String _wholefruit = "0", _smoothies = "0", _mixedbags = "0", _transactions = "0", _totalsales = "0";
         
-        if(data.size() > 0){
+        if(data != null){
         	_wholefruit = data.get("whole_fruit").toString();
         	_smoothies = data.get("smoothies").toString();
         	_mixedbags = data.get("mixed_bags").toString();
-        	_totalsales = data.get("total_cash").toString();
-        	_transactions = (Integer)data.get("transactions")*0.5 + "";
+        	_totalsales = "$"+(Integer)data.get("total_cash")*0.5;
+        	_transactions = data.get("transactions").toString();
         } else {
+        	data = new Bundle();
         	data.putInt("whole_fruit", 0);
         	data.putInt("smoothies", 0);
         	data.putInt("mixed_bags", 0);

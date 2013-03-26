@@ -51,6 +51,11 @@ public class PaymentActivity extends Activity {
 			coupon_button.setEnabled(false);
 			junk_food_button.setEnabled(false);
 			submit_button.setEnabled(true);
+		} else {
+			cash_button.setEnabled(true);
+			coupon_button.setEnabled(true);
+			junk_food_button.setEnabled(true);
+			submit_button.setEnabled(false);
 		}
 	}
 

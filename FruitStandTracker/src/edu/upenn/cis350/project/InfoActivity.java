@@ -3,8 +3,6 @@ package edu.upenn.cis350.project;
 import java.util.Calendar;
 
 import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.PushService;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -26,25 +24,32 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class InfoActivity extends Activity {
+	private DataBaser dataBaser;
+	
+	private String school; 
 	
 	private TextView saleDisplayDate;
 	private Button changeDate;
 	
+	//variables for the date
 	private int year;
 	private int month;
 	private int day;
 	
 	static final int DATE_DIALOG_ID = 999;
 	
+	//variables for adding volunteers
 	private Button addVol;
 	private LinearLayout volLayout;
 	private int id;
 	
+	//variables for adding staff members
 	private Button addStaff;
 	private LinearLayout staffLayout;
 	private int sId;
 	
 	private LinearLayout schoolLayout;
+	private EditText addedSchool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,18 +69,8 @@ public class InfoActivity extends Activity {
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-            	//20 is the id of the Add a School option
-            	if(id == 20){
-            		Log.i("adding", "This is indeed the add a school option");
-            		schoolLayout = (LinearLayout) findViewById(R.id.additional_school);
-            		EditText school = new EditText(InfoActivity.this);
-            		school.setId(100);//completely arbitrary, still don't know what to do with ids
-            		school.setWidth(LayoutParams.MATCH_PARENT);
-        			school.setHeight(LayoutParams.WRAP_CONTENT);
-        			school.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
-        			school.setHint(R.string.school_hint);
-        			schoolLayout.addView(school);
-            	}
+            	int i = (int) id;
+            	determineSchool(i);
             }
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -95,11 +90,134 @@ public class InfoActivity extends Activity {
         staffLayout = (LinearLayout) findViewById(R.id.staff_list);
         id = -3;
         
+        //for databasing
+        dataBaser = DataBaser.getInstance();
+        
         //for Parse
         Parse.initialize(this, 
         		"vKGeILnmz4ajn4OtZQoentkFSvcg9gBKch4oTavc", "qSdO1zCvQfzFrJgvcljwylR4DVO7vse31lbn8TrE"); 
     }
 
+    //based on the id chosen by the school spinner
+    private void determineSchool(int i){
+    	switch(i){
+    	case 0:
+    	{
+    		school = "Auden Reid High School";
+    		break;
+    	}
+    	case 1:
+    	{
+    		school = "Bartram High School";
+    		break;
+    	}
+    	case 2:
+    	{
+    		school = "Bryant Elementary School";
+    		break;
+    	}
+    	case 3:
+    	{
+    		school = "Comegys Elementary School";
+    		break;
+    	}
+    	case 4:
+    	{
+    		school = "Communications Technology High School";
+    		break;
+    	}
+    	case 5:
+    	{
+    		school = "Freire Charter School";
+    		break;
+    	}
+    	case 6:
+    	{
+    		school = "Gideon Elementary School";
+    		break;
+    	}
+    	case 7: 
+    	{
+    		school = "Hardy Williams Middle School";
+    		break;
+    	}
+    	case 8:
+    	{
+    		school = "High School of the Future";
+    		break;
+    	}
+    	case 9:
+    	{
+    		school = "Huey Elementary School";
+    		break;
+    	}
+    	case 10:
+    	{
+    		school = "Lea Elementary School";
+    		break;
+    	}
+    	case 11:
+    	{
+    		school = "Locke Elementary School";
+    		break;
+    	}
+    	case 12:
+    	{
+    		school = "Pepper Middle School";
+    		break;
+    	}
+    	case 13:
+    	{
+    		school = "Robeson High School";
+    		break;
+    	}
+    	case 14:
+    	{
+    		school = "Sayre High School";
+    		break;
+    	}
+    	case 15:
+    	{
+    		school = "Shaw Anna H Middle School";
+    		break;
+    	}
+    	case 16:
+    	{
+    		school = "Strawberry Mansion High School";
+    		break;
+    	}
+    	case 17:
+    	{
+    		school = "University City High School";
+    		break;
+    	}
+    	case 18:
+    	{
+    		school = "West Philadelphia High School";
+    		break;
+    	}
+    	case 19:
+    	{
+    		school = "Woodrow Wilson Middle School";
+    		break;
+    	}
+    	case 20:
+    	{
+    		Log.i("adding", "This is indeed the add a school option");
+    		schoolLayout = (LinearLayout) findViewById(R.id.additional_school);
+    		addedSchool = new EditText(InfoActivity.this);
+    		addedSchool.setId(100);//completely arbitrary, still don't know what to do with ids
+    		addedSchool.setWidth(LayoutParams.MATCH_PARENT);
+    		addedSchool.setHeight(LayoutParams.WRAP_CONTENT);
+    		addedSchool.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
+    		addedSchool.setHint(R.string.school_hint);
+    		schoolLayout.addView(addedSchool);	
+    		break;
+    	}
+    	}
+    }
+    
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -226,12 +344,28 @@ public class InfoActivity extends Activity {
 			staffLayout.addView(newStaff);	
 		}
     
-    public void continueToWeather(View v) {
-    	//save school
-    	//save date
-    	//save volunteers
-    	//save staff
-    	
+		
+		public void getSchool(){
+			if(school == null)
+	    		school = addedSchool.getText().toString();
+		}
+		
+		public int getYear(){
+			return year;
+		}
+		
+		public int getMonth(){
+			return month;
+		}
+		
+		public int getDay(){
+			return day;
+		}
+	
+    public void continueToWeather(View v){
+    	//save school information for later use
+    	getSchool();
+    	dataBaser.addInfo("school", school);    	
     	//Launch to weather
     	Intent i = new Intent(this, WeatherActivity.class);
     	//Save our info
@@ -239,3 +373,10 @@ public class InfoActivity extends Activity {
     	this.startActivity(i);
     }
 }
+
+
+
+
+
+
+

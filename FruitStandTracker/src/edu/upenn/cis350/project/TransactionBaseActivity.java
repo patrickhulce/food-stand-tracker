@@ -56,7 +56,8 @@ public class TransactionBaseActivity extends Activity {
 			allTransactions.put(s, data.get(s));
 		}
 		allTransactions.saveInBackground();
-		Intent i = new Intent(this,CalculateProfitActivity.class);
+		//Continue on to calculations
+		Intent i = new Intent(this,CalculateRevenueActivity.class);
 		i.putExtras(data);
 	}
 }

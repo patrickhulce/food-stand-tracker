@@ -11,33 +11,37 @@
         android:text="What's the weather like?" />
 
     <RadioGroup
-        android:id="@+id/radioGroup1"
+        android:id="@+id/weatherRadio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
         <RadioButton
-            android:id="@+id/radio0"
+            android:id="@+id/sunny"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:onClick="setWeather"
             android:text="Sunny" />
 
         <RadioButton
-            android:id="@+id/radio1"
+            android:id="@+id/rainy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="setWeather"
             android:text="Rainy" />
 
         <RadioButton
-            android:id="@+id/radio2"
+            android:id="@+id/partly_cloudy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="setWeather"
             android:text="Partly Cloudy" />
         
         <RadioButton
-            android:id="@+id/radio3"
+            android:id="@+id/snowy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="setWeather"
             android:text="Snowy" />
 
         
@@ -62,7 +66,7 @@
         android:text="How much money is in the cash box?" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/cashbox_starting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

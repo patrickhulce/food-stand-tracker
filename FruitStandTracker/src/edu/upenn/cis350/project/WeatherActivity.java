@@ -11,18 +11,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class WeatherActivity extends Activity {
-	Bundle data;
 	SeekBar seekBar;
+	String w;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Intent i = getIntent();
-		data = i.getExtras();
 		setContentView(R.layout.activity_weather);
 		
 		seekBar = (SeekBar) findViewById(R.id.temp_bar);
@@ -51,11 +50,6 @@ public class WeatherActivity extends Activity {
 				
 			}
 		});
-        DataBaser db = DataBaser.getInstance();
-        Map<String,Object> record = new HashMap<String,Object>();
-        record.put("shizzle", "coolio");
-        record.put("key", "val");
-        db.databaseItThoroughly("foo",record);
 
 	}
 
@@ -65,12 +59,39 @@ public class WeatherActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_weather, menu);
 		return true;
 	}
+	
+	public void setWeather(View v) {
+		switch(v.getId()) {
+		case R.id.sunny:
+			w = "sunny";
+			break;
+		case R.id.rainy:
+			w = "rainy";
+			break;
+		case R.id.partly_cloudy:
+			w = "partly cloudy";
+			break;
+		case R.id.snowy:
+			w = "snowy";
+			break;
+		}
+	}
 
 	public void continueToInventory(View v) {
     	//Launch to inventory
     	Intent i = new Intent(this, InventoryActivity.class);
+    	
+    	//Cashbox amount
+    	EditText cshbx = (EditText) findViewById(R.id.cashbox_starting);
+    	String amt = cshbx.getText().toString();
+    	
     	//Save our info
-    	i.putExtra("data", data);
-    	this.startActivity(i);
+    	if(w != null && amt != null && amt.length() > 1) {
+            DataBaser db = DataBaser.getInstance();
+            db.addInfo("weather", w);
+            db.addInfo("temperature", String.valueOf(seekBar.getProgress()));
+            db.addInfo("cashbox_amount", amt);
+        	this.startActivity(i);
+    	}
 	}
 }

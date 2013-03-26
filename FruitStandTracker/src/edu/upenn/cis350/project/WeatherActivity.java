@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 public class WeatherActivity extends Activity {
 	SeekBar seekBar;
-	String w;
+	String w = "sunny";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

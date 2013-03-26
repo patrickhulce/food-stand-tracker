@@ -1,5 +1,7 @@
 package edu.upenn.cis350.project;
 
+import java.util.HashMap;
+
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.PushService;
@@ -80,18 +82,20 @@ public class Inventory2Activity extends Activity {
 
     public void continueToSales(View v) {
     	//Launch to weather
-    	Intent i = new Intent(this, SaleActivity.class);
+    	Intent i = new Intent(this, TransactionBaseActivity.class);
     	
-    	//Save our info
-    	i.putExtra("whole_fruit", 0);
-    	i.putExtra("smoothies", 0);
-    	i.putExtra("mixed_bags", 0);
-    	i.putExtra("transactions", 0);
-    	i.putExtra("total", 0);
     	//TODO Use savePostInventory to save info
-    	i.putExtras(data);
+    	HashMap<String, Integer> postinv = new HashMap<String, Integer>();
+    	postinv.put("apples", apples);
+    	postinv.put("pears", pears);
+    	postinv.put("oranges", oranges);
+    	postinv.put("bananas", bananas);
+    	postinv.put("kiwis", kiwis);
+    	postinv.put("grapes", grapes);
+    	postinv.put("mixed", mixed);
     	
-    	i.putExtra("herma", "derp");
+    	DataBaser.getInstance().savePostInventory(postinv);
+    	
     	this.startActivity(i);
     }
 }

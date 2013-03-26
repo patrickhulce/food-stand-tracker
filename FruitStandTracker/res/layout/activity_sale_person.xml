@@ -240,6 +240,13 @@
 	            android:text="Medium Text"
 	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    </LinearLayout>
+	    
+	    <Button
+	        android:id="@+id/button_clear"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:onClick="clear_entries"
+	        android:text="Clear All" />
 
 	    <Button
 	        android:id="@+id/button_continue"
@@ -248,6 +255,7 @@
 	        android:enabled="false"
 	        android:onClick="go_to_checkout"
 	        android:text="@string/continue_text" />
+	    
 	</LinearLayout>
 
 </ScrollView>

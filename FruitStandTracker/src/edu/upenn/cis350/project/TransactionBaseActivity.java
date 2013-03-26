@@ -19,6 +19,23 @@ public class TransactionBaseActivity extends Activity {
 	 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         data = getIntent().getExtras();
+        
+        String _wholefruit = "0", _smoothies = "0", _mixedbags = "0", _transactions = "0", _totalsales = "0";
+        
+        if(data.size() > 0){
+        	_wholefruit = data.get("whole_fruit").toString();
+        	_smoothies = data.get("smoothies").toString();
+        	_mixedbags = data.get("mixed_bags").toString();
+        	_totalsales = data.get("total_cash").toString();
+        	_transactions = (Integer)data.get("transactions")*0.5 + "";
+        } else {
+        	data.putInt("whole_fruit", 0);
+        	data.putInt("smoothies", 0);
+        	data.putInt("mixed_bags", 0);
+        	data.putInt("total_cash", 0);
+        	data.putInt("transactions", 0);
+        }
+        
         setContentView(R.layout.transaction_base_activity);
         
         TextView wholefruit = (TextView)findViewById(R.id.wholefruit);
@@ -27,11 +44,11 @@ public class TransactionBaseActivity extends Activity {
         TextView transactions = (TextView)findViewById(R.id.transactions);
         TextView totalsales = (TextView)findViewById(R.id.totalsales);
         
-        wholefruit.setText(data.get("whole_fruit").toString());
-        smoothies.setText(data.get("smoothies").toString());
-        mixedbags.setText(data.get("mixed_bags").toString());
-        totalsales.setText("$"+(Integer)data.get("total")*0.5 );
-        transactions.setText((Integer)data.get("transactions") + "");
+        wholefruit.setText(_wholefruit);
+        smoothies.setText(_smoothies);
+        mixedbags.setText(_mixedbags);
+        totalsales.setText(_totalsales);
+        transactions.setText(_transactions);
       
         //for Parse
         Parse.initialize(this, 
@@ -56,6 +73,8 @@ public class TransactionBaseActivity extends Activity {
 			allTransactions.put(s, data.get(s));
 		}
 		allTransactions.saveInBackground();
+		
+		DataBaser.getInstance().databaseItThoroughly();
 		//Continue on to calculations
 		Intent i = new Intent(this,CalculateRevenueActivity.class);
 		i.putExtras(data);

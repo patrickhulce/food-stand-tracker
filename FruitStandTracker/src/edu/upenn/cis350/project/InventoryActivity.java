@@ -43,7 +43,7 @@ public class InventoryActivity extends Activity {
 			apples = 0;
 		}
 		apples++;
-		appleQty.setText(apples);
+		appleQty.setText(""+apples);
 	}
 	
 	public void appleMinus (View view) {

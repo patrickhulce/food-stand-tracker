@@ -79,6 +79,6 @@
     	    android:id="@+id/continue_weather"
     	    android:layout_width="wrap_content"
     	    android:layout_height="wrap_content"
-    	    android:onClick="continueToInventory"
+    	    android:onClick="continueToPricing"
     	    android:text="@string/continue_text" />
 </LinearLayout>

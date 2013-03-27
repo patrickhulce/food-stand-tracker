@@ -21,12 +21,14 @@ public class CalculateRevenueActivity extends Activity {
 		TextView mixedbaglabel = (TextView)findViewById(R.id.mixedBagTotalLabel);
 		TextView granolalabel = (TextView)findViewById(R.id.granolaTotalLabel);
 		TextView couponlabel = (TextView)findViewById(R.id.couponLabel);
+		TextView junkfoodlabel = (TextView)findViewById(R.id.junkfoodLabel);
 		
 		wholefruitlabel.setText(data.getInt("whole_fruit") + "x 0.50 =");
 		smoothielabel.setText(data.getInt("smoothie") + "x 0.50 = ");
 		mixedbaglabel.setText(data.getInt("mixed_bag") + "x 0.50 = " );
 		granolalabel.setText(data.getInt("granolabars") + "x 0.50 = ");
-		couponlabel.setText(data.getInt("coupons") + "x 0.50 = ");
+		couponlabel.setText(" = "+ data.getDouble("coupon_value"));
+		junkfoodlabel.setText(" = "+ data.getDouble("junk_food_value"));
 	}
 
 	@Override
@@ -48,6 +50,8 @@ public class CalculateRevenueActivity extends Activity {
 		if(realtotal == usertotal){
 			Intent i = new Intent(this, CalculateProfitActivity.class);
 			i.putExtras(data);
+			//TODO Change to real value of revenue later
+			i.putExtra("final_revenue", 10.00);
 			this.startActivity(i);
 		}
 	

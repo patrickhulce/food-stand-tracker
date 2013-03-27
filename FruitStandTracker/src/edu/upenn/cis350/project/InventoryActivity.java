@@ -148,7 +148,6 @@ public class InventoryActivity extends Activity {
     	Intent i = new Intent(this, Inventory2Activity.class);
     	//Save our info
     	//TODO Use savePreInventory() to save info
-    	i.putExtra("herma", "derp");
     	this.startActivity(i);
     }
 

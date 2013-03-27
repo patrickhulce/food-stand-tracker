@@ -21,42 +21,42 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class InfoActivity extends Activity {	
-	private String school; 
+	String school; 
 	
-	private TextView saleDisplayDate;
-	private Button changeDate;
+	TextView saleDisplayDate;
+	Button changeDate;
 	
 	//variables for the date
-	private int year;
-	private int month;
-	private int day;
+	int year;
+	int month;
+	int day;
 	
 	static final int DATE_DIALOG_ID = 999;
 	
 	//variables for adding volunteers
-	private Button addVol;
-	private LinearLayout volLayout;
-	private int id;
-	private String vol1;
-	private String vol2;
-	private String vol3;
-	private String vol4;
-	private String vol5;
-	private String vol6;
-	private String vol7;
-	private String vol8;
+	Button addVol;
+	LinearLayout volLayout;
+	int id;
+	String vol1;
+	String vol2;
+	String vol3;
+	String vol4;
+	String vol5;
+	String vol6;
+	String vol7;
+	String vol8;
 	
 	//variables for adding staff members
-	private Button addStaff;
-	private LinearLayout staffLayout;
-	private int sId;
-	private String staff1;
-	private String staff2;
-	private String staff3;
-	private String staff4;
+	Button addStaff;
+	LinearLayout staffLayout;
+	int sId;
+	String staff1;
+	String staff2;
+	String staff3;
+	String staff4;
 	
-	private LinearLayout schoolLayout;
-	private EditText addedSchool;
+	LinearLayout schoolLayout;
+	EditText addedSchool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -356,8 +356,11 @@ public class InfoActivity extends Activity {
 			staffLayout.addView(newStaff);	
 		}
     
-		
-		private void getSchool(){
+		//if a request has been made to add a school, change the
+		//value of school to the value in the text box
+		//this can be determined by the current value of school -> "check"
+		//else, do nothing
+		public void getSchool(){
 			if(!school.equals("check")){
 				return;
 			}
@@ -388,15 +391,15 @@ public class InfoActivity extends Activity {
 				staff4 = ((EditText) findViewById(-4)).getText().toString();
 		}
 		
-		private String getYear(){
+		public String getYear(){
 			return Integer.toString(year);
 		}
 		
-		private String getMonth(){
+		public String getMonth(){
 			return Integer.toString(month);
 		}
 		
-		private String getDay(){
+		public String getDay(){
 			return Integer.toString(day);
 		}
 	
@@ -410,12 +413,15 @@ public class InfoActivity extends Activity {
     	//only want to move on if a volunteer and a staff member have been inputed
     	fillVolunteers();
     	fillStaff();
-    	if(vol1 != null && vol1.length() > 1 && 
-    			staff1 != null && staff1.length() > 1){
-    	DataBaser dataBaser = DataBaser.getInstance();
+    	//Log.i("school 1 is", "" + school);
     	getSchool();
+    	//Log.i("school 2 is", "" + school);
+    	if(vol1 != null && vol1.length() > 1 && 
+    			staff1 != null && staff1.length() > 1
+    			&& school != null && school.length() > 1){
+    	DataBaser dataBaser = DataBaser.getInstance();
+    	//Log.i("school 3 is", "" + school);
     	dataBaser.addInfo("school", school);  
-    	
     	dataBaser.addInfo("year", getYear());
     	dataBaser.addInfo("month", getMonth());
     	dataBaser.addInfo("day", getDay());

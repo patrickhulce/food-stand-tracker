@@ -1,5 +1,7 @@
 package edu.upenn.cis350.project;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import android.app.Activity;
@@ -97,16 +99,47 @@ public class PaymentActivity extends Activity {
 		Intent transaction = new Intent(this, TransactionBaseActivity.class);
 		
 		HashMap<String, Integer> payment = new HashMap<String, Integer>();
+		ArrayList<Double> prices = new ArrayList<Double>();
+		
+		for(int i = 0; i < data.getInt("whole_fruit"); i++){
+			prices.add(data.getDouble("whole_fruit_price"));
+		}
+		for(int i = 0; i < data.getInt("granolabars"); i++){
+			prices.add(data.getDouble("granolabars_price"));
+		}
+		for(int i = 0; i < data.getInt("mixed_bags"); i++){
+			prices.add(data.getDouble("mixed_bags_price"));
+		}
+		for(int i = 0; i < data.getInt("smoothies"); i++){
+			prices.add(data.getDouble("smoothies_price"));
+		}
+		Collections.sort(prices);
+		int counter = 0;
+		double coupons_value = 0, junk_food_value = 0, cash_value = 0;
+		for(int i = 0; i < coupons; i++){
+			coupons_value += prices.get(counter);
+			counter++;
+		}
+		for(int i = 0; i < junk_food; i++){
+			junk_food_value += prices.get(counter);
+			counter++;
+		}
+		for(int i = 0; i < cash; i++){
+			cash_value += prices.get(counter);
+			counter++;
+		}
+		
 		payment.put("cash", cash);
 		payment.put("coupon", coupons);
 		payment.put("junk", junk_food);
 		
-		data.putInt("total_cash", data.getInt("total_cash")+cash);
+		data.putDouble("coupons_value", data.getDouble("coupons_value")+coupons_value);
+		data.putDouble("junk_food_value", data.getDouble("junk_food_value")+junk_food_value);
+		data.putDouble("total_cash", data.getDouble("total_cash")+cash_value);
 		
 		transaction.putExtras(data);
 		
-		// Added piece to save information about individual transaction to
-		// database.
+		// Added piece to save information about individual transaction to database.
 		fruit.put("mixed_bags", data.getInt("mixed_bags"));
 		fruit.put("smoothies", data.getInt("smoothies"));
 		DataBaser db = DataBaser.getInstance();

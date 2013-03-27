@@ -1,6 +1,5 @@
 package edu.upenn.cis350.project;
 
-import edu.upenn.cis350.project.PaymentActivity;
 import android.os.Bundle;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
@@ -25,7 +24,7 @@ public class SaleActivityTest extends
 		act.bananas = 5;
 		act.grapes = 2;
 		act.updateWholeFruit();
-		assertEquals(17,act.whole_fruit);
+		assertEquals(17,act.temp_whole_fruit);
 	}
 	
 	public void testUpdateWholeFruitAdvanced() {
@@ -33,7 +32,7 @@ public class SaleActivityTest extends
 		act.bananas = 5;
 		act.grapes = 2;
 		act.updateWholeFruit();
-		assertEquals(17,act.whole_fruit);
+		assertEquals(17,act.temp_whole_fruit);
     	TextView text = (TextView) act.findViewById(R.id.whole_fruit_label);
     	assertEquals("x17",text.getText());
 	}
@@ -43,11 +42,11 @@ public class SaleActivityTest extends
 		act.bananas = 5;
 		act.grapes = 2;
 		act.kiwis = 1;
-		act.mixed_bag = 100;
+		act.temp_mixed_bag = 100;
 		act.kiwis = 3;
 		act.gender = "M";
 		act.updateWholeFruit();
-		assertEquals(21,act.whole_fruit);
+		assertEquals(21,act.temp_whole_fruit);
     	TextView text = (TextView) act.findViewById(R.id.whole_fruit_label);
     	assertEquals("x21",text.getText());
         Button submit_button = (Button) act.findViewById(R.id.button_continue);
@@ -55,21 +54,21 @@ public class SaleActivityTest extends
 	}
 	
 	public void testSmoothieClicked() {
-		act.smoothie = 0;
+		act.temp_smoothie = 0;
 		act.smoothie_clicked(null);
 		act.smoothie_clicked(null);
 		act.smoothie_clicked(null);
-		assertEquals(3,act.smoothie);
+		assertEquals(3,act.temp_smoothie);
     	TextView text = (TextView) act.findViewById(R.id.smoothie_label);
     	assertEquals("x3",text.getText());
 	}
 	
 	public void testMixedBagClicked() {
-		act.mixed_bag = 0;
+		act.temp_mixed_bag = 0;
 		act.mixed_bag_clicked(null);
 		act.mixed_bag_clicked(null);
 		act.mixed_bag_clicked(null);
-		assertEquals(3,act.mixed_bag);
+		assertEquals(3,act.temp_mixed_bag);
     	TextView text = (TextView) act.findViewById(R.id.mixed_bag_label);
     	assertEquals("x3",text.getText());
 	}

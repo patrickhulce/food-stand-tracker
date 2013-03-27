@@ -29,7 +29,6 @@ public class WeatherActivity extends Activity {
 		seekBar.incrementProgressBy(1);
 		seekBar.setMax(100);
 		final TextView seekBarValue = (TextView) findViewById(R.id.temp_reading);
-
 		seekBarValue.setText("Temperature: 50F");
 
 		seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){

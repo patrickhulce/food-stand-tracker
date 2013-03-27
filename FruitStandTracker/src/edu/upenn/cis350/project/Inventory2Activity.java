@@ -43,40 +43,40 @@ public class Inventory2Activity extends Activity {
 	public void qtyClicked2(View view) {
 		switch(view.getId()) {
 		case R.id.apple2Plus:
-			changeQty(true, 0, R.id.appleQty);
+			changeQty(true, 0, R.id.apple2Qty);
 			break;
 		case R.id.apple2Minus:
-			changeQty(false, 0, R.id.appleQty);
+			changeQty(false, 0, R.id.apple2Qty);
 			break;
 		case R.id.banana2Plus:
-			changeQty(true, 1, R.id.bananaQty);
+			changeQty(true, 1, R.id.banana2Qty);
 			break;
 		case R.id.banana2Minus:
-			changeQty(false, 1, R.id.bananaQty);
+			changeQty(false, 1, R.id.banana2Qty);
 			break;
 		case R.id.grapes2Plus:
-			changeQty(true, 2, R.id.grapesQty);
+			changeQty(true, 2, R.id.grapes2Qty);
 			break;
 		case R.id.grapes2Minus:
-			changeQty(false, 2, R.id.grapesQty);
+			changeQty(false, 2, R.id.grapes2Qty);
 			break;
 		case R.id.kiwi2Plus:
-			changeQty(true, 3, R.id.kiwiQty);
+			changeQty(true, 3, R.id.kiwi2Qty);
 			break;
 		case R.id.kiwi2Minus:
-			changeQty(false, 3, R.id.kiwiQty);
+			changeQty(false, 3, R.id.kiwi2Qty);
 			break;
 		case R.id.orange2Plus:
-			changeQty(true, 4, R.id.orangeQty);
+			changeQty(true, 4, R.id.orange2Qty);
 			break;
 		case R.id.orange2Minus:
-			changeQty(false, 4, R.id.orangeQty);
+			changeQty(false, 4, R.id.orange2Qty);
 			break;
 		case R.id.pear2Plus:
-			changeQty(true, 5, R.id.pearQty);
+			changeQty(true, 5, R.id.pear2Qty);
 			break;
 		case R.id.pear2Minus:
-			changeQty(false, 5, R.id.pearQty);
+			changeQty(false, 5, R.id.pear2Qty);
 			break;
 		case R.id.mixedPlus:
 			changeQty(true, 8, R.id.mixedQty);

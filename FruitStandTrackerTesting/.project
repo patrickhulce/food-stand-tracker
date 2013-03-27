@@ -3,7 +3,7 @@
 	<name>FruitStandTrackerTesting</name>
 	<comment></comment>
 	<projects>
-		<project>FruitStandTracker</project>
+		<project>StartActivity</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

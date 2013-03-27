@@ -8,14 +8,12 @@ import com.parse.ParseObject;
 
 public class DataBaser {
 	private static final DataBaser instance = new DataBaser();
-	private HashMap<String,String> info;
-	private ArrayList<Transaction> transactions;
-	private HashMap<String,Integer> inventory1;
-	private HashMap<String,Integer> inventory2;
+	HashMap<String,String> info;
+	ArrayList<Transaction> transactions;
+	HashMap<String,Integer> inventory1;
+	HashMap<String,Integer> inventory2;
 
 	private DataBaser() {
-		// Apparently we can't actually do any state here
-		// singleton isn't really necessary...oh well. DESIGN PATTERNS FTW
 		info = new HashMap<String,String>();
 		transactions = new ArrayList<Transaction>();
 		inventory1 = new HashMap<String,Integer>();

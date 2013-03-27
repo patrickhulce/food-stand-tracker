@@ -1,9 +1,6 @@
 package edu.upenn.cis350.project;
 
 import java.util.Calendar;
-
-import com.parse.Parse;
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -97,10 +94,7 @@ public class InfoActivity extends Activity {
         //for the staff adder
         addListenerAddStaff();
         staffLayout = (LinearLayout) findViewById(R.id.staff_list);
-        
-        //for Parse
-        Parse.initialize(this, 
-        		"vKGeILnmz4ajn4OtZQoentkFSvcg9gBKch4oTavc", "qSdO1zCvQfzFrJgvcljwylR4DVO7vse31lbn8TrE"); 
+
     }
 
     //based on the id chosen by the school spinner
@@ -298,7 +292,7 @@ public class InfoActivity extends Activity {
 	
 		//listener for button that should add an edittext for another volunteer
 		public void addListenerAddVol(){
-			id = 5;
+			id = 4;
 			addVol = (Button) findViewById(R.id.add_volunteer);
 			
 			addVol.setOnClickListener(new View.OnClickListener() {
@@ -332,7 +326,7 @@ public class InfoActivity extends Activity {
 	
 		//listener for button that should add an edittext for another staff member
 		public void addListenerAddStaff(){
-			sId = -3;
+			sId = -2;
 			addStaff = (Button) findViewById(R.id.add_staff);
 			
 			addStaff.setOnClickListener(new View.OnClickListener(){
@@ -360,7 +354,6 @@ public class InfoActivity extends Activity {
 			newStaff.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
 			newStaff.setHint(R.string.names);
 			staffLayout.addView(newStaff);	
-			
 		}
     
 		

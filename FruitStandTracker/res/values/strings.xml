@@ -85,7 +85,7 @@
     <string name="whole_fruit_sold">Whole Fruit Sold:    </string>
     <string name="mixed_bags_sold">Mixed Bags Sold:     </string>
     <string name="smoothies_sold">Smoothies Sold:     </string>
-    <string name="total_transactions">Number of Transactions:    </string>
+    <string name="total_transactions"># of Transactions:    </string>
     <string name="title_activity_calculate_profit">CalculateProfitActivity</string>
 
 </resources>

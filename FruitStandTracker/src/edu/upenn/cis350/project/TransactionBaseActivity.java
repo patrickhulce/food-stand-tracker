@@ -19,24 +19,44 @@ public class TransactionBaseActivity extends Activity {
 	 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         data = getIntent().getExtras();
+        //for Parse
+        Parse.initialize(this, 
+        		getString(R.string.parseAPIkey), getString(R.string.parsesecretkey));
+        
+        String _wholefruit = "0", _smoothies = "0", _mixedbags = "0", _transactions = "0", _totalsales = "0", _granolabars = "0";
+        
+        if(data != null){
+        	_wholefruit = data.get("whole_fruit").toString();
+        	_smoothies = data.get("smoothies").toString();
+        	_mixedbags = data.get("mixed_bags").toString();
+        	_totalsales = "$"+(Integer)data.get("total_cash")*0.5;
+        	_transactions = data.get("transactions").toString();
+        	_granolabars = data.get("granolabars").toString();
+        } else {
+        	data = new Bundle();
+        	data.putInt("whole_fruit", 0);
+        	data.putInt("smoothies", 0);
+        	data.putInt("mixed_bags", 0);
+        	data.putInt("total_cash", 0);
+        	data.putInt("transactions", 0);
+        	data.putInt("granolabars", 0);
+        }
+        
         setContentView(R.layout.transaction_base_activity);
         
         TextView wholefruit = (TextView)findViewById(R.id.wholefruit);
         TextView smoothies = (TextView)findViewById(R.id.smoothies);
         TextView mixedbags = (TextView)findViewById(R.id.mixedbags);
         TextView transactions = (TextView)findViewById(R.id.transactions);
+        TextView granolabars = (TextView)findViewById(R.id.granolabars);
         TextView totalsales = (TextView)findViewById(R.id.totalsales);
         
-        wholefruit.setText(data.get("whole_fruit").toString());
-        smoothies.setText(data.get("smoothies").toString());
-        mixedbags.setText(data.get("mixed_bags").toString());
-        totalsales.setText("$"+(Integer)data.get("total")*0.5 );
-        transactions.setText((Integer)data.get("transactions") + "");
-      
-        //for Parse
-        Parse.initialize(this, 
-        		getString(R.string.parseAPIkey), getString(R.string.parsesecretkey)); 
-
+        wholefruit.setText(_wholefruit);
+        smoothies.setText(_smoothies);
+        mixedbags.setText(_mixedbags);
+        totalsales.setText(_totalsales);
+        transactions.setText(_transactions); 
+        granolabars.setText(_granolabars);
     }
 
 	public void newTransaction(View view){
@@ -56,8 +76,11 @@ public class TransactionBaseActivity extends Activity {
 			allTransactions.put(s, data.get(s));
 		}
 		allTransactions.saveInBackground();
+		
+		DataBaser.getInstance().databaseItThoroughly();
 		//Continue on to calculations
 		Intent i = new Intent(this,CalculateRevenueActivity.class);
 		i.putExtras(data);
+		this.startActivity(i);
 	}
 }

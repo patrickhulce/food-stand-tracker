@@ -1,8 +1,5 @@
 package edu.upenn.cis350.project;
 
-import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.PushService;
 import java.util.HashMap;
 
 import android.app.Activity;
@@ -54,6 +51,11 @@ public class PaymentActivity extends Activity {
 			coupon_button.setEnabled(false);
 			junk_food_button.setEnabled(false);
 			submit_button.setEnabled(true);
+		} else {
+			cash_button.setEnabled(true);
+			coupon_button.setEnabled(true);
+			junk_food_button.setEnabled(true);
+			submit_button.setEnabled(false);
 		}
 	}
 
@@ -78,14 +80,31 @@ public class PaymentActivity extends Activity {
 		updateItems();
 	}
 
+	public void clear_button(View view){
+		checked_out = 0;
+		cash = 0;
+		coupons = 0;
+		junk_food = 0;
+		updateItems();
+		int[] buttons = {R.id.cash_label, R.id.coupon_label, R.id.junk_food_label};
+		for(int i: buttons){
+			TextView text = (TextView)findViewById(i);
+			text.setText("x0");
+		}
+	}
+	
 	public void submit_button(View view) {
 		Intent transaction = new Intent(this, TransactionBaseActivity.class);
-		transaction.putExtras(data);
+		
 		HashMap<String, Integer> payment = new HashMap<String, Integer>();
 		payment.put("cash", cash);
 		payment.put("coupon", coupons);
 		payment.put("junk", junk_food);
-
+		
+		data.putInt("total_cash", data.getInt("total_cash")+cash);
+		
+		transaction.putExtras(data);
+		
 		// Added piece to save information about individual transaction to
 		// database.
 		fruit.put("mixed_bags", data.getInt("mixed_bags"));

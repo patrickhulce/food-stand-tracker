@@ -49,7 +49,7 @@ public class Inventory2ImageAdapter extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.mixedbag,
+            R.drawable.mixed,
             R.drawable.apple, R.drawable.pear,
             R.drawable.orange, R.drawable.grapes,
             R.drawable.kiwi, R.drawable.banana

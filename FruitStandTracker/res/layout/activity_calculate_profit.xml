@@ -5,6 +5,7 @@
     tools:context=".CalculateProfitActivity" >
 
     <TableLayout
+        android:id="@+id/tableLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -14,41 +15,106 @@
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+
             <TextView
                 android:id="@+id/revenue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Revenue = $XX.XX" />
+                android:text="Total Revenue : " />
+
+            <TextView
+                android:id="@+id/revenueValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$10.00"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
         </TableRow>
+
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+
             <TextView
-                android:id="@+id/fruitstandcost"
+                android:id="@+id/fruitStandCostLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fruit Stand Cost = $10" />
+                android:text="Fruit Costs : " />
+
+            <EditText
+                android:id="@+id/fruitStandCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="numberDecimal" >
+            </EditText>
         </TableRow>
+
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+
             <TextView
-                android:id="@+id/smoothiecost"
+                android:id="@+id/smoothieCostLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Smoothie Cost = $XX.XX" />
+                android:text="Smoothie Costs : " />
+
+            <EditText
+                android:id="@+id/smoothieCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="numberDecimal" >
+            </EditText>
         </TableRow>
+
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+
             <TextView
-                android:id="@+id/totalCostsLabel"
+                android:id="@+id/otherCostsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Costs : " />
+                android:text="Other Costs : " />
+
+            <EditText
+                android:id="@+id/otherCosts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="numberDecimal" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/totalCostsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Costs :" />
+
+                <TextView
+                    android:id="@+id/totalCostsDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fruit + Smoothie + Other Costs=" />
+
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/totalCosts"
                 android:layout_width="wrap_content"
@@ -56,16 +122,19 @@
                 android:ems="4"
                 android:inputType="numberDecimal" >
             </EditText>
-            </TableRow>
+        </TableRow>
+
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+
             <TextView
                 android:id="@+id/donationsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Donations : " />
+
             <EditText
                 android:id="@+id/donationsAmount"
                 android:layout_width="wrap_content"
@@ -74,15 +143,30 @@
                 android:inputType="numberDecimal" >
             </EditText>
         </TableRow>
+
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
             <TextView
                 android:id="@+id/profitLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Profit : " />
+                android:text="Profit :" />
+
+                <TextView
+                    android:id="@+id/profitDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Revenue + Donations - Total Costs=" />
+
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/profit"
                 android:layout_width="wrap_content"
@@ -91,6 +175,7 @@
                 android:inputType="numberDecimal" >
             </EditText>
         </TableRow>
+
         <TableRow
             android:id="@+id/tableRow10"
             android:layout_width="wrap_content"
@@ -109,8 +194,16 @@
                 android:ems="4"
                 android:inputType="numberDecimal" >
             </EditText>
-
         </TableRow>
     </TableLayout>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:text="Submit" />
 
 </RelativeLayout>

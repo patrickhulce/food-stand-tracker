@@ -34,49 +34,49 @@ public class InventoryActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inventory);
 		
-	    GridView gridview = (GridView) findViewById(R.id.InventoryGrid);
-	    gridview.setAdapter(new InventoryImageAdapter(this));
-
-	    gridview.setOnItemClickListener(new OnItemClickListener() {
-	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-	            switch(position) {
-	            case 0: apples++;
-	            		TextView apples_qty = (TextView) findViewById(R.id.apple_qty);
-	            		apples_qty.setText(Integer.toString(apples));
-	            		break;
-	            case 1: pears++;
-	            		TextView pears_qty = (TextView) findViewById(R.id.pear_qty);
-	            		pears_qty.setText(Integer.toString(pears));
-	            		break;
-	            case 2: oranges++;
-        				TextView oranges_qty = (TextView) findViewById(R.id.orange_qty);
-        				oranges_qty.setText(Integer.toString(oranges));	            
-	            		break;
-	            case 3: grapes++;
-						TextView grapes_qty = (TextView) findViewById(R.id.grapes_qty);
-						grapes_qty.setText(Integer.toString(grapes));	
-        				break;
-	            case 4: kiwis++;
-						TextView kiwis_qty = (TextView) findViewById(R.id.kiwi_qty);
-						kiwis_qty.setText(Integer.toString(kiwis));	
-						break;
-	            case 5: bananas++;
-						TextView bananas_qty = (TextView) findViewById(R.id.banana_qty);
-						bananas_qty.setText(Integer.toString(bananas));	
-						break;
-	            case 6: granola++;
-						TextView granolas_qty = (TextView) findViewById(R.id.granola_qty);
-						granolas_qty.setText(Integer.toString(granola));	
-	            		break;
-	            case 7: smoothie++;
-						TextView smoothies_qty = (TextView) findViewById(R.id.smoothie_qty);
-						smoothies_qty.setText(Integer.toString(smoothie));	
-	            		break;
-	            }
-	            
-	            
-	        }
-	    });
+//	    GridView gridview = (GridView) findViewById(R.id.InventoryGrid);
+//	    gridview.setAdapter(new InventoryImageAdapter(this));
+//
+//	    gridview.setOnItemClickListener(new OnItemClickListener() {
+//	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+//	            switch(position) {
+//	            case 0: apples++;
+//	            		TextView apples_qty = (TextView) findViewById(R.id.apple_qty);
+//	            		apples_qty.setText(Integer.toString(apples));
+//	            		break;
+//	            case 1: pears++;
+//	            		TextView pears_qty = (TextView) findViewById(R.id.pear_qty);
+//	            		pears_qty.setText(Integer.toString(pears));
+//	            		break;
+//	            case 2: oranges++;
+//        				TextView oranges_qty = (TextView) findViewById(R.id.orange_qty);
+//        				oranges_qty.setText(Integer.toString(oranges));	            
+//	            		break;
+//	            case 3: grapes++;
+//						TextView grapes_qty = (TextView) findViewById(R.id.grapes_qty);
+//						grapes_qty.setText(Integer.toString(grapes));	
+//        				break;
+//	            case 4: kiwis++;
+//						TextView kiwis_qty = (TextView) findViewById(R.id.kiwi_qty);
+//						kiwis_qty.setText(Integer.toString(kiwis));	
+//						break;
+//	            case 5: bananas++;
+//						TextView bananas_qty = (TextView) findViewById(R.id.banana_qty);
+//						bananas_qty.setText(Integer.toString(bananas));	
+//						break;
+//	            case 6: granola++;
+//						TextView granolas_qty = (TextView) findViewById(R.id.granola_qty);
+//						granolas_qty.setText(Integer.toString(granola));	
+//	            		break;
+//	            case 7: smoothie++;
+//						TextView smoothies_qty = (TextView) findViewById(R.id.smoothie_qty);
+//						smoothies_qty.setText(Integer.toString(smoothie));	
+//	            		break;
+//	            }
+//	            
+//	            
+//	        }
+//	    });
 	}
 
 	@Override

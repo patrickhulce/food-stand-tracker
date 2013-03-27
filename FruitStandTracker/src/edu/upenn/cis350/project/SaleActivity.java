@@ -28,10 +28,10 @@ public class SaleActivity extends Activity {
 	int peaches = 0;
 	int grapes = 0;
 	int others = 0;
-	int whole_fruit = 0;
-	
-	int smoothie = 0;
-	int mixed_bag = 0;
+	int temp_whole_fruit = 0;
+	int temp_granola = 0;
+	int temp_smoothie = 0;
+	int temp_mixed_bag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +43,11 @@ public class SaleActivity extends Activity {
         TextView wholefruittext = (TextView)findViewById(R.id.whole_fruit_label);
         TextView smoothietext = (TextView)findViewById(R.id.smoothie_label);
         TextView bagtext = (TextView)findViewById(R.id.mixed_bag_label);
-        wholefruittext.setText("x" + whole_fruit);
-        smoothietext.setText("x" + smoothie);
-        bagtext.setText("x" + mixed_bag);
+        TextView granolatext = (TextView)findViewById(R.id.granola_label);
+        wholefruittext.setText("x" + temp_whole_fruit);
+        smoothietext.setText("x" + temp_smoothie);
+        bagtext.setText("x" + temp_mixed_bag);
+        granolatext.setText("x" + temp_granola);
     }
 
     @Override
@@ -64,8 +66,8 @@ public class SaleActivity extends Activity {
     
     public void updateWholeFruit(){
     	TextView text = (TextView)findViewById(R.id.whole_fruit_label);
-    	whole_fruit = apples+pears+bananas+kiwis+peaches+others+grapes;
-    	text.setText("x" + whole_fruit);
+    	temp_whole_fruit = apples+pears+bananas+kiwis+peaches+others+grapes;
+    	text.setText("x" + temp_whole_fruit);
         Button submit_button = (Button)findViewById(R.id.button_continue);
     	if(gender != ""){
     		submit_button.setEnabled(true);
@@ -74,8 +76,8 @@ public class SaleActivity extends Activity {
     
     public void smoothie_clicked(View view){
     	TextView text = (TextView)findViewById(R.id.smoothie_label);
-    	smoothie += 1;
-    	text.setText("x" + smoothie);
+    	temp_smoothie += 1;
+    	text.setText("x" + temp_smoothie);
         Button submit_button = (Button)findViewById(R.id.button_continue);
     	if(gender != ""){
     		submit_button.setEnabled(true);
@@ -84,14 +86,24 @@ public class SaleActivity extends Activity {
     
     public void mixed_bag_clicked(View view){
     	TextView text = (TextView)findViewById(R.id.mixed_bag_label);
-    	mixed_bag += 1;
-    	text.setText("x" + mixed_bag);
+    	temp_mixed_bag += 1;
+    	text.setText("x" + temp_mixed_bag);
         Button submit_button = (Button)findViewById(R.id.button_continue);
     	if(gender != ""){
     		submit_button.setEnabled(true);
     	}
     }
 
+    public void granola_clicked(View view){
+    	TextView text = (TextView)findViewById(R.id.granola_label);
+    	temp_granola += 1;
+    	text.setText("x" + temp_granola);
+        Button submit_button = (Button)findViewById(R.id.button_continue);
+    	if(gender != ""){
+    		submit_button.setEnabled(true);
+    	}
+    }
+    
     public void apples_button(View view){
     	TextView text = (TextView)findViewById(R.id.apple_label);
     	apples += 1;
@@ -156,8 +168,31 @@ public class SaleActivity extends Activity {
                     gender = "F";
                 break;
         }
-    	if(whole_fruit+smoothie+mixed_bag > 0){
+    	if(temp_whole_fruit+temp_smoothie+temp_mixed_bag > 0){
     		submit_button.setEnabled(true);
+    	}
+    }
+    
+    public void clear_entries(View view){
+    	apples = 0;
+    	pears = 0;
+    	bananas = 0;
+    	kiwis = 0;
+    	peaches = 0;
+    	grapes = 0;
+    	others = 0;
+    	temp_whole_fruit = 0;
+       	temp_smoothie = 0;
+    	temp_mixed_bag = 0;
+    
+    	int[] texts = {R.id.whole_fruit_label, R.id.apple_label,
+    			R.id.peach_label, R.id.pear_label, R.id.kiwi_label,
+    			R.id.banana_label, R.id.smoothie_label, R.id.mixed_bag_label,
+    			R.id.other_label
+    	};
+    	for(int i: texts){
+    		TextView text = (TextView)findViewById(i);
+    		text.setText("x0");
     	}
     }
     
@@ -168,18 +203,38 @@ public class SaleActivity extends Activity {
     	String grade = (String)age.getSelectedItem();
     	
     	i.putExtras(data);
-    	HashMap<String, Integer> fruit = new HashMap<String, Integer>();
-    	fruit.put("apple", apples);
-    	fruit.put("peach", peaches);
-    	fruit.put("pear", pears);
-    	fruit.put("banana", bananas);
-    	fruit.put("kiwi", kiwis);
-    	fruit.put("grape", grapes);
-    	fruit.put("other", others);
-    	i.putExtra("whole_fruit", whole_fruit);
-    	i.putExtra("smoothies", smoothie);
-    	i.putExtra("mixed_bags", mixed_bag);
-    	i.putExtra("total", whole_fruit+smoothie+mixed_bag);
+    	int tempapple = 0, temppeach = 0, temppear = 0, 
+    			tempbanana = 0, tempkiwi = 0, tempgrape = 0, tempother = 0;
+		HashMap<String, Integer> fruit = new HashMap<String, Integer>();
+    	if(data.get("fruit") == null){
+    		fruit = new HashMap<String, Integer>();	
+    	} else {
+    		fruit = (HashMap<String, Integer>) data.get("fruit");
+    		tempapple = fruit.get("apple");
+    		temppeach = fruit.get("peach");
+    		temppear = fruit.get("pear");
+    		tempbanana = fruit.get("banana");
+    		tempkiwi = fruit.get("kiwi");
+    		tempgrape = fruit.get("grape");
+    		tempother = fruit.get("other");
+    	}
+    	fruit.put("apple", apples+tempapple);
+    	fruit.put("peach", peaches+temppeach);
+    	fruit.put("pear", pears+temppear);
+    	fruit.put("banana", bananas+tempbanana);
+    	fruit.put("kiwi", kiwis+tempkiwi);
+    	fruit.put("grape", grapes+tempgrape);
+    	fruit.put("other", others+tempother);
+    	
+    	i.putExtra("whole_fruit", data.getInt("whole_fruit") + temp_whole_fruit);
+    	i.putExtra("smoothies", data.getInt("smoothie") + temp_smoothie);
+    	i.putExtra("mixed_bags", data.getInt("mixed_bag") + temp_mixed_bag);
+    	i.putExtra("granolabars", data.getInt("granola") + temp_granola);
+    	i.putExtra("total", temp_whole_fruit+temp_smoothie+temp_mixed_bag+temp_granola);
+    	i.putExtra("temp_whole_fruit", temp_whole_fruit);
+    	i.putExtra("temp_smoothie", temp_smoothie);
+    	i.putExtra("temp_mixed_bag", temp_mixed_bag);
+    	i.putExtra("temp_granola", temp_granola);
     	
     	i.putExtra("gender", gender);
     	i.putExtra("fruit", fruit);

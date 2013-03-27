@@ -27,9 +27,9 @@ public class InfoActivity extends Activity {
 	Button changeDate;
 	
 	//variables for the date
-	int year;
-	int month;
-	int day;
+	public int year;
+	public int month;
+	public int day;
 	
 	static final int DATE_DIALOG_ID = 999;
 	

@@ -29,7 +29,7 @@ public class TransactionBaseActivity extends Activity {
         	_wholefruit = data.get("whole_fruit").toString();
         	_smoothies = data.get("smoothies").toString();
         	_mixedbags = data.get("mixed_bags").toString();
-        	_totalsales = "$"+(Double)data.get("total_cash");
+        	_totalsales = "$"+data.getDouble("total_cash");
         	_transactions = data.get("transactions").toString();
         	_granolabars = data.get("granolabars").toString();
         } else {
@@ -40,6 +40,8 @@ public class TransactionBaseActivity extends Activity {
         	data.putDouble("total_cash", 0);
         	data.putInt("transactions", 0);
         	data.putInt("granolabars", 0);
+        	data.putDouble("coupons_value", 0);
+        	data.putDouble("junk_food_value", 0);
         }
         
         setContentView(R.layout.transaction_base_activity);

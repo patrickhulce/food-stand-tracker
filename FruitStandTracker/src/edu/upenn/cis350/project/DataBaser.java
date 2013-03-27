@@ -65,4 +65,11 @@ public class DataBaser {
 		Transaction t = new Transaction(purchases, payments, gender, age);
 		transactions.add(t);
 	}
+	
+	public double getStartingCashboxAmount() {
+		if(info.containsKey("cashbox_starting_amount")) {
+			return Double.valueOf(info.get("cashbox_starting_amount"));
+		}
+		return 10.0;
+	}
 }

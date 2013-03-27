@@ -92,6 +92,8 @@ public class Inventory2Activity extends Activity {
     	
     	DataBaser.getInstance().savePostInventory(postinv);
     	
+    	i.putExtras(this.getIntent().getExtras());
+    	
     	this.startActivity(i);
     }
 }

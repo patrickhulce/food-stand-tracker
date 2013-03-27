@@ -126,7 +126,9 @@ public class InventoryActivity extends Activity {
     	//Launch to inventory2
     	Intent i = new Intent(this, Inventory2Activity.class);
     	//Save our info
-    	//TODO Use savePreInventory() to save info
+    	
+    	i.putExtras(this.getIntent().getExtras());
+    	
     	this.startActivity(i);
     }
 

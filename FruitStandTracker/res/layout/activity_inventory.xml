@@ -31,9 +31,9 @@
                     android:id="@+id/applePlus"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    
-                    android:text="+" />
+                    android:layout_height="30dp" 
+                    android:text="+" 
+                    android:onClick="applePlus" />
 
                 <EditText
                     android:id="@+id/appleQty"
@@ -41,14 +41,17 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:maxLength="2"
-                    android:minWidth="40dp" />
+                    android:text="0" 
+                    android:minWidth="40dp">
+                </EditText>
 
                 <Button
                     android:id="@+id/appleMinus"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="appleMinus" />
 
             </LinearLayout>
 
@@ -69,8 +72,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    
-                    android:text="+" />
+                    android:text="+"
+                    android:onClick="bananaPlus" />
 
                 <EditText
                     android:id="@+id/bananaQty"
@@ -85,7 +88,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="bananaMinus" />
 
             </LinearLayout>
 
@@ -113,8 +117,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    
-                    android:text="+" />
+                    android:text="+"
+                    android:onClick="grapesPlus" />
 
                 <EditText
                     android:id="@+id/grapesQty"
@@ -129,7 +133,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="grapesMinus" />
 
             </LinearLayout>
 
@@ -150,8 +155,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    
-                    android:text="+" />
+                    android:text="+"
+                    android:onClick="kiwiPlus" />
 
                 <EditText
                     android:id="@+id/kiwiQty"
@@ -166,7 +171,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="kiwiMinus" />
 
             </LinearLayout>
 
@@ -195,7 +201,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="+" />
+                    android:text="+"
+                    android:onClick="orangePlus" />
 
                 <EditText
                     android:id="@+id/orangeQty"
@@ -210,7 +217,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="orangeMinus" />
             </LinearLayout>
 
             <ImageView
@@ -235,7 +243,8 @@
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="40dp"
                         android:layout_height="30dp"
-                        android:text="+" />
+                        android:text="+"
+                        android:onClick="pearPlus" />
 
                     <EditText
                         android:id="@+id/pearQty"
@@ -250,7 +259,8 @@
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="40dp"
                         android:layout_height="30dp"
-                        android:text="-" />
+                        android:text="-"
+                        android:onClick="pearMinus" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -277,7 +287,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="+" />
+                    android:text="+"
+                    android:onClick="granolaPlus" />
 
                 <EditText
                     android:id="@+id/granolaQty"
@@ -292,7 +303,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="granolaMinus" />
             </LinearLayout>
 
             <ImageView
@@ -317,7 +329,8 @@
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="40dp"
                         android:layout_height="30dp"
-                        android:text="+" />
+                        android:text="+"
+                        android:onClick="frozenPlus" />
 
                     <EditText
                         android:id="@+id/frozenQty"
@@ -332,7 +345,8 @@
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="40dp"
                         android:layout_height="30dp"
-                        android:text="-" />
+                        android:text="-"
+                        android:onClick="frozenMinus" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

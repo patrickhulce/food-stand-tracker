@@ -24,10 +24,10 @@ public class CalculateRevenueActivity extends Activity {
 		TextView junkfoodlabel = (TextView)findViewById(R.id.junkfoodLabel);
 		
 		wholefruitlabel.setText("Whole Fruit: "+ data.getInt("whole_fruit") + "x 0.50 =");
-		smoothielabel.setText("Smoothies: "+data.getInt("smoothie") + "x 0.50 = ");
-		mixedbaglabel.setText("Mixed Bags: "+data.getInt("mixed_bag") + "x 0.50 = " );
+		smoothielabel.setText("Smoothies: "+data.getInt("smoothies") + "x 0.50 = ");
+		mixedbaglabel.setText("Mixed Bags: "+data.getInt("mixed_bags") + "x 0.50 = " );
 		granolalabel.setText("Granola Bars: "+data.getInt("granolabars") + "x 0.50 = ");
-		couponlabel.setText("Coupons = "+ data.getDouble("coupon_value"));
+		couponlabel.setText("Coupons = "+ data.getDouble("coupons_value"));
 		junkfoodlabel.setText("Junk Food = "+ data.getDouble("junk_food_value"));
 	}
 
@@ -43,7 +43,6 @@ public class CalculateRevenueActivity extends Activity {
 		EditText smoothie = (EditText)findViewById(R.id.smoothieRevenue);
 		EditText mixedbag = (EditText)findViewById(R.id.mixedBagRevenue);
 		EditText total = (EditText)findViewById(R.id.totalRevenue);
-		EditText coupon = (EditText)findViewById(R.id.couponRevenue);
 		
 		double usertotal = Double.parseDouble(total.getText().toString());
 		double realtotal = data.getDouble("total_cash");

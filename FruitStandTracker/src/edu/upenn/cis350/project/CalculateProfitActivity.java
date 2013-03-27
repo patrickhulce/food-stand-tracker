@@ -4,6 +4,7 @@ import com.parse.ParseObject;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -88,6 +89,8 @@ public class CalculateProfitActivity extends Activity {
 		}
 		DataBaser.getInstance().databaseItThoroughly();
 		db.databaseItThoroughly();
+		
+		this.startActivity(new Intent(this, StartActivity.class));
 	}
 
 }

@@ -88,5 +88,6 @@
     <string name="total_transactions"># of Transactions:    </string>
     <string name="title_activity_calculate_profit">CalculateProfitActivity</string>
     <string name="title_activity_pricing">PricingActivity</string>
+    <string name="total_revenue">Total = \n Whole Fruit + Smoothies + Granola \n + Mixed Bags - Coupons - Junk Food </string>
 
 </resources>

@@ -47,7 +47,7 @@ public class PricingActivity extends Activity {
     	i.putExtra("whole_fruit_price", wholePrice);
     	i.putExtra("granola_bars_price", granolaPrice);
     	i.putExtra("mixed_bags_price", mixedPrice);
-    	i.putExtra("smoothie_price", smoothiePrice);
+    	i.putExtra("smoothies_price", smoothiePrice);
     	
     	this.startActivity(i);
     }

@@ -32,8 +32,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp" 
-                    android:text="+" 
-                    android:onClick="applePlus" />
+                    android:text="+"
+                    android:onClick="qtyClicked" />
 
                 <EditText
                     android:id="@+id/appleQty"
@@ -51,7 +51,7 @@
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:text="-"
-                    android:onClick="appleMinus" />
+                    android:onClick="qtyClicked" />
 
             </LinearLayout>
 
@@ -73,7 +73,7 @@
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:text="+"
-                    android:onClick="bananaPlus" />
+                    android:onClick="qtyClicked" />
 
                 <EditText
                     android:id="@+id/bananaQty"
@@ -89,7 +89,7 @@
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:text="-"
-                    android:onClick="bananaMinus" />
+                    android:onClick="qtyClicked" />
 
             </LinearLayout>
 
@@ -118,7 +118,7 @@
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:text="+"
-                    android:onClick="grapesPlus" />
+                    android:onClick="qtyClicked" />
 
                 <EditText
                     android:id="@+id/grapesQty"
@@ -134,7 +134,7 @@
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:text="-"
-                    android:onClick="grapesMinus" />
+                    android:onClick="qtyClicked" />
 
             </LinearLayout>
 
@@ -156,7 +156,7 @@
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:text="+"
-                    android:onClick="kiwiPlus" />
+                    android:onClick="qtyClicked" />
 
                 <EditText
                     android:id="@+id/kiwiQty"
@@ -172,7 +172,7 @@
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:text="-"
-                    android:onClick="kiwiMinus" />
+                    android:onClick="qtyClicked" />
 
             </LinearLayout>
 
@@ -202,7 +202,7 @@
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:text="+"
-                    android:onClick="orangePlus" />
+                    android:onClick="qtyClicked" />
 
                 <EditText
                     android:id="@+id/orangeQty"
@@ -218,7 +218,7 @@
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:text="-"
-                    android:onClick="orangeMinus" />
+                    android:onClick="qtyClicked" />
             </LinearLayout>
 
             <ImageView
@@ -244,7 +244,7 @@
                         android:layout_width="40dp"
                         android:layout_height="30dp"
                         android:text="+"
-                        android:onClick="pearPlus" />
+                        android:onClick="qtyClicked" />
 
                     <EditText
                         android:id="@+id/pearQty"
@@ -260,7 +260,7 @@
                         android:layout_width="40dp"
                         android:layout_height="30dp"
                         android:text="-"
-                        android:onClick="pearMinus" />
+                        android:onClick="qtyClicked" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -288,7 +288,7 @@
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:text="+"
-                    android:onClick="granolaPlus" />
+                    android:onClick="qtyClicked" />
 
                 <EditText
                     android:id="@+id/granolaQty"
@@ -304,7 +304,7 @@
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:text="-"
-                    android:onClick="granolaMinus" />
+                    android:onClick="qtyClicked" />
             </LinearLayout>
 
             <ImageView
@@ -330,7 +330,7 @@
                         android:layout_width="40dp"
                         android:layout_height="30dp"
                         android:text="+"
-                        android:onClick="frozenPlus" />
+                        android:onClick="qtyClicked" />
 
                     <EditText
                         android:id="@+id/frozenQty"
@@ -346,7 +346,7 @@
                         android:layout_width="40dp"
                         android:layout_height="30dp"
                         android:text="-"
-                        android:onClick="frozenMinus" />
+                        android:onClick="qtyClicked" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

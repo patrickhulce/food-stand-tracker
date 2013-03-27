@@ -1,5 +1,7 @@
 package edu.upenn.cis350.project;
 
+import java.util.HashMap;
+
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.PushService;
@@ -18,122 +20,99 @@ import android.widget.Toast;
 
 public class InventoryActivity extends Activity {
 	
-	int apples = 0;
-	int pears = 0;
-	int oranges = 0;
-	int bananas = 0;
-	int kiwis = 0;
-	int grapes = 0;
-	int granola = 0;
-	int frozen = 0;
+	int[] fruitQtys = new int[8];
+	/* table to store quantity of each item
+	 * 0 - apple
+	 * 1 - banana
+	 * 2 - grapes
+	 * 3 - kiwi
+	 * 4 - orange
+	 * 5 - pear
+	 * 6 - granola
+	 * 7 - frozen fruit
+	 */
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inventory);
-
 	}
 	
-	public void applePlus (View view) {
-		EditText appleQty = (EditText) findViewById(R.id.appleQty);
-		Editable qty_e = appleQty.getText();
-		if (qty_e != null) {
-			apples = Integer.parseInt(appleQty.getText().toString());
-		} else {
-			apples = 0;
+	public void qtyClicked(View view) {
+		switch(view.getId()) {
+		case R.id.applePlus:
+			changeQty(true, 0, R.id.appleQty);
+			break;
+		case R.id.appleMinus:
+			changeQty(false, 0, R.id.appleQty);
+			break;
+		case R.id.bananaPlus:
+			changeQty(true, 1, R.id.bananaQty);
+			break;
+		case R.id.bananaMinus:
+			changeQty(false, 1, R.id.bananaQty);
+			break;
+		case R.id.grapesPlus:
+			changeQty(true, 2, R.id.grapesQty);
+			break;
+		case R.id.grapesMinus:
+			changeQty(false, 2, R.id.grapesQty);
+			break;
+		case R.id.kiwiPlus:
+			changeQty(true, 3, R.id.kiwiQty);
+			break;
+		case R.id.kiwiMinus:
+			changeQty(false, 3, R.id.kiwiQty);
+			break;
+		case R.id.orangePlus:
+			changeQty(true, 4, R.id.orangeQty);
+			break;
+		case R.id.orangeMinus:
+			changeQty(false, 4, R.id.orangeQty);
+			break;
+		case R.id.pearPlus:
+			changeQty(true, 5, R.id.pearQty);
+			break;
+		case R.id.pearMinus:
+			changeQty(false, 5, R.id.pearQty);
+			break;
+		case R.id.granolaPlus:
+			changeQty(true, 6, R.id.granolaQty);
+			break;
+		case R.id.granolaMinus:
+			changeQty(false, 6, R.id.granolaQty);
+			break;
+		case R.id.frozenPlus:
+			changeQty(true, 7, R.id.frozenQty);
+			break;
+		case R.id.frozenMinus:
+			changeQty(false, 7, R.id.frozenQty);
+			break;
+		default:
+			throw new RuntimeException("Unknown Button!");
 		}
-		apples++;
-		appleQty.setText(apples);
 	}
 	
-	public void appleMinus (View view) {
-		EditText appleQty = (EditText) findViewById(R.id.appleQty);
-		apples = Integer.parseInt(appleQty.getText().toString());
-		appleQty.setText(apples--);
-	}
-	
-	public void bananaPlus (View view) {
-		EditText bananaQty = (EditText) findViewById(R.id.bananaQty);
-		bananas = Integer.parseInt(bananaQty.getText().toString());
-		bananaQty.setText(bananas++);
-	}
-	
-	public void bananaMinus (View view) {
-		EditText bananaQty = (EditText) findViewById(R.id.bananaQty);
-		bananas = Integer.parseInt(bananaQty.getText().toString());
-		bananaQty.setText(bananas--);
-	}
-	
-	public void grapesPlus (View view) {
-		EditText grapesQty = (EditText) findViewById(R.id.grapesQty);
-		grapes = Integer.parseInt(grapesQty.getText().toString());
-		grapesQty.setText(grapes++);
-	}
-	
-	public void grapesMinus (View view) {
-		EditText grapesQty = (EditText) findViewById(R.id.grapesQty);
-		grapes = Integer.parseInt(grapesQty.getText().toString());
-		grapesQty.setText(grapes--);
-	}
-	
-	public void kiwiPlus (View view) {
-		EditText kiwiQty = (EditText) findViewById(R.id.kiwiQty);
-		kiwis = Integer.parseInt(kiwiQty.getText().toString());
-		kiwiQty.setText(kiwis++);
-	}
-	
-	public void kiwiMinus (View view) {
-		EditText kiwiQty = (EditText) findViewById(R.id.kiwiQty);
-		kiwis = Integer.parseInt(kiwiQty.getText().toString());
-		kiwiQty.setText(kiwis--);
-	}
-	
-	public void orangePlus (View view) {
-		EditText orangeQty = (EditText) findViewById(R.id.orangeQty);
-		oranges = Integer.parseInt(orangeQty.getText().toString());
-		orangeQty.setText(oranges++);
-	}
-	
-	public void orangeMinus (View view) {
-		EditText orangeQty = (EditText) findViewById(R.id.orangeQty);
-		oranges = Integer.parseInt(orangeQty.getText().toString());
-		orangeQty.setText(oranges--);
-	}
-	
-	public void pearPlus (View view) {
-		EditText pearQty = (EditText) findViewById(R.id.pearQty);
-		pears = Integer.parseInt(pearQty.getText().toString());
-		pearQty.setText(pears++);
-	}
-	
-	public void pearMinus (View view) {
-		EditText pearQty = (EditText) findViewById(R.id.pearQty);
-		pears = Integer.parseInt(pearQty.getText().toString());
-		pearQty.setText(pears--);
-	}
-	
-	public void granolaPlus (View view) {
-		EditText granolaQty = (EditText) findViewById(R.id.granolaQty);
-		granola = Integer.parseInt(granolaQty.getText().toString());
-		granolaQty.setText(granola++);
-	}
-	
-	public void granolaMinus (View view) {
-		EditText granolaQty = (EditText) findViewById(R.id.granolaQty);
-		granola = Integer.parseInt(granolaQty.getText().toString());
-		granolaQty.setText(granola--);
-	}
-	
-	public void frozenPlus (View view) {
-		EditText frozenQty = (EditText) findViewById(R.id.frozenQty);
-		frozen = Integer.parseInt(frozenQty.getText().toString());
-		frozenQty.setText(frozen++);
-	}
-	
-	public void frozenMinus (View view) {
-		EditText frozenQty = (EditText) findViewById(R.id.frozenQty);
-		frozen = Integer.parseInt(frozenQty.getText().toString());
-		frozenQty.setText(frozen--);
+	// method that modifies fruit quantity depending on which button was pressed
+	private void changeQty(boolean pm, int fruit, int cid ) {
+		EditText qtyEdit = (EditText) findViewById(cid);
+		Editable qtyE = qtyEdit.getText();
+		
+		int qtyTemp;
+		try {
+			qtyTemp = Integer.parseInt(qtyE.toString());
+		} catch (Exception e) {
+			qtyTemp = 0;
+		}
+		
+		if (pm) { // increment fruit qty
+			qtyTemp++;
+		} else if (qtyTemp > 0) { // decrement fruit qty
+			qtyTemp--;
+		}
+		fruitQtys[fruit] = qtyTemp;
+		qtyEdit.setText(""+qtyTemp);
+		
 	}
 
 	@Override

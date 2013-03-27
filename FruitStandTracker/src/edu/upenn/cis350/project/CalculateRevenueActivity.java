@@ -7,10 +7,12 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CalculateRevenueActivity extends Activity {
 	
-	Bundle data;	
+	Bundle data;
+	int tries;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -23,10 +25,10 @@ public class CalculateRevenueActivity extends Activity {
 		TextView couponlabel = (TextView)findViewById(R.id.couponLabel);
 		TextView junkfoodlabel = (TextView)findViewById(R.id.junkfoodLabel);
 		
-		wholefruitlabel.setText("Whole Fruit: "+ data.getInt("whole_fruit") + "x 0.50 =");
-		smoothielabel.setText("Smoothies: "+data.getInt("smoothies") + "x 0.50 = ");
-		mixedbaglabel.setText("Mixed Bags: "+data.getInt("mixed_bags") + "x 0.50 = " );
-		granolalabel.setText("Granola Bars: "+data.getInt("granolabars") + "x 0.50 = ");
+		wholefruitlabel.setText("Whole Fruit: "+ data.getInt("whole_fruit") + "x"+ data.getDouble("whole_fruit_price")+" =");
+		smoothielabel.setText("Smoothies: "+data.getInt("smoothies") + "x"+ data.getDouble("smoothies_price")+" =");
+		mixedbaglabel.setText("Mixed Bags: "+data.getInt("mixed_bags") + "x"+ data.getDouble("mixed_bags_price")+" =");
+		granolalabel.setText("Granola Bars: "+data.getInt("granolabars") + "x"+ data.getDouble("granola_bars_price")+" =");
 		couponlabel.setText("Coupons = "+ data.getDouble("coupons_value"));
 		junkfoodlabel.setText("Junk Food = "+ data.getDouble("junk_food_value"));
 	}
@@ -46,10 +48,16 @@ public class CalculateRevenueActivity extends Activity {
 		
 		double usertotal = Double.parseDouble(total.getText().toString());
 		double realtotal = data.getDouble("total_cash");
-		if(realtotal == usertotal){
+		if(realtotal == usertotal || tries > 2){
 			Intent i = new Intent(this, CalculateProfitActivity.class);
 			i.putExtras(data);
 			this.startActivity(i);
+		} else {
+			String toastText = "Looks like you made a mistake in your math...\n check that the total is equal to \n" +
+					"total fruit sold - coupons - junk food";
+			Toast.makeText(getApplicationContext(), toastText.toString(), Toast.LENGTH_LONG).show();
+			tries += 1;
+			return;
 		}
 	
 	}

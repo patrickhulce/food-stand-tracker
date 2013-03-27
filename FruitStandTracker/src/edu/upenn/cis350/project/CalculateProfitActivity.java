@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CalculateProfitActivity extends Activity {
@@ -19,6 +20,8 @@ public class CalculateProfitActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		data = getIntent().getExtras();
 		setContentView(R.layout.activity_calculate_profit);
+		TextView revenuevalue = (TextView)findViewById(R.id.revenueValue);
+		revenuevalue.setText("$"+data.getDouble("total_cash"));
 
 	}
 
@@ -38,7 +41,7 @@ public class CalculateProfitActivity extends Activity {
 		DataBaser db = DataBaser.getInstance();
 
 		// Get all the doubles from the user input
-		double revenue = data.getDouble("final_revenue");
+		double revenue = data.getDouble("total_cash");
 		double fruitCosts = getDoubleFromEditText(R.id.fruitStandCost);
 		double smoothieCosts = getDoubleFromEditText(R.id.smoothieCost);
 		double otherCosts = getDoubleFromEditText(R.id.otherCosts);

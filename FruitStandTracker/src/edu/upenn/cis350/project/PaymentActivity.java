@@ -105,7 +105,7 @@ public class PaymentActivity extends Activity {
 			prices.add(data.getDouble("whole_fruit_price"));
 		}
 		for(int i = 0; i < data.getInt("granolabars"); i++){
-			prices.add(data.getDouble("granolabars_price"));
+			prices.add(data.getDouble("granola_bars_price"));
 		}
 		for(int i = 0; i < data.getInt("mixed_bags"); i++){
 			prices.add(data.getDouble("mixed_bags_price"));

@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
+                android:maxEms="5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
 
@@ -55,6 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
+                android:maxEms="5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
 
@@ -80,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
+                android:maxEms="5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
 
@@ -105,6 +108,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
+                android:maxEms="5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
 
@@ -130,6 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
+                android:maxEms="5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
         
@@ -148,6 +153,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/total_transactions"
+                android:maxEms="5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView

@@ -6,8 +6,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/inventoryInstructions"
         android:orientation="vertical"
         android:paddingTop="10dp" 
         android:isScrollContainer= "true" >
@@ -344,7 +342,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="125dp"
-            android:onClick="continueToSales"
+            android:onClick="continueToInventory2"
             android:text="Continue" />
         
     </LinearLayout>

@@ -86,7 +86,6 @@ public class InventoryActivity extends Activity {
 		return true;
 	}
 	
-	
 	public void continueToInventory2(View v) {
     	//Launch to weather
     	Intent i = new Intent(this, Inventory2Activity.class);

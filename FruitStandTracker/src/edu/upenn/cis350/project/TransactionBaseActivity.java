@@ -29,7 +29,7 @@ public class TransactionBaseActivity extends Activity {
         	_wholefruit = data.get("whole_fruit").toString();
         	_smoothies = data.get("smoothies").toString();
         	_mixedbags = data.get("mixed_bags").toString();
-        	_totalsales = "$"+(Integer)data.get("total_cash")*0.5;
+        	_totalsales = "$"+(Double)data.get("total_cash");
         	_transactions = data.get("transactions").toString();
         	_granolabars = data.get("granolabars").toString();
         } else {
@@ -37,7 +37,7 @@ public class TransactionBaseActivity extends Activity {
         	data.putInt("whole_fruit", 0);
         	data.putInt("smoothies", 0);
         	data.putInt("mixed_bags", 0);
-        	data.putInt("total_cash", 0);
+        	data.putDouble("total_cash", 0);
         	data.putInt("transactions", 0);
         	data.putInt("granolabars", 0);
         }

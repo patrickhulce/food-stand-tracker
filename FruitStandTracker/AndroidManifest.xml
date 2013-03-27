@@ -53,6 +53,10 @@
             android:name="edu.upenn.cis350.project.CalculateProfitActivity"
             android:label="@string/title_activity_calculate_profit" >
         </activity>
+        <activity
+            android:name="edu.upenn.cis350.project.PricingActivity"
+            android:label="@string/title_activity_pricing" >
+        </activity>
     </application>
 
 </manifest>

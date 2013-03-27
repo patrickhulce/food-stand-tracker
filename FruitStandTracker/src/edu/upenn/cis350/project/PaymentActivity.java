@@ -12,14 +12,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class PaymentActivity extends Activity {
-
-	Bundle data;
+//TODO changed things to public for testing purposes
+	//change this later
+	public Bundle data;
 	HashMap<String, Integer> fruit;
-	int total;
-	int checked_out = 0;
-	int cash;
-	int coupons;
-	int junk_food;
+	public int total;
+	public int checked_out = 0;
+	public int cash;
+	public int coupons;
+	public int junk_food;
 
 	Button submit_button;
 	Button cash_button;

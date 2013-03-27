@@ -17,21 +17,23 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class SaleActivity extends Activity {
-	Bundle data;
+	//TODO everything has been changed to public for testing purposes. 
+	//Change that later. 
+	public Bundle data;
 	
-	String gender = "";
+	public String gender = "";
 	
-	int apples = 0;
-	int pears = 0;
-	int bananas = 0;
-	int kiwis = 0;
-	int peaches = 0;
-	int grapes = 0;
-	int others = 0;
-	int temp_whole_fruit = 0;
-	int temp_granola = 0;
-	int temp_smoothie = 0;
-	int temp_mixed_bag = 0;
+	public int apples = 0;
+	public int pears = 0;
+	public int bananas = 0;
+	public int kiwis = 0;
+	public int peaches = 0;
+	public int grapes = 0;
+	public int others = 0;
+	public int temp_whole_fruit = 0;
+	public int temp_granola = 0;
+	public int temp_smoothie = 0;
+	public int temp_mixed_bag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

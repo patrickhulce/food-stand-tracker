@@ -20,8 +20,10 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class InfoActivity extends Activity {	
-	String school; 
+public class InfoActivity extends Activity {
+	//TODO everything has been made public for testing purposes. 
+	//Change that later
+	public String school; 
 	
 	TextView saleDisplayDate;
 	Button changeDate;
@@ -37,23 +39,23 @@ public class InfoActivity extends Activity {
 	Button addVol;
 	LinearLayout volLayout;
 	int id;
-	String vol1;
-	String vol2;
-	String vol3;
-	String vol4;
-	String vol5;
-	String vol6;
-	String vol7;
-	String vol8;
+	public String vol1;
+	public String vol2;
+	public String vol3;
+	public String vol4;
+	public String vol5;
+	public String vol6;
+	public String vol7;
+	public String vol8;
 	
 	//variables for adding staff members
-	Button addStaff;
+	public Button addStaff;
 	LinearLayout staffLayout;
 	int sId;
-	String staff1;
-	String staff2;
-	String staff3;
-	String staff4;
+	public String staff1;
+	public String staff2;
+	public String staff3;
+	public String staff4;
 	
 	LinearLayout schoolLayout;
 	EditText addedSchool;
@@ -368,7 +370,7 @@ public class InfoActivity extends Activity {
 	    		school = addedSchool.getText().toString();
 		}
 		
-		private void fillVolunteers(){
+		public void fillVolunteers(){
 			if(((EditText) findViewById(R.id.volunteer1)).getText() != null)
 				vol1 = ((EditText) findViewById(R.id.volunteer1)).getText().toString();
 			if(((EditText) findViewById(R.id.volunteer2)).getText() != null)
@@ -387,7 +389,7 @@ public class InfoActivity extends Activity {
 				vol8 = ((EditText) findViewById(8)).getText().toString();
 		}
 		
-		private void fillStaff(){
+		public void fillStaff(){
 			if(((EditText) findViewById(R.id.staff1)).getText() != null)
 				staff1 = ((EditText) findViewById(R.id.staff1)).getText().toString();
 			if(((EditText) findViewById(R.id.staff2)).getText() != null)

@@ -46,20 +46,25 @@ public class CalculateRevenueActivity extends Activity {
 		EditText mixedbag = (EditText)findViewById(R.id.mixedBagRevenue);
 		EditText total = (EditText)findViewById(R.id.totalRevenue);
 		
-		double usertotal = Double.parseDouble(total.getText().toString());
-		double realtotal = data.getDouble("total_cash");
-		if(realtotal == usertotal || tries > 2){
-			Intent i = new Intent(this, CalculateProfitActivity.class);
-			i.putExtras(data);
-			this.startActivity(i);
-		} else {
-			String toastText = "Looks like you made a mistake in your math...\n check that the total is equal to \n" +
-					"total fruit sold - coupons - junk food";
-			Toast.makeText(getApplicationContext(), toastText.toString(), Toast.LENGTH_LONG).show();
-			tries += 1;
-			return;
+		try{
+			double usertotal = Double.parseDouble(total.getText().toString());
+			double realtotal = data.getDouble("total_cash");
+			if(realtotal == usertotal || tries > 2){
+				Intent i = new Intent(this, CalculateProfitActivity.class);
+				i.putExtras(data);
+				this.startActivity(i);
+			} else {
+				String toastText = "Looks like you made a mistake in your math...\n check that the total is equal to \n" +
+						"total fruit sold - coupons - junk food";
+				Toast.makeText(getApplicationContext(), toastText.toString(), Toast.LENGTH_LONG).show();
+				tries += 1;
+				return;
+			}
 		}
-	
+		catch(Exception e){
+			String toastText = "Looks like you left the total blank...the total has to be filled in before submitting.";
+			Toast.makeText(getApplicationContext(), toastText.toString(), Toast.LENGTH_LONG).show();
+		}
 	}
 
 }

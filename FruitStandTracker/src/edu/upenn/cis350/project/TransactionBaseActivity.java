@@ -19,8 +19,11 @@ public class TransactionBaseActivity extends Activity {
 	 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         data = getIntent().getExtras();
+        //for Parse
+        Parse.initialize(this, 
+        		getString(R.string.parseAPIkey), getString(R.string.parsesecretkey));
         
-        String _wholefruit = "0", _smoothies = "0", _mixedbags = "0", _transactions = "0", _totalsales = "0";
+        String _wholefruit = "0", _smoothies = "0", _mixedbags = "0", _transactions = "0", _totalsales = "0", _granolabars = "0";
         
         if(data != null){
         	_wholefruit = data.get("whole_fruit").toString();
@@ -28,6 +31,7 @@ public class TransactionBaseActivity extends Activity {
         	_mixedbags = data.get("mixed_bags").toString();
         	_totalsales = "$"+(Integer)data.get("total_cash")*0.5;
         	_transactions = data.get("transactions").toString();
+        	_granolabars = data.get("granolabars").toString();
         } else {
         	data = new Bundle();
         	data.putInt("whole_fruit", 0);
@@ -35,6 +39,7 @@ public class TransactionBaseActivity extends Activity {
         	data.putInt("mixed_bags", 0);
         	data.putInt("total_cash", 0);
         	data.putInt("transactions", 0);
+        	data.putInt("granolabars", 0);
         }
         
         setContentView(R.layout.transaction_base_activity);
@@ -43,6 +48,7 @@ public class TransactionBaseActivity extends Activity {
         TextView smoothies = (TextView)findViewById(R.id.smoothies);
         TextView mixedbags = (TextView)findViewById(R.id.mixedbags);
         TextView transactions = (TextView)findViewById(R.id.transactions);
+        TextView granolabars = (TextView)findViewById(R.id.granolabars);
         TextView totalsales = (TextView)findViewById(R.id.totalsales);
         
         wholefruit.setText(_wholefruit);
@@ -50,7 +56,7 @@ public class TransactionBaseActivity extends Activity {
         mixedbags.setText(_mixedbags);
         totalsales.setText(_totalsales);
         transactions.setText(_transactions); 
-
+        granolabars.setText(_granolabars);
     }
 
 	public void newTransaction(View view){
@@ -64,9 +70,6 @@ public class TransactionBaseActivity extends Activity {
 	}
 	 
 	public void finishSession(View view){
-        //for Parse
-        Parse.initialize(this, 
-        		getString(R.string.parseAPIkey), getString(R.string.parsesecretkey));
 		//saves the data to Parse
 		ParseObject allTransactions = new ParseObject("totalTransactionInfo");
 		for(String s: data.keySet()){

@@ -2,10 +2,6 @@ package edu.upenn.cis350.project;
 
 import java.util.HashMap;
 
-import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.PushService;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;

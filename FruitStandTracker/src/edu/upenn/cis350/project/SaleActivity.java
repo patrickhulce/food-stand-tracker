@@ -29,7 +29,7 @@ public class SaleActivity extends Activity {
 	int grapes = 0;
 	int others = 0;
 	int temp_whole_fruit = 0;
-	
+	int temp_granola = 0;
 	int temp_smoothie = 0;
 	int temp_mixed_bag = 0;
 
@@ -43,9 +43,11 @@ public class SaleActivity extends Activity {
         TextView wholefruittext = (TextView)findViewById(R.id.whole_fruit_label);
         TextView smoothietext = (TextView)findViewById(R.id.smoothie_label);
         TextView bagtext = (TextView)findViewById(R.id.mixed_bag_label);
+        TextView granolatext = (TextView)findViewById(R.id.granola_label);
         wholefruittext.setText("x" + temp_whole_fruit);
         smoothietext.setText("x" + temp_smoothie);
         bagtext.setText("x" + temp_mixed_bag);
+        granolatext.setText("x" + temp_granola);
     }
 
     @Override
@@ -92,6 +94,16 @@ public class SaleActivity extends Activity {
     	}
     }
 
+    public void granola_clicked(View view){
+    	TextView text = (TextView)findViewById(R.id.granola_label);
+    	temp_granola += 1;
+    	text.setText("x" + temp_granola);
+        Button submit_button = (Button)findViewById(R.id.button_continue);
+    	if(gender != ""){
+    		submit_button.setEnabled(true);
+    	}
+    }
+    
     public void apples_button(View view){
     	TextView text = (TextView)findViewById(R.id.apple_label);
     	apples += 1;
@@ -205,7 +217,6 @@ public class SaleActivity extends Activity {
     		tempkiwi = fruit.get("kiwi");
     		tempgrape = fruit.get("grape");
     		tempother = fruit.get("other");
-    		
     	}
     	fruit.put("apple", apples+tempapple);
     	fruit.put("peach", peaches+temppeach);
@@ -218,10 +229,12 @@ public class SaleActivity extends Activity {
     	i.putExtra("whole_fruit", data.getInt("whole_fruit") + temp_whole_fruit);
     	i.putExtra("smoothies", data.getInt("smoothie") + temp_smoothie);
     	i.putExtra("mixed_bags", data.getInt("mixed_bag") + temp_mixed_bag);
-    	i.putExtra("total", temp_whole_fruit+temp_smoothie+temp_mixed_bag);
+    	i.putExtra("granolabars", data.getInt("granola") + temp_granola);
+    	i.putExtra("total", temp_whole_fruit+temp_smoothie+temp_mixed_bag+temp_granola);
     	i.putExtra("temp_whole_fruit", temp_whole_fruit);
     	i.putExtra("temp_smoothie", temp_smoothie);
     	i.putExtra("temp_mixed_bag", temp_mixed_bag);
+    	i.putExtra("temp_granola", temp_granola);
     	
     	i.putExtra("gender", gender);
     	i.putExtra("fruit", fruit);

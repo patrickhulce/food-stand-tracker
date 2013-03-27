@@ -48,6 +48,8 @@ public class CalculateRevenueActivity extends Activity {
 		if(realtotal == usertotal){
 			Intent i = new Intent(this, CalculateProfitActivity.class);
 			i.putExtras(data);
+			//TODO Change to real value of revenue later
+			i.putExtra("final_revenue", 10.00);
 			this.startActivity(i);
 		}
 	

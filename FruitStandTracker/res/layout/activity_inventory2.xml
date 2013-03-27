@@ -32,8 +32,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    
-                    android:text="+" />
+                    android:text="+"
+                    android:onClick="qtyClicked2" />
 
                 <EditText
                     android:id="@+id/apple2Qty"
@@ -48,7 +48,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="qtyClicked2" />
 
             </LinearLayout>
 
@@ -69,8 +70,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    
-                    android:text="+" />
+                    android:text="+"
+                    android:onClick="qtyClicked2" />
 
                 <EditText
                     android:id="@+id/banana2Qty"
@@ -85,7 +86,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="qtyClicked2" />
 
             </LinearLayout>
 
@@ -113,8 +115,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    
-                    android:text="+" />
+                    android:text="+"
+                    android:onClick="qtyClicked2" />
 
                 <EditText
                     android:id="@+id/grapes2Qty"
@@ -129,7 +131,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="qtyClicked2" />
 
             </LinearLayout>
 
@@ -150,8 +153,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    
-                    android:text="+" />
+                    android:text="+"
+                    android:onClick="qtyClicked2" />
 
                 <EditText
                     android:id="@+id/kiwi2Qty"
@@ -166,7 +169,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="qtyClicked2" />
 
             </LinearLayout>
 
@@ -195,7 +199,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="+" />
+                    android:text="+"
+                    android:onClick="qtyClicked2" />
 
                 <EditText
                     android:id="@+id/orange2Qty"
@@ -210,7 +215,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="qtyClicked2" />
             </LinearLayout>
 
             <ImageView
@@ -235,7 +241,8 @@
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="40dp"
                         android:layout_height="30dp"
-                        android:text="+" />
+                        android:text="+"
+                        android:onClick="qtyClicked2" />
 
                     <EditText
                         android:id="@+id/pear2Qty"
@@ -250,7 +257,8 @@
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="40dp"
                         android:layout_height="30dp"
-                        android:text="-" />
+                        android:text="-"
+                        android:onClick="qtyClicked2" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -277,7 +285,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="+" />
+                    android:text="+"
+                    android:onClick="qtyClicked2" />
 
                 <EditText
                     android:id="@+id/mixedQty"
@@ -292,7 +301,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:text="-" />
+                    android:text="-"
+                    android:onClick="qtyClicked2" />
             </LinearLayout>
 
             <ImageView
@@ -317,7 +327,8 @@
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="40dp"
                         android:layout_height="30dp"
-                        android:text="+" />
+                        android:text="+"
+                        android:onClick="qtyClicked2" />
 
                     <EditText
                         android:id="@+id/smoothieQty"
@@ -332,7 +343,8 @@
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="40dp"
                         android:layout_height="30dp"
-                        android:text="-" />
+                        android:text="-"
+                        android:onClick="qtyClicked2" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

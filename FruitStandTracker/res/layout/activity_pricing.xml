@@ -44,7 +44,7 @@
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:minWidth="40dp"
                     android:text="0.50" />
@@ -84,7 +84,7 @@
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:minWidth="40dp"
                     android:text="0.50" />
@@ -125,7 +125,7 @@
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:minWidth="40dp"
                     android:text="0.50" />
@@ -165,7 +165,7 @@
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:minWidth="40dp"
                     android:text="0.50" />

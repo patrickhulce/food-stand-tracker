@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 public class InventoryActivity extends Activity {
 	
-	int[] fruitQtys = new int[8];
+	int[] fruitQtys = new int[10];
 	/* table to store quantity of each item
 	 * 0 - apple
 	 * 1 - banana
@@ -30,6 +30,8 @@ public class InventoryActivity extends Activity {
 	 * 5 - pear
 	 * 6 - granola
 	 * 7 - frozen fruit
+	 * 8 - mixed bags
+	 * 9 - smoothie
 	 */
 
 	@Override
@@ -95,15 +97,7 @@ public class InventoryActivity extends Activity {
 	
 	// method that modifies fruit quantity depending on which button was pressed
 	private void changeQty(boolean pm, int fruit, int cid ) {
-		EditText qtyEdit = (EditText) findViewById(cid);
-		Editable qtyE = qtyEdit.getText();
-		
-		int qtyTemp;
-		try {
-			qtyTemp = Integer.parseInt(qtyE.toString());
-		} catch (Exception e) {
-			qtyTemp = 0;
-		}
+		int qtyTemp = getQty(cid);
 		
 		if (pm) { // increment fruit qty
 			qtyTemp++;
@@ -111,8 +105,20 @@ public class InventoryActivity extends Activity {
 			qtyTemp--;
 		}
 		fruitQtys[fruit] = qtyTemp;
+		EditText qtyEdit = (EditText) findViewById(cid);
 		qtyEdit.setText(""+qtyTemp);
 		
+	}
+	
+	private int getQty (int cid){
+		EditText qtyEdit = (EditText) findViewById(cid);
+		Editable qtyE = qtyEdit.getText();
+		
+		try {
+			return Integer.parseInt(qtyE.toString());
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 
 	@Override
@@ -127,6 +133,16 @@ public class InventoryActivity extends Activity {
     	Intent i = new Intent(this, Inventory2Activity.class);
     	//Save our info
     	
+    	fruitQtys[0] = getQty(R.id.appleQty);
+    	fruitQtys[1] = getQty(R.id.bananaQty);
+    	fruitQtys[2] = getQty(R.id.grapesQty);
+    	fruitQtys[3] = getQty(R.id.kiwiQty);
+    	fruitQtys[4] = getQty(R.id.orangeQty);
+    	fruitQtys[5] = getQty(R.id.pearQty);
+    	fruitQtys[6] = getQty(R.id.granolaQty);
+    	fruitQtys[7] = getQty(R.id.frozenQty);
+    	
+    	i.putExtra("fruit_quantities", fruitQtys);
     	i.putExtras(this.getIntent().getExtras());
     	
     	this.startActivity(i);

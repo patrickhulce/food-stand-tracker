@@ -2,6 +2,7 @@ package edu.upenn.cis350.project;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -37,7 +38,13 @@ public class CalculateRevenueActivity extends Activity {
 		EditText mixedbag = (EditText)findViewById(R.id.mixedBagRevenue);
 		EditText total = (EditText)findViewById(R.id.totalRevenue);
 		
-		
+		double usertotal = Double.parseDouble(total.getText().toString());
+		double realtotal = data.getDouble("totalcash");
+		if(realtotal == usertotal){
+			Intent i = new Intent(this, CalculateProfitActivity.class);
+			i.putExtras(data);
+			this.startActivity(i);
+		}
 	
 	}
 

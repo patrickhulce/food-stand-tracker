@@ -413,14 +413,14 @@ public class InfoActivity extends Activity {
     	//only want to move on if a volunteer and a staff member have been inputed
     	fillVolunteers();
     	fillStaff();
-    	Log.i("school 1 is", "" + school);
+    	//Log.i("school 1 is", "" + school);
     	getSchool();
-    	Log.i("school 2 is", "" + school);
+    	//Log.i("school 2 is", "" + school);
     	if(vol1 != null && vol1.length() > 1 && 
     			staff1 != null && staff1.length() > 1
     			&& school != null && school.length() > 1){
     	DataBaser dataBaser = DataBaser.getInstance();
-    	Log.i("school 3 is", "" + school);
+    	//Log.i("school 3 is", "" + school);
     	dataBaser.addInfo("school", school);  
     	dataBaser.addInfo("year", getYear());
     	dataBaser.addInfo("month", getMonth());

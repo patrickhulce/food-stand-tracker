@@ -18,8 +18,8 @@ import android.widget.AdapterView.OnItemClickListener;
 public class Inventory2Activity extends Activity {
 
 	Bundle data;
-	int[] inventory; // pre-processing inventory
-	int[] fruitQtys; // post-processing changes 
+	public int[] inventory; // pre-processing inventory
+	public int[] fruitQtys; // post-processing changes 
 	/* table to store quantity of each item
 	 * 0 - apple
 	 * 1 - banana
@@ -38,6 +38,11 @@ public class Inventory2Activity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inventory2);
 		data = getIntent().getExtras();
+		
+    	// calculate new inventory based on post-processing
+    	inventory = (int[]) data.get("fruit_quantities");
+		
+		fruitQtys = new int[10];
 	}
 	
 	public void qtyClicked2(View view) {
@@ -98,19 +103,18 @@ public class Inventory2Activity extends Activity {
 	// method that modifies fruit quantity depending on which button was pressed
 	private void changeQty(boolean pm, int fruit, int cid ) {
 		int qtyTemp = getQty(cid);
-		
 		if (pm) { // increment fruit qty
-			qtyTemp++;
-		} else if (qtyTemp > 0) { // decrement fruit qty
-			qtyTemp--;
+			if (qtyTemp < 99) qtyTemp++;
+		} else { // decrement fruit qty
+			if (qtyTemp > 0) qtyTemp--;
 		}
+		
 		fruitQtys[fruit] = qtyTemp;
 		EditText qtyEdit = (EditText) findViewById(cid);
-		qtyEdit.setText(""+qtyTemp);
-		
+		qtyEdit.setText(""+qtyTemp);	
 	}
 	
-	private int getQty (int cid){
+	public int getQty (int cid){
 		EditText qtyEdit = (EditText) findViewById(cid);
 		Editable qtyE = qtyEdit.getText();
 		
@@ -130,12 +134,11 @@ public class Inventory2Activity extends Activity {
 
     public void continueToTransactionBase(View v) {
     	
-    	// calculate new inventory based on post-processing
-    	inventory = (int[]) data.get("fruit_quantities");
-    	
     	// subtract fruits used to make mixed bags
     	for (int i=0; i<6; i++) {
+    		if (inventory[i] > 0) {
     		inventory[i] -= fruitQtys[i];
+    		}
     	}
     	
     	// add on mixed fruit and smoothies that were made

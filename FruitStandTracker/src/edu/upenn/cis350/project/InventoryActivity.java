@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 public class InventoryActivity extends Activity {
 	
-	int[] fruitQtys = new int[10];
+	int[] fruitQtys;
 	/* table to store quantity of each item
 	 * 0 - apple
 	 * 1 - banana
@@ -38,6 +38,8 @@ public class InventoryActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inventory);
+		
+		fruitQtys = new int[10];
 	}
 	
 	public void qtyClicked(View view) {
@@ -98,19 +100,18 @@ public class InventoryActivity extends Activity {
 	// method that modifies fruit quantity depending on which button was pressed
 	private void changeQty(boolean pm, int fruit, int cid ) {
 		int qtyTemp = getQty(cid);
-		
 		if (pm) { // increment fruit qty
-			qtyTemp++;
-		} else if (qtyTemp > 0) { // decrement fruit qty
-			qtyTemp--;
+			if (qtyTemp < 99) qtyTemp++;
+		} else { // decrement fruit qty
+			if (qtyTemp > 0) qtyTemp--;
 		}
+		
 		fruitQtys[fruit] = qtyTemp;
 		EditText qtyEdit = (EditText) findViewById(cid);
-		qtyEdit.setText(""+qtyTemp);
-		
+		qtyEdit.setText(""+qtyTemp);	
 	}
 	
-	private int getQty (int cid){
+	public int getQty (int cid){
 		EditText qtyEdit = (EditText) findViewById(cid);
 		Editable qtyE = qtyEdit.getText();
 		

@@ -23,7 +23,7 @@ public class PricingActivity extends Activity {
 		return true;
 	}
 	
-	private double getPrice (int cid){
+	public double getPrice (int cid){
 		EditText qtyEdit = (EditText) findViewById(cid);
 		Editable qtyE = qtyEdit.getText();
 		

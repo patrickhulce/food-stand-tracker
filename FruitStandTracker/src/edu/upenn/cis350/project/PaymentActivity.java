@@ -139,8 +139,7 @@ public class PaymentActivity extends Activity {
 		
 		transaction.putExtras(data);
 		
-		// Added piece to save information about individual transaction to
-		// database.
+		// Added piece to save information about individual transaction to database.
 		fruit.put("mixed_bags", data.getInt("mixed_bags"));
 		fruit.put("smoothies", data.getInt("smoothies"));
 		DataBaser db = DataBaser.getInstance();

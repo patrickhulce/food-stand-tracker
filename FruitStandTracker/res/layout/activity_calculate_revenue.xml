@@ -26,10 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="4"
-                android:inputType="numberDecimal" >
-
-                <requestFocus />
-            </EditText>
+                android:inputType="numberDecimal" />
 
         </TableRow>
 
@@ -137,7 +134,9 @@
                 android:id="@+id/totalLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total = Whole Fruit + Smoothies + Mixed Bags + Granola - Coupons - Junk Food" />
+                android:text="Total = 
+Whole Fruit + Smoothies + Granola
++ Mixed Bags - Coupons - Junk Food" />
         </TableRow>
         
         <TableRow
@@ -161,7 +160,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="submit_calcuations"
+        android:onClick="submit_calculations"
         android:text="Submit" />
 
 </RelativeLayout>

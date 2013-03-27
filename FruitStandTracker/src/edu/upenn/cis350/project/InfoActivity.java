@@ -364,30 +364,37 @@ public class InfoActivity extends Activity {
 			if(!school.equals("check")){
 				return;
 			}
+			if(addedSchool.getText() != null)
 	    		school = addedSchool.getText().toString();
 		}
 		
 		private void fillVolunteers(){
-			vol1 = ((EditText) findViewById(R.id.volunteer1)).getText().toString();
-			vol2 = ((EditText) findViewById(R.id.volunteer2)).getText().toString();
-			vol3 = ((EditText) findViewById(R.id.volunteer3)).getText().toString();
-			vol4 = ((EditText) findViewById(R.id.volunteer4)).getText().toString();
-			if(id > 5)
+			if(((EditText) findViewById(R.id.volunteer1)).getText() != null)
+				vol1 = ((EditText) findViewById(R.id.volunteer1)).getText().toString();
+			if(((EditText) findViewById(R.id.volunteer2)).getText() != null)
+				vol2 = ((EditText) findViewById(R.id.volunteer2)).getText().toString();
+			if(((EditText) findViewById(R.id.volunteer3)).getText() != null)
+				vol3 = ((EditText) findViewById(R.id.volunteer3)).getText().toString();
+			if(((EditText) findViewById(R.id.volunteer4)).getText() != null)
+				vol4 = ((EditText) findViewById(R.id.volunteer4)).getText().toString();
+			if(id > 5 && ((EditText) findViewById(5)).getText() != null)
 				vol5 = ((EditText) findViewById(5)).getText().toString();
-			if(id >= 6)
+			if(id >= 6 && ((EditText) findViewById(6)).getText() != null)
 				vol6 = ((EditText) findViewById(6)).getText().toString();
-			if(id >= 7)
+			if(id >= 7 && ((EditText) findViewById(7)).getText() != null)
 				vol7 = ((EditText) findViewById(7)).getText().toString();
-			if(id >= 8)
+			if(id >= 8 && ((EditText) findViewById(8)).getText() != null)
 				vol8 = ((EditText) findViewById(8)).getText().toString();
 		}
 		
 		private void fillStaff(){
-			staff1 = ((EditText) findViewById(R.id.staff1)).getText().toString();
-			staff2 = ((EditText) findViewById(R.id.staff2)).getText().toString();
-			if(sId < -3)
+			if(((EditText) findViewById(R.id.staff1)).getText() != null)
+				staff1 = ((EditText) findViewById(R.id.staff1)).getText().toString();
+			if(((EditText) findViewById(R.id.staff2)).getText() != null)
+				staff2 = ((EditText) findViewById(R.id.staff2)).getText().toString();
+			if(sId < -3 && ((EditText) findViewById(-3)).getText() != null)
 				staff3 = ((EditText) findViewById(-3)).getText().toString();
-			if(sId <= -4)
+			if(sId <= -4 && ((EditText) findViewById(-4)).getText() != null)
 				staff4 = ((EditText) findViewById(-4)).getText().toString();
 		}
 		

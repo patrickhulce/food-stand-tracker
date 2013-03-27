@@ -29,13 +29,14 @@ public class WeatherActivity extends Activity {
 		seekBar.incrementProgressBy(1);
 		seekBar.setMax(100);
 		final TextView seekBarValue = (TextView) findViewById(R.id.temp_reading);
-		seekBarValue.setText("Temperature: F");
+		
+		seekBarValue.setText("Temperature: 50F");
 
 		seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
 		    @Override
 		    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-		        seekBarValue.setText("Temperature: " + String.valueOf(progress) + "�F");
+		        seekBarValue.setText("Temperature: " + String.valueOf(progress) + "F");
 		    }
 
 			@Override
@@ -90,7 +91,7 @@ public class WeatherActivity extends Activity {
             DataBaser db = DataBaser.getInstance();
             db.addInfo("weather", w);
             db.addInfo("temperature", String.valueOf(seekBar.getProgress()));
-            db.addInfo("cashbox_starting_amount", amt);
+            db.addInfo("cashbox_amount", amt);
         	this.startActivity(i);
     	}
 	}

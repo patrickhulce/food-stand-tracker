@@ -76,11 +76,74 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
             <TextView
+                android:id="@+id/granolaTotalLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Granola: 10 x $0.50 = " />
+
+            <EditText
+                android:id="@+id/granolaRevenue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="numberDecimal" >
+            </EditText>
+        </TableRow>
+        
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/couponLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coupons: 10 x 0.50 = " />
+
+            <EditText
+                android:id="@+id/couponRevenue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="numberDecimal" >
+            </EditText>
+        </TableRow> 
+		
+		<TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/junkfoodLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Junk Food: 10 x 0.50 = " />
+
+            <EditText
+                android:id="@+id/junkfoodRevenue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="numberDecimal" >
+            </EditText>
+        </TableRow>  
+        
+        
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <TextView
                 android:id="@+id/totalLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total = " />
-
+                android:text="Total = Whole Fruit + Smoothies + Mixed Bags + Granola - Coupons - Junk Food" />
+        </TableRow>
+        
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
             <EditText
                 android:id="@+id/totalRevenue"
                 android:layout_width="wrap_content"
@@ -88,15 +151,16 @@
                 android:ems="4"
                 android:inputType="numberDecimal" >
             </EditText>
-        </TableRow>
+    	</TableRow>
+    
     </TableLayout>
 
     <Button
         android:id="@+id/submit_calculations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:onClick="submit_calcuations"
         android:text="Submit" />
 

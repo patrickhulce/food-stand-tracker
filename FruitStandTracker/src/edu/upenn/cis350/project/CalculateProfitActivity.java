@@ -1,5 +1,7 @@
 package edu.upenn.cis350.project;
 
+import com.parse.ParseObject;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -80,6 +82,11 @@ public class CalculateProfitActivity extends Activity {
 		db.addInfo("donations", String.valueOf(donations));
 		db.addInfo("profit", String.valueOf(profitReal));
 		db.addInfo("ending_cashbox_amount", String.valueOf(endingCashbox));
+		//saves the data to Parse
+		for(String s: data.keySet()){
+			db.addInfo(s, data.get(s).toString());
+		}
+		DataBaser.getInstance().databaseItThoroughly();
 		db.databaseItThoroughly();
 	}
 

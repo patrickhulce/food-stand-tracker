@@ -25,7 +25,7 @@ public class TransactionBaseActivity extends Activity {
         
         String _wholefruit = "0", _smoothies = "0", _mixedbags = "0", _transactions = "0", _totalsales = "0", _granolabars = "0";
         
-        if(data != null){
+        if(data.get("whole_fruit") != null){
         	_wholefruit = data.get("whole_fruit").toString();
         	_smoothies = data.get("smoothies").toString();
         	_mixedbags = data.get("mixed_bags").toString();
@@ -33,7 +33,6 @@ public class TransactionBaseActivity extends Activity {
         	_transactions = data.get("transactions").toString();
         	_granolabars = data.get("granolabars").toString();
         } else {
-        	data = new Bundle();
         	data.putInt("whole_fruit", 0);
         	data.putInt("smoothies", 0);
         	data.putInt("mixed_bags", 0);
@@ -72,14 +71,6 @@ public class TransactionBaseActivity extends Activity {
 	}
 	 
 	public void finishSession(View view){
-		//saves the data to Parse
-		ParseObject allTransactions = new ParseObject("totalTransactionInfo");
-		for(String s: data.keySet()){
-			allTransactions.put(s, data.get(s));
-		}
-		allTransactions.saveInBackground();
-		
-		DataBaser.getInstance().databaseItThoroughly();
 		//Continue on to calculations
 		Intent i = new Intent(this,CalculateRevenueActivity.class);
 		i.putExtras(data);

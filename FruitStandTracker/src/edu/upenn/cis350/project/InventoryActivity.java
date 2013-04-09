@@ -98,16 +98,16 @@ public class InventoryActivity extends Activity {
 	}
 	
 	// method that modifies fruit quantity depending on which button was pressed
-	private void changeQty(boolean pm, int fruit, int cid ) {
-		int qtyTemp = getQty(cid);
-		if (pm) { // increment fruit qty
+	private void changeQty(boolean increased, int fruitIndex, int widgetId ) {
+		int qtyTemp = getQty(widgetId);
+		if (increased) { // increment fruit qty
 			if (qtyTemp < 99) qtyTemp++;
 		} else { // decrement fruit qty
 			if (qtyTemp > 0) qtyTemp--;
 		}
 		
-		fruitQtys[fruit] = qtyTemp;
-		EditText qtyEdit = (EditText) findViewById(cid);
+		fruitQtys[fruitIndex] = qtyTemp;
+		EditText qtyEdit = (EditText) findViewById(widgetId);
 		qtyEdit.setText(""+qtyTemp);	
 	}
 	

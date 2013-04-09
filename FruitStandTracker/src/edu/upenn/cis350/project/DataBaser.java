@@ -32,7 +32,6 @@ public class DataBaser {
 		}
 		obj.add("preprocess_inventory", inventory1);
 		obj.add("postprocess_inventory", inventory2);
-		//TODO some clever calculation with the 2 inventories
 		obj.saveInBackground();
 		
 		String school = info.get("school");

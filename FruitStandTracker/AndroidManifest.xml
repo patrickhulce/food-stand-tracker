@@ -57,6 +57,10 @@
             android:name="edu.upenn.cis350.project.PricingActivity"
             android:label="@string/title_activity_pricing" >
         </activity>
+        <activity
+            android:name="edu.upenn.cis350.project.PreSalesPepActivity"
+            android:label="@string/title_activity_pre_sales_pep" >
+        </activity>
     </application>
 
 </manifest>

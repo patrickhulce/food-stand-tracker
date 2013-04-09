@@ -146,7 +146,7 @@ public class Inventory2Activity extends Activity {
     	inventory[9] = fruitQtys[9];
     	
     	//Launch to transaction base
-    	Intent i = new Intent(this, TransactionBaseActivity.class);
+    	Intent i = new Intent(this, PreSalesPepActivity.class);
     	
     	//TODO Use savePostInventory to save info
     	HashMap<String, Integer> postinv = new HashMap<String, Integer>();

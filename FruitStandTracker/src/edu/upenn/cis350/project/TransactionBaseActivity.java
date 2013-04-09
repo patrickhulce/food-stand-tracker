@@ -72,7 +72,7 @@ public class TransactionBaseActivity extends Activity {
 	 
 	public void finishSession(View view){
 		//Continue on to calculations
-		Intent i = new Intent(this,CalculateRevenueActivity.class);
+		Intent i = new Intent(this,PreCalculationsPepActivity.class);
 		i.putExtras(data);
 		this.startActivity(i);
 	}

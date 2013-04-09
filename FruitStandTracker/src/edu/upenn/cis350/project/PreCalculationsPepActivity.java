@@ -12,11 +12,11 @@ public class PreCalculationsPepActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_pre_sales_pep);
+		setContentView(R.layout.activity_pre_calculations_pep);
 		data = getIntent().getExtras();
 	}
 
-	public void startSelling(View v) {
+	public void startCalculating(View v) {
     	Intent i = new Intent(this, CalculateRevenueActivity.class);
     	i.putExtras(data);
     	this.startActivity(i);

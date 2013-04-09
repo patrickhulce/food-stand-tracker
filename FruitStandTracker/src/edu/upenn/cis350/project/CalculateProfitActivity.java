@@ -93,8 +93,9 @@ public class CalculateProfitActivity extends Activity {
 			}
 			DataBaser.getInstance().databaseItThoroughly();
 			db.databaseItThoroughly();
-			
-			this.startActivity(new Intent(this, StartActivity.class));
+			Intent i = new Intent(this, FinishedPepActivity.class);
+			i.putExtra("profitable", profitReal > 0);
+			this.startActivity(i);
 		} catch (Exception e) {
 			String toastText = "Looks like you left a box blank, everything has to be filled in before submitting.";
 			Toast.makeText(getApplicationContext(), toastText.toString(), Toast.LENGTH_LONG).show();

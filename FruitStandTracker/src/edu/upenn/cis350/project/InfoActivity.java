@@ -104,102 +104,102 @@ public class InfoActivity extends Activity {
     	switch(i){
     	case 0:
     	{
-    		school = "Auden Reid High School";
+    		school = "Alexander Wilson Middle School";
     		break;
     	}
     	case 1:
     	{
-    		school = "Bartram High School";
+    		school = "Auden Reid High School";
     		break;
     	}
     	case 2:
     	{
-    		school = "Bryant Elementary School";
+    		school = "Bartram High School";
     		break;
     	}
     	case 3:
     	{
-    		school = "Comegys Elementary School";
+    		school = "Bryant Elementary School";
     		break;
     	}
     	case 4:
     	{
-    		school = "Communications Technology High School";
+    		school = "Comegys Elementary School";
     		break;
     	}
     	case 5:
     	{
-    		school = "Freire Charter School";
+    		school = "Communications Technology High School";
     		break;
     	}
     	case 6:
     	{
-    		school = "Gideon Elementary School";
+    		school = "Freire Charter School";
     		break;
     	}
     	case 7: 
     	{
-    		school = "Hardy Williams Middle School";
+    		school = "Gideon Elementary School";
     		break;
     	}
     	case 8:
     	{
-    		school = "High School of the Future";
+    		school = "Hardy Williams Middle School";
     		break;
     	}
     	case 9:
     	{
-    		school = "Huey Elementary School";
+    		school = "High School of the Future";
     		break;
     	}
     	case 10:
     	{
-    		school = "Lea Elementary School";
+    		school = "Huey Elementary School";
     		break;
     	}
     	case 11:
     	{
-    		school = "Locke Elementary School";
+    		school = "Lea Elementary School";
     		break;
     	}
     	case 12:
     	{
-    		school = "Pepper Middle School";
+    		school = "Locke Elementary School";
     		break;
     	}
     	case 13:
     	{
-    		school = "Robeson High School";
+    		school = "Pepper Middle School";
     		break;
     	}
     	case 14:
     	{
-    		school = "Sayre High School";
+    		school = "Robeson High School";
     		break;
     	}
     	case 15:
     	{
-    		school = "Shaw Anna H Middle School";
+    		school = "Sayre High School";
     		break;
     	}
     	case 16:
     	{
-    		school = "Strawberry Mansion High School";
+    		school = "Shaw Anna H Middle School";
     		break;
     	}
     	case 17:
     	{
-    		school = "University City High School";
+    		school = "Strawberry Mansion High School";
     		break;
     	}
     	case 18:
     	{
-    		school = "West Philadelphia High School";
+    		school = "University City High School";
     		break;
     	}
     	case 19:
     	{
-    		school = "Woodrow Wilson Middle School";
+    		school = "West Philadelphia High School";
     		break;
     	}
     	case 20:
@@ -381,11 +381,11 @@ public class InfoActivity extends Activity {
 				vol4 = ((EditText) findViewById(R.id.volunteer4)).getText().toString();
 			if(id > 5 && ((EditText) findViewById(5)).getText() != null)
 				vol5 = ((EditText) findViewById(5)).getText().toString();
-			if(id >= 6 && ((EditText) findViewById(6)).getText() != null)
+			if(id > 6 && ((EditText) findViewById(6)).getText() != null)
 				vol6 = ((EditText) findViewById(6)).getText().toString();
-			if(id >= 7 && ((EditText) findViewById(7)).getText() != null)
+			if(id > 7 && ((EditText) findViewById(7)).getText() != null)
 				vol7 = ((EditText) findViewById(7)).getText().toString();
-			if(id >= 8 && ((EditText) findViewById(8)).getText() != null)
+			if(id > 8 && ((EditText) findViewById(8)).getText() != null)
 				vol8 = ((EditText) findViewById(8)).getText().toString();
 		}
 		
@@ -396,7 +396,7 @@ public class InfoActivity extends Activity {
 				staff2 = ((EditText) findViewById(R.id.staff2)).getText().toString();
 			if(sId < -3 && ((EditText) findViewById(-3)).getText() != null)
 				staff3 = ((EditText) findViewById(-3)).getText().toString();
-			if(sId <= -4 && ((EditText) findViewById(-4)).getText() != null)
+			if(sId < -4 && ((EditText) findViewById(-4)).getText() != null)
 				staff4 = ((EditText) findViewById(-4)).getText().toString();
 		}
 		
@@ -441,18 +441,18 @@ public class InfoActivity extends Activity {
     	dataBaser.addInfo("vol4", vol4);
     	if(id > 5)
 			dataBaser.addInfo("vol5", vol5);
-		if(id >= 6)
+		if(id > 6)
 			dataBaser.addInfo("vol6", vol6);
-		if(id >= 7)
+		if(id > 7)
 			dataBaser.addInfo("vol7", vol7);
-		if(id >= 8)
+		if(id > 8)
 			dataBaser.addInfo("vol8", vol8);
 		
 		dataBaser.addInfo("staff1", staff1);
 		dataBaser.addInfo("staff2", staff2);
 		if(sId < -3)
 			dataBaser.addInfo("staff3", staff3);
-		if(sId <= -4)
+		if(sId < -4)
 			dataBaser.addInfo("staff4", staff4);
     	
     	this.startActivity(i);

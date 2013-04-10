@@ -28,6 +28,7 @@ public class DataBaser {
 		//Save the generic information
 		ParseObject obj = new ParseObject("fruitStandInfo");
 		for(String k : info.keySet()) {
+			
 			obj.add(k, info.get(k));
 		}
 		obj.add("preprocess_inventory", inventory1);

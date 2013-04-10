@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:text="Great job! Are you readying to start selling the best fruit in the world?"
+        android:text="@string/calcProfit"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ImageView

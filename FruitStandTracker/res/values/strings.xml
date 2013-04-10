@@ -16,8 +16,12 @@
     <string name="addV">Add a Volunteer</string>
     <string name="staff_title">Who are the staff members?</string>
     <string name="addS">Add a Staff Member</string>
-
+    
+    <string name="calcProfit">Great job! Are you readying to start using your business savvy and calculate your profit?</string>
+	<string name="sellFruit">Great job! Are you readying to start selling the best fruit in the world?</string>
+    
     <string-array name="school_list">
+        <item>Alexander Wilson Middle School</item>
         <item>Auden Reid High School</item>
         <item>Bartram High School</item>
         <item>Bryant Elementary School</item>
@@ -37,7 +41,6 @@
         <item>Strawberry Mansion High School</item>
         <item>University City High School</item>
         <item>West Philadelphia High School</item>
-        <item>Woodrow Wilson Middle School</item>
         <item>Add A School</item>
     </string-array>
 

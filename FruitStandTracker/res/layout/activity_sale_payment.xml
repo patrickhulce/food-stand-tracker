@@ -75,11 +75,6 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
-    <View
-        android:id="@+id/view1"
-        android:layout_width="wrap_content"
-        android:layout_height="94dp" />
-    
     <Button
         android:id="@+id/clear"
         android:layout_width="match_parent"
@@ -87,14 +82,19 @@
         android:onClick="clear_button"
         android:text="Clear All"
         android:visibility="visible" />
-        
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="66dp" />
+
     <Button
         android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:enabled="false"
         android:onClick="submit_button"
         android:text="Submit"
-        android:visibility="visible"
-        android:enabled="false" />
+        android:visibility="visible" />
 
 </LinearLayout>

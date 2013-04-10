@@ -268,6 +268,11 @@
 	        android:onClick="clear_entries"
 	        android:text="Clear All" />
 
+	    <View
+	        android:id="@+id/view1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="60dp" />
+
 	    <Button
 	        android:id="@+id/button_continue"
 	        android:layout_width="match_parent"

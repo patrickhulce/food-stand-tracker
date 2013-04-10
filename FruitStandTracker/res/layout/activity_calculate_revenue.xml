@@ -1,150 +1,156 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CalculateRevenueActivity" >
-
-    <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" >
-
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/wholeFruitTotalLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Whole Fruit: 10 x $0.50 = " />
-
-            <EditText
-                android:id="@+id/wholeFruitRevenue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="4"
-                android:inputType="numberDecimal" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            <TextView
-                android:id="@+id/mixedBagTotalLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mixed Bags: 10 x $0.50 = " />
-
-            <EditText
-                android:id="@+id/mixedBagRevenue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="4"
-                android:inputType="numberDecimal" >
-            </EditText>
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            <TextView
-                android:id="@+id/smoothieTotalLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Smoothies: 10 x $0.50 = " />
-
-            <EditText
-                android:id="@+id/smoothieRevenue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="4"
-                android:inputType="numberDecimal" >
-            </EditText>
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            <TextView
-                android:id="@+id/granolaTotalLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Granola: 10 x $0.50 = " />
-
-            <EditText
-                android:id="@+id/granolaRevenue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="4"
-                android:inputType="numberDecimal" >
-            </EditText>
-        </TableRow>
-        
-        <TableRow
-            android:id="@+id/tableRow5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            <TextView
-                android:id="@+id/couponLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="Coupons: 10 x 0.50 = " />
-        </TableRow> 
-		
-		<TableRow
-            android:id="@+id/tableRow5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            <TextView
-                android:id="@+id/junkfoodLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="Junk Food: 10 x 0.50 = " />
-        </TableRow>  
-        
-        
-        <TableRow
-            android:id="@+id/tableRow5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            <TextView
-                android:id="@+id/totalLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text= "@string/total_revenue" />
-        </TableRow>
-        
-        <TableRow
-            android:id="@+id/tableRow5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            <EditText
-                android:id="@+id/totalRevenue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="4"
-                android:inputType="numberDecimal" >
-            </EditText>
-    	</TableRow>
-    
-    </TableLayout>
-
-    <Button
-        android:id="@+id/submit_calculations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="submit_calculations"
-        android:text="Submit" />
-
-</RelativeLayout>
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent">
+	    
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    tools:context=".CalculateRevenueActivity" >
+	
+	    <TableLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true" >
+	
+	        <TableRow
+	            android:id="@+id/tableRow1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" >
+	
+	            <TextView
+	                android:id="@+id/wholeFruitTotalLabel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="Whole Fruit: 10 x $0.50 = " />
+	
+	            <EditText
+	                android:id="@+id/wholeFruitRevenue"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:ems="4"
+	                android:inputType="numberDecimal" />
+	
+	        </TableRow>
+	
+	        <TableRow
+	            android:id="@+id/tableRow2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" >
+	            <TextView
+	                android:id="@+id/mixedBagTotalLabel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="Mixed Bags: 10 x $0.50 = " />
+	
+	            <EditText
+	                android:id="@+id/mixedBagRevenue"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:ems="4"
+	                android:inputType="numberDecimal" >
+	            </EditText>
+	        </TableRow>
+	
+	        <TableRow
+	            android:id="@+id/tableRow3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" >
+	            <TextView
+	                android:id="@+id/smoothieTotalLabel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="Smoothies: 10 x $0.50 = " />
+	
+	            <EditText
+	                android:id="@+id/smoothieRevenue"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:ems="4"
+	                android:inputType="numberDecimal" >
+	            </EditText>
+	        </TableRow>
+	
+	        <TableRow
+	            android:id="@+id/tableRow4"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" >
+	            <TextView
+	                android:id="@+id/granolaTotalLabel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="Granola: 10 x $0.50 = " />
+	
+	            <EditText
+	                android:id="@+id/granolaRevenue"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:ems="4"
+	                android:inputType="numberDecimal" >
+	            </EditText>
+	        </TableRow>
+	        
+	        <TableRow
+	            android:id="@+id/tableRow5"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" >
+	            <TextView
+	                android:id="@+id/couponLabel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="30dp"
+	                android:gravity="center"
+	                android:text="Coupons: 10 x 0.50 = " />
+	        </TableRow> 
+			
+			<TableRow
+	            android:id="@+id/tableRow5"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" >
+	            <TextView
+	                android:id="@+id/junkfoodLabel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="30dp"
+	                android:gravity="center"
+	                android:text="Junk Food: 10 x 0.50 = " />
+	        </TableRow>  
+	        
+	        
+	        <TableRow
+	            android:id="@+id/tableRow5"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" >
+	            <TextView
+	                android:id="@+id/totalLabel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text= "@string/total_revenue" />
+	        </TableRow>
+	        
+	        <TableRow
+	            android:id="@+id/tableRow5"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" >
+	            <EditText
+	                android:id="@+id/totalRevenue"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:ems="4"
+	                android:inputType="numberDecimal" >
+	            </EditText>
+	    	</TableRow>
+	    
+	    </TableLayout>
+	
+	    <Button
+	        android:id="@+id/submit_calculations"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true"
+	        android:onClick="submit_calculations"
+	        android:text="Submit" />
+	
+	</RelativeLayout>
+</ScrollView>

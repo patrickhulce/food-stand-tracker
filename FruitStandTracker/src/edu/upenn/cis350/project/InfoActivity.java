@@ -65,7 +65,7 @@ public class InfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
         
-        Spinner spinner = (Spinner) findViewById(R.id.school);
+        final Spinner spinner = (Spinner) findViewById(R.id.school);
         
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -79,7 +79,21 @@ public class InfoActivity extends Activity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
             	int i = (int) id;
-            	determineSchool(i);
+            	if(i == 20){
+            		school = "check";
+            		Log.i("adding", "This is indeed the add a school option");
+            		schoolLayout = (LinearLayout) findViewById(R.id.additional_school);
+            		addedSchool = new EditText(InfoActivity.this);
+            		addedSchool.setId(100);//completely arbitrary, still don't know what to do with ids
+            		addedSchool.setWidth(LayoutParams.MATCH_PARENT);
+            		addedSchool.setHeight(LayoutParams.WRAP_CONTENT);
+            		addedSchool.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
+            		addedSchool.setHint(R.string.school_hint);
+            		schoolLayout.addView(addedSchool);	
+            	}
+            	else{
+            		school = (String)spinner.getSelectedItem();
+            	}
             }
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -99,125 +113,7 @@ public class InfoActivity extends Activity {
 
     }
 
-    //based on the id chosen by the school spinner
-    private void determineSchool(int i){
-    	switch(i){
-    	case 0:
-    	{
-    		school = "Alexander Wilson Middle School";
-    		break;
-    	}
-    	case 1:
-    	{
-    		school = "Auden Reid High School";
-    		break;
-    	}
-    	case 2:
-    	{
-    		school = "Bartram High School";
-    		break;
-    	}
-    	case 3:
-    	{
-    		school = "Bryant Elementary School";
-    		break;
-    	}
-    	case 4:
-    	{
-    		school = "Comegys Elementary School";
-    		break;
-    	}
-    	case 5:
-    	{
-    		school = "Communications Technology High School";
-    		break;
-    	}
-    	case 6:
-    	{
-    		school = "Freire Charter School";
-    		break;
-    	}
-    	case 7: 
-    	{
-    		school = "Gideon Elementary School";
-    		break;
-    	}
-    	case 8:
-    	{
-    		school = "Hardy Williams Middle School";
-    		break;
-    	}
-    	case 9:
-    	{
-    		school = "High School of the Future";
-    		break;
-    	}
-    	case 10:
-    	{
-    		school = "Huey Elementary School";
-    		break;
-    	}
-    	case 11:
-    	{
-    		school = "Lea Elementary School";
-    		break;
-    	}
-    	case 12:
-    	{
-    		school = "Locke Elementary School";
-    		break;
-    	}
-    	case 13:
-    	{
-    		school = "Pepper Middle School";
-    		break;
-    	}
-    	case 14:
-    	{
-    		school = "Robeson High School";
-    		break;
-    	}
-    	case 15:
-    	{
-    		school = "Sayre High School";
-    		break;
-    	}
-    	case 16:
-    	{
-    		school = "Shaw Anna H Middle School";
-    		break;
-    	}
-    	case 17:
-    	{
-    		school = "Strawberry Mansion High School";
-    		break;
-    	}
-    	case 18:
-    	{
-    		school = "University City High School";
-    		break;
-    	}
-    	case 19:
-    	{
-    		school = "West Philadelphia High School";
-    		break;
-    	}
-    	case 20:
-    	{
-    		school = "check";
-    		Log.i("adding", "This is indeed the add a school option");
-    		schoolLayout = (LinearLayout) findViewById(R.id.additional_school);
-    		addedSchool = new EditText(InfoActivity.this);
-    		addedSchool.setId(100);//completely arbitrary, still don't know what to do with ids
-    		addedSchool.setWidth(LayoutParams.MATCH_PARENT);
-    		addedSchool.setHeight(LayoutParams.WRAP_CONTENT);
-    		addedSchool.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
-    		addedSchool.setHint(R.string.school_hint);
-    		schoolLayout.addView(addedSchool);	
-    		break;
-    	}
-    	}
-    }
+    
     
     
     @Override

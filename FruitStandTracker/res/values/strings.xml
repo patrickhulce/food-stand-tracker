@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="parseAPIkey">vKGeILnmz4ajn4OtZQoentkFSvcg9gBKch4oTavc</string>
-    <string name="parsesecretkey">qSdO1zCvQfzFrJgvcljwylR4DVO7vse31lbn8TrE</string>
+    <string name="parseAPIkey">9xU6S7w5jN2MpVmxp1YGuVOVXtEy54uXP9PAGmXV</string>
+    <string name="parsesecretkey">TNY4iuMDx193JkRQiKVzef4IWATSCTAJGF7j3K3C</string>
     <string name="app_name">FruitStandTracker</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>

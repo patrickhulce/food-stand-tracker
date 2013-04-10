@@ -301,7 +301,7 @@ public class InfoActivity extends Activity {
 		}
 		
 		public String getMonth(){
-			return Integer.toString(month);
+			return Integer.toString(month + 1) ;
 		}
 		
 		public String getDay(){

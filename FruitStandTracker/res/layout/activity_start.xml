@@ -2,7 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity" >
+    tools:context=".StartActivity" 
+    android:background="@drawable/generic_screen">
+    
+    
 
     <Button
         android:id="@+id/buttonStart"
@@ -12,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="79dp"
         android:onClick="start_button"
-        android:text="Start Tracking Session" />
+        android:text="@string/start_button_label" />
 
     <View
         android:id="@+id/view1"
@@ -28,6 +31,6 @@
         android:layout_alignLeft="@+id/buttonStart"
         android:layout_centerVertical="true"
         android:onClick="resume_button"
-        android:text="Resume Tracking Session" />
+        android:text="@string/resume_button_label" />
 
 </RelativeLayout>

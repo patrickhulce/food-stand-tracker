@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="start_button_label">Start Tracking Session</string>
+    <string name="backgroundImage">Background Image</string>
+    <string name="resume_button_label">Resume Tracking Session</string>
+    
     <string name="parseAPIkey">9xU6S7w5jN2MpVmxp1YGuVOVXtEy54uXP9PAGmXV</string>
     <string name="parsesecretkey">TNY4iuMDx193JkRQiKVzef4IWATSCTAJGF7j3K3C</string>
     <string name="app_name">FruitStandTracker</string>
@@ -50,8 +54,8 @@
 
     <string-array name="grade_list">
         <item>Elementary (K-5)</item>
-        <item>Middle School (6-8)</item>
-        <item>High School (9-12)</item>
+        <item>Middle School (6—8)</item>
+        <item>High School (9—12)</item>
         <item>School Staff</item>
         <item>Parent</item>
         <item>Other</item>

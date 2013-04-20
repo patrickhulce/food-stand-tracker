@@ -315,6 +315,116 @@ public class InfoActivity extends Activity {
 		public String getSchool(){
 			return school;
 		}
+		
+		
+		//method to test whether the volunteers are being input correctly. 
+		//input is an array of 8 strings, which are then checked against
+		//the volunteer variables of this class
+		//fillVolunteers() is called in this class, so it does not need to 
+		//be called in the test case
+		public boolean verifyVolunteers(String[] volunteers){
+			//check to see that there are 8 volunteer slots in the array
+			if(volunteers.length != 8){
+				Log.i("one", "fail 1");
+				return false;
+			}
+			fillVolunteers();
+			if(vol1 == null){
+				if(volunteers[0] != null){
+					Log.i("two", "fail 2");
+					return false;
+				}
+			}
+			if(vol1 != null && volunteers[0] != null && !volunteers[0].equals(vol1)){
+				Log.i("three", "fail 3");
+				return false;
+			}
+			
+			if(vol2 == null){
+				if(volunteers[1] != null){
+					Log.i("four", "fail 4");
+					return false;
+				}
+			}
+			if(vol2 != null && volunteers[1] != null && !volunteers[1].equals(vol2)){
+				Log.i("five", "fail 5");
+				return false;
+			}
+			
+			if(vol3 == null){
+				if(volunteers[2] != null){
+					return false;	
+				}
+			}
+			if(vol3 != null && volunteers[2] != null && !vol3.equals(volunteers[2])){
+				Log.i("seven", "fail 7");
+				return false;
+			}
+			
+			if(vol4 == null){
+				if(volunteers[3] != null){
+					Log.i("eight", "fail 8");
+					return false;
+				}
+			}
+			if(vol4 != null && volunteers[3] != null && !vol4.equals(volunteers[3])){
+				Log.i("nine", "fail 9");
+				return false;
+			}
+			
+			
+			
+			if(vol5 == null){
+				if(volunteers[4] != null){
+					Log.i("ten", "fail 10");
+					return false;
+				}
+			}
+			if(vol5 != null && volunteers[4] != null && !vol5.equals(volunteers[4])){
+				Log.i("eleven", "fail 11");
+				return false;
+			}
+			
+			if(vol6 == null){
+				if(volunteers[5] != null){
+					Log.i("twelve", "fail 12");
+					return false;
+				}
+			}
+			if(vol6 != null && volunteers[5] != null && !vol6.equals(volunteers[5])){
+				Log.i("thirteen", "fail 13");
+				return false;
+			}
+			
+			if(vol7 == null){
+				if(volunteers[6] != null){
+					Log.i("fourteen", "fail 14");
+					return false;
+				}
+			}
+			if(vol7 != null && volunteers[6] != null && !vol7.equals(volunteers[6])){ 
+				Log.i("fifteen", "fail 15");
+				return false;
+			}
+			
+			if(vol8 == null){
+				if(volunteers[7] != null){
+					Log.i("sixteen", "fail 16");
+					return false;
+				}
+			}
+			if(vol8 != null && volunteers[7] != null && !vol8.equals(volunteers[7])){ 
+				Log.i("seventeen", "fail 17");
+				return false;
+			}
+			Log.i("eigteen", "true 18");
+			return true;
+		}
+		
+		public boolean verifyStaff(String[] staff){
+			if(staff.length != 4) return false;
+			return false;
+		}
 	
     public void continueToWeather(View v){
     	Intent i = new Intent(this, WeatherActivity.class);

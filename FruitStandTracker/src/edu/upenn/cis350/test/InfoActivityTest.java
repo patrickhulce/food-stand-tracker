@@ -12,6 +12,7 @@ public class InfoActivityTest extends ActivityInstrumentationTestCase2<InfoActiv
 	InfoActivity activity;
 	Spinner mySpinner;
 	EditText volunteer1;
+	EditText volunteer2;
 	EditText staff1;
 	Button addVolunteer;
 	Button addStaff;
@@ -26,6 +27,7 @@ public class InfoActivityTest extends ActivityInstrumentationTestCase2<InfoActiv
 		activity = getActivity();
 		mySpinner = (Spinner)activity.findViewById(edu.upenn.cis350.project.R.id.school);
 		volunteer1 = (EditText)activity.findViewById(edu.upenn.cis350.project.R.id.volunteer1);
+		volunteer2 = (EditText)activity.findViewById(edu.upenn.cis350.project.R.id.volunteer2);
 		staff1 = (EditText)activity.findViewById(edu.upenn.cis350.project.R.id.staff1);
 		addVolunteer = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.add_volunteer);
 		addStaff = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.add_staff);
@@ -150,6 +152,46 @@ public class InfoActivityTest extends ActivityInstrumentationTestCase2<InfoActiv
 			} 	
 		activity.updateSchool();
 		assertEquals(mySchool, activity.getSchool());
+	}
+	
+	public void testTwoVolunteers(){
+		String name1 = "jerry seinfield";
+		String name2 = "mickey mantel";
+		
+		activity.runOnUiThread(
+				new Runnable() {
+					public void run() {
+						volunteer1.requestFocus();         
+				    }
+				} 
+			);
+		char [] jerry = name1.toCharArray();
+		for(int i= 0; i< jerry.length; i++){
+			this.sendKeys(fun_get_android_keycode(jerry[i]));
+		}
+		
+		activity.runOnUiThread(
+				new Runnable() {
+					public void run() {
+						volunteer2.requestFocus();         
+				    }
+				} 
+			);
+		char [] mickey = name2.toCharArray();
+		for(int i= 0; i< mickey.length; i++){
+			this.sendKeys(fun_get_android_keycode(mickey[i]));
+		}
+		String[] volunteerArray = new String[8];
+		volunteerArray[0] = name1;
+		volunteerArray[1] = name2;
+		for(int i = 2; i < volunteerArray.length; i++){
+			volunteerArray[i] = null;
+		}
+		assertTrue(activity.verifyVolunteers(volunteerArray));
+	}
+	
+	public void testEightVolunteers(){
+		
 	}
 	/*
 	public void testDate(){

@@ -1,6 +1,7 @@
-package edu.upenn.cis350.project;
+package edu.upenn.cis350.test;
 
 import edu.upenn.cis350.project.PaymentActivity;
+import edu.upenn.cis350.project.R;
 import android.os.Bundle;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;

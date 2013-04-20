@@ -1,5 +1,7 @@
-package edu.upenn.cis350.project;
+package edu.upenn.cis350.test;
 
+import edu.upenn.cis350.project.R;
+import edu.upenn.cis350.project.SaleActivity;
 import android.os.Bundle;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;

@@ -21,44 +21,43 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class InfoActivity extends Activity {
-	//TODO everything has been made public for testing purposes. 
-	//Change that later
-	public String school; 
-	
-	TextView saleDisplayDate;
-	Button changeDate;
+
+	//variables for school information
+	private LinearLayout schoolLayout;
+	private EditText addedSchool;
+	private String school;
 	
 	//variables for the date
-	public int year;
-	public int month;
-	public int day;
-	
+	private TextView saleDisplayDate;
+	private Button changeDate;
 	static final int DATE_DIALOG_ID = 999;
+	private int year;
+	private int month;
+	private int day;
 	
 	//variables for adding volunteers
-	Button addVol;
-	LinearLayout volLayout;
-	int id;
-	public String vol1;
-	public String vol2;
-	public String vol3;
-	public String vol4;
-	public String vol5;
-	public String vol6;
-	public String vol7;
-	public String vol8;
+	private Button addVol;
+	private LinearLayout volLayout;
+	private int id;
+	private String vol1;
+	private String vol2;
+	private String vol3;
+	private String vol4;
+	private String vol5;
+	private String vol6;
+	private String vol7;
+	private String vol8;
 	
 	//variables for adding staff members
 	public Button addStaff;
-	LinearLayout staffLayout;
-	int sId;
+	private LinearLayout staffLayout;
+	private int sId;
 	public String staff1;
 	public String staff2;
 	public String staff3;
 	public String staff4;
 	
-	LinearLayout schoolLayout;
-	EditText addedSchool;
+	
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,12 +78,14 @@ public class InfoActivity extends Activity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
             	int i = (int) id;
+            	//creates a new EditText if the user would like to input their school
+            	//20 is the id of the Add a School option of the School Spinner (school_list)
             	if(i == 20){
-            		school = "check";
+            		school = "check";//variable value that will alert an update method to act
             		Log.i("adding", "This is indeed the add a school option");
             		schoolLayout = (LinearLayout) findViewById(R.id.additional_school);
             		addedSchool = new EditText(InfoActivity.this);
-            		addedSchool.setId(100);//completely arbitrary, still don't know what to do with ids
+            		addedSchool.setId(100);//completely arbitrary id
             		addedSchool.setWidth(LayoutParams.MATCH_PARENT);
             		addedSchool.setHeight(LayoutParams.WRAP_CONTENT);
             		addedSchool.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
@@ -101,7 +102,7 @@ public class InfoActivity extends Activity {
         
         //for the date picker
         setCurrentDateOnView();
-		addListenerOnButton();
+		addListenerDate();
 		
 		//for the volunteer adder
 		addListenerAddVol();
@@ -112,8 +113,6 @@ public class InfoActivity extends Activity {
         staffLayout = (LinearLayout) findViewById(R.id.staff_list);
 
     }
-
-    
     
     
     @Override
@@ -124,8 +123,8 @@ public class InfoActivity extends Activity {
     }
      
     
- // display current date
-	public void setCurrentDateOnView() {
+    // display current date
+	private void setCurrentDateOnView() {
  
 		saleDisplayDate = (TextView) findViewById(R.id.saleDate);
  
@@ -136,27 +135,22 @@ public class InfoActivity extends Activity {
 		day = c.get(Calendar.DAY_OF_MONTH);
  
 		// set current date into textview
-		saleDisplayDate.setText(new StringBuilder()
-			// Month is 0 based, just add 1
-			.append(month + 1).append("-").append(day).append("-")
-			.append(year).append(" "));
- 
+		saleDisplayDate.setText(
+				Integer.toString(month + 1) + "-" + 
+				Integer.toString(day) + "-" + 
+				Integer.toString(year) + " ");
 	}
  
-	public void addListenerOnButton() {
+	private void addListenerDate() {
 		changeDate = (Button) findViewById(R.id.change_date);
- 
 		changeDate.setOnClickListener(new View.OnClickListener() {
- 
+			
 			@Override
 			public void onClick(View v) {
- 
 				showDialog(DATE_DIALOG_ID);
- 
 			}
  
 		});
- 
 	}
 	
 	@Override
@@ -182,14 +176,14 @@ public class InfoActivity extends Activity {
 				day = selectedDay;
 
 				// set selected date into textview
-				saleDisplayDate.setText(new StringBuilder().append(month + 1)
-						.append("-").append(day).append("-").append(year)
-						.append(" "));
+				saleDisplayDate.setText(
+						Integer.toString(month + 1) + "-" + 
+						Integer.toString(day) + "-" + 
+						Integer.toString(year) + " ");
 			}
 		};
-	
-		//listener for button that should add an edittext for another volunteer
-		public void addListenerAddVol(){
+		
+		private void addListenerAddVol(){
 			id = 4;
 			addVol = (Button) findViewById(R.id.add_volunteer);
 			
@@ -208,7 +202,7 @@ public class InfoActivity extends Activity {
 			});
 		}
 		
-		//method that actually adds another edittext for another volunteer
+		//method that adds a volunteer edittext
 		private void moreVolunteers(){
 				
 				EditText newVol = new EditText(this);
@@ -222,8 +216,7 @@ public class InfoActivity extends Activity {
 			
 		}
 	
-		//listener for button that should add an edittext for another staff member
-		public void addListenerAddStaff(){
+		private void addListenerAddStaff(){
 			sId = -2;
 			addStaff = (Button) findViewById(R.id.add_staff);
 			
@@ -234,7 +227,6 @@ public class InfoActivity extends Activity {
 					//two original staff members, plus 2 staff members that may be
 					//added in addition
 					if(sId > -5){
-						Log.i("sID is ", "" + sId);
 						moreStaff();
 					}					
 				}
@@ -242,7 +234,7 @@ public class InfoActivity extends Activity {
 			
 		}
 		
-		//method that actually adds another edittext for another staff member
+		//method that adds a staff edittext
 		private void moreStaff(){
 			EditText newStaff = new EditText(this);
 			newStaff.setId(sId);
@@ -258,7 +250,7 @@ public class InfoActivity extends Activity {
 		//value of school to the value in the text box
 		//this can be determined by the current value of school -> "check"
 		//else, do nothing
-		public void getSchool(){
+		public void updateSchool(){
 			if(!school.equals("check")){
 				return;
 			}
@@ -266,7 +258,8 @@ public class InfoActivity extends Activity {
 	    		school = addedSchool.getText().toString();
 		}
 		
-		public void fillVolunteers(){
+		//fills the volunteer string variables for later usage
+		private void fillVolunteers(){
 			if(((EditText) findViewById(R.id.volunteer1)).getText() != null)
 				vol1 = ((EditText) findViewById(R.id.volunteer1)).getText().toString();
 			if(((EditText) findViewById(R.id.volunteer2)).getText() != null)
@@ -285,7 +278,13 @@ public class InfoActivity extends Activity {
 				vol8 = ((EditText) findViewById(8)).getText().toString();
 		}
 		
-		public void fillStaff(){
+		//getter method for number of volunteer edittexts exist
+		public int getVolunteers(){
+			return id;
+		}
+		
+		//fills the staff string variables for later usage
+		private void fillStaff(){
 			if(((EditText) findViewById(R.id.staff1)).getText() != null)
 				staff1 = ((EditText) findViewById(R.id.staff1)).getText().toString();
 			if(((EditText) findViewById(R.id.staff2)).getText() != null)
@@ -294,6 +293,11 @@ public class InfoActivity extends Activity {
 				staff3 = ((EditText) findViewById(-3)).getText().toString();
 			if(sId < -4 && ((EditText) findViewById(-4)).getText() != null)
 				staff4 = ((EditText) findViewById(-4)).getText().toString();
+		}
+		
+		//getter method for number of staff edittexts exist
+		public int getStaff(){
+			return 0 - sId;
 		}
 		
 		public String getYear(){
@@ -307,51 +311,49 @@ public class InfoActivity extends Activity {
 		public String getDay(){
 			return Integer.toString(day);
 		}
+		
+		public String getSchool(){
+			return school;
+		}
 	
     public void continueToWeather(View v){
-    	//Launch to weather
     	Intent i = new Intent(this, WeatherActivity.class);
-    	//Save our info
-    	i.putExtra("herma", "derp");
     	
     	//save school information for later use
-    	//only want to move on if a volunteer and a staff member have been inputed
     	fillVolunteers();
     	fillStaff();
-    	//Log.i("school 1 is", "" + school);
-    	getSchool();
-    	//Log.i("school 2 is", "" + school);
+    	updateSchool();
+    	//only want to move on if a volunteer and a staff member have received input
     	if(vol1 != null && vol1.length() > 1 && 
     			staff1 != null && staff1.length() > 1
     			&& school != null && school.length() > 1){
-    	DataBaser dataBaser = DataBaser.getInstance();
-    	//Log.i("school 3 is", "" + school);
-    	dataBaser.addInfo("school", school);  
-    	dataBaser.addInfo("year", getYear());
-    	dataBaser.addInfo("month", getMonth());
-    	dataBaser.addInfo("day", getDay());
+    		DataBaser dataBaser = DataBaser.getInstance();
+    		dataBaser.addInfo("school", getSchool());  
+    		dataBaser.addInfo("year", getYear());
+    		dataBaser.addInfo("month", getMonth());
+    		dataBaser.addInfo("day", getDay());
     	
-    	dataBaser.addInfo("vol1", vol1);
-    	dataBaser.addInfo("vol2", vol2);
-    	dataBaser.addInfo("vol3", vol3);
-    	dataBaser.addInfo("vol4", vol4);
-    	if(id > 5)
-			dataBaser.addInfo("vol5", vol5);
-		if(id > 6)
-			dataBaser.addInfo("vol6", vol6);
-		if(id > 7)
-			dataBaser.addInfo("vol7", vol7);
-		if(id > 8)
-			dataBaser.addInfo("vol8", vol8);
+    		dataBaser.addInfo("vol1", vol1);
+    		dataBaser.addInfo("vol2", vol2);
+    		dataBaser.addInfo("vol3", vol3);
+    		dataBaser.addInfo("vol4", vol4);
+    		if(id > 5)
+    			dataBaser.addInfo("vol5", vol5);
+    		if(id > 6)
+    			dataBaser.addInfo("vol6", vol6);
+    		if(id > 7)
+    			dataBaser.addInfo("vol7", vol7);
+    		if(id > 8)
+    			dataBaser.addInfo("vol8", vol8);
 		
-		dataBaser.addInfo("staff1", staff1);
-		dataBaser.addInfo("staff2", staff2);
-		if(sId < -3)
-			dataBaser.addInfo("staff3", staff3);
-		if(sId < -4)
-			dataBaser.addInfo("staff4", staff4);
+    		dataBaser.addInfo("staff1", staff1);
+    		dataBaser.addInfo("staff2", staff2);
+    		if(sId < -3)
+    			dataBaser.addInfo("staff3", staff3);
+    		if(sId < -4)
+    			dataBaser.addInfo("staff4", staff4);
     	
-    	this.startActivity(i);
+    		this.startActivity(i);
     	}
     }
 }

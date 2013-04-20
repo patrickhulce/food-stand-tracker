@@ -1,15 +1,12 @@
 package edu.upenn.cis350.project;
 
 import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.PushService;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 public class StartActivity extends Activity {

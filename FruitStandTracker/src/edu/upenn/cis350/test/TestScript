@@ -1,1 +1,48 @@
-Test File
+1: InfoActivity Test Scripts
+
+Script 1.1
+In the first Volunteer EditText, enter "Mickey Mouse"
+In the second Volunteer EditText, enter "Donald Duck"
+In the third Volunteer EditText, enter "Minney Mouse"
+In the fourth Volunteer EditText, enter "Daisy Duck"
+In the first Staff EditText, enter "Walt Disney"
+In The second Staff EditText, enter "Disney World"
+Hit Continue
+The app should progress to the Weather screen. 
+If this does not happen, then a fault has been triggered
+*choose scripts for other pages*
+In Parse, ensure that the volunteers are correctly added to the correct columns. 
+If any incorrect inputs are in the Volunteer and Staff columns for your entry, 
+then a fault has been triggered. 
+
+Script 1.2
+Do not enter anything in any of the Volunteer EditTexts
+Do not enter anything in any of the Staff EditTexts
+Hit Continue
+If something happens, then a fault has been triggered. 
+If nothing happens, then the app is working correctly in that respect. 
+
+Script 1.3
+Do not enter anything in any of the Volunteer EditTexts
+In the first Staff EditText, enter "Marilyn Monroe"
+Hit Continue
+If something happens, then a fault has been triggered. 
+If nothing happens, then the app is working correctly in that respect. 
+
+Script 1.4 
+In the first Volunteer EditText, enter "Mickey Mantle"
+Do not enter anything in any of the Staff EditTexts
+Hit Continue
+If something happens, then a fault has been triggered. 
+If nothing happens, then the app is working correctly in that respect. 
+
+Script 1.5
+In the first Volunteer EditText, enter "Spencer Penn"
+In the first Staff EditText, enter "Amy Gutman"
+Hit Continue
+The app should progress to the Weather screen. 
+If this does not happen, then a fault has been triggered.
+*choose scripts for other pages*
+In Parse, ensure that the volunteers are correctly added to the correct columns. 
+If any incorrect inputs are in the Volunteer and Staff columns for your entry, 
+then a fault has been triggered. 

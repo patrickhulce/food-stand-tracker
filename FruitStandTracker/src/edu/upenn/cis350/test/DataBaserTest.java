@@ -11,12 +11,14 @@ public class DataBaserTest extends TestCase {
 	DataBaser db = DataBaser.getInstance();
 	protected void setUp() throws Exception {
 		super.setUp();
+		/*
 		db.info = new HashMap<String,String>();
 		db.transactions = new ArrayList<Transaction>();
 		db.inventory1 = new HashMap<String,Integer>();
 		db.inventory2 = new HashMap<String,Integer>();
+		*/
 	}
-	
+	/*
 	public void testAddTransactionBasic() {
 		db.addTransaction(null, null, null, null);
 		assertEquals(1,db.transactions.size());
@@ -47,5 +49,5 @@ public class DataBaserTest extends TestCase {
 		db.savePostInventory(inv);
 		assertTrue(inv == db.inventory2);
 	}
-
+*/
 }

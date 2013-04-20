@@ -2,6 +2,7 @@ package edu.upenn.cis350.test;
 
 import edu.upenn.cis350.project.InfoActivity;
 import android.test.ActivityInstrumentationTestCase2;
+import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -14,6 +15,7 @@ public class InfoActivityTest extends ActivityInstrumentationTestCase2<InfoActiv
 	EditText staff1;
 	Button addVolunteer;
 	Button addStaff;
+	Button changeDate;
 	
 	public InfoActivityTest() {
 		super("edu.upenn.cis350.project",InfoActivity.class);
@@ -27,132 +29,143 @@ public class InfoActivityTest extends ActivityInstrumentationTestCase2<InfoActiv
 		staff1 = (EditText)activity.findViewById(edu.upenn.cis350.project.R.id.staff1);
 		addVolunteer = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.add_volunteer);
 		addStaff = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.add_staff);
+		changeDate = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.change_date);
+	}
+	
+	
+	public void testSchoolBartram() {
+		//item 3 on the list is Bartram High School
+		int mySelection = 2;
+	    activity.runOnUiThread(
+	      new Runnable() {
+	        public void run() {
+	          mySpinner.requestFocus();
+	          mySpinner.setSelection(0);          
+	        } 
+	      } 
+	    ); 
+	    this.sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+	    for (int i = 0; i < mySelection; i++) {
+	      this.sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
+	    } 
+	    this.sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+	    activity.updateSchool();
+	    String mySchool = "Bartram High School";
+	    assertEquals(mySchool, activity.getSchool());
+	}
+	
+	public void testSchoolStrawberry(){
+		int mySelection = 17;
+		activity.runOnUiThread(
+			new Runnable() {
+				public void run() {
+					mySpinner.requestFocus();
+			        mySpinner.setSelection(0);          
+			    } 
+			} 
+		);
+		this.sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+		for (int i = 0; i < mySelection; i++) {
+			this.sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
+		} 
+		this.sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+		activity.updateSchool();
+		String mySchool = "Strawberry Mansion High School";
+		assertEquals(mySchool, activity.getSchool());
+	}
+	
+	
+	//CODE FOR THIS METHOD FROM 
+	//http://stackoverflow.com/questions/11684346/how-to-type-chars-from-android-keyboardvirtual-in-robotium
+	 public int fun_get_android_keycode(char ch)
+	  {  
+	       int keycode = ch;//String.valueOf(ch).codePointAt(0);
+	       //Log.v(TAG,"in fun : "+ch+" : "+keycode + "");
+
+	       if(keycode>=97 && keycode <=122)
+	       {
+	           //Log.v(TAG,"atoz : "+ch+" : "+keycode + " : " + (keycode-68));
+	           return keycode-68;   
+	       }
+	       else if(keycode>=65 && keycode <=90)
+	       {
+	           //Log.v(TAG,"atoz : "+ch+" : "+keycode + " : " + (keycode-36));
+	           return keycode-36;   
+	       }
+	       else if(keycode>=48 && keycode <=57)
+	       {
+	           //Log.v(TAG,"0to9"+ch+" : "+keycode + " : " + (keycode-41));
+	           return keycode-41;   
+	       }
+	       else if(keycode==64)
+	       {
+	           //Log.v(TAG,"@"+ch+" : "+keycode + " : " + "77");
+	           return KeyEvent.KEYCODE_AT;
+	       }
+	       else if(ch=='.')
+	       {
+	           //Log.v(TAG,"DOT "+ch+" : "+keycode + " : " + "158");
+	           return KeyEvent.KEYCODE_PERIOD;
+	       }
+	       else if(ch==',')
+	       {
+	           //Log.v(TAG,"comma "+ch+" : "+keycode + " : " + "55");
+	           return KeyEvent.KEYCODE_COMMA;
+	       }
+	       return 62;
+	}
+	
+	 /****only testing lowercase examples****/
+	 
+	public void testAddSchool(){
+		int mySelection = 20;
+		activity.runOnUiThread(
+			new Runnable() {
+				public void run() {
+					mySpinner.requestFocus();
+			        mySpinner.setSelection(0);          
+			    }
+			} 
+		);
+		this.sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+		for (int i = 0; i < mySelection; i++) {
+			this.sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
+		} 
+		this.sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+		String mySchool = "check";
+		assertEquals(mySchool, activity.getSchool());
+		//enter text and check that it works
+		mySchool = "lauralton hall";
+		activity.runOnUiThread(
+				new Runnable() {
+					public void run() {
+						EditText schoolText = (EditText)activity.findViewById(100);
+						schoolText.requestFocus();          
+				    }
+				} 
+			);
+			char [] lauralton = mySchool.toCharArray();
+			for (int i = 0; i < lauralton.length; i++) {
+				this.sendKeys(fun_get_android_keycode(lauralton[i]));
+			} 	
+		activity.updateSchool();
+		assertEquals(mySchool, activity.getSchool());
 	}
 	/*
 	public void testDate(){
-		act.year = 1999;
-		act.month = 1;
-		act.day = 1;
-		String myYear = "1999";
-		String myMonth = "1";
-		String myDay = "1";
-		assertEquals(myYear, act.getYear());
-		assertEquals(myMonth, act.getMonth());
-		assertEquals(myDay, act.getDay());
-	}
-	
-	
-	public void testDateTwo(){
-		act.year = 2013;
-		act.month = 3;
-		act.day = 26;
-		String myYear = "2013";
-		String myMonth = "3";
-		String myDay = "26";
-		assertEquals(myYear, act.getYear());
-		assertEquals(myMonth, act.getMonth());
-		assertEquals(myDay, act.getDay());
-	}
-	
-	
-	public void testSchoolAuden(){
-		act.school = null;
-		mySpinner.setSpinnerPosition(0);
-		act.getSchool();
-		String mySchool = "Auden Reid High School";
-		assertEquals(mySchool, act.school);
-	}
-	
-	public void testSchoolCommunications(){
-		act.school = null;
-		mySpinner.setSpinnerPosition(4);
-		act.getSchool();
-		String mySchool = "Communications Technology High School";
-		assertEquals(mySchool, act.school);
-	}
-	
-	public void testAddSchool(){
-		act.school = null;
-		mySpinner.setSpinnerPosition(20);
-		String mySchool = "Here is a school";
-		act.addedSchool.enterText(mySchool);
-		act.getSchool();
-		assertEquals(mySchool, act.school);
-	}
-	
-	public void testFillVolunteer(){
-		act.vol1 = null;
-		String myVol = "Jerry";
-		volunteer1.enterText(myVol);
-		act.fillVolunteers();
-		assertEquals(myVol, act.vol1);
-	}
-	
-	public void testFillStaff(){
-		act.staff1 = null;
-		String myStaff = "Jerry";
-		staff1.enterText(myStaff);
-		act.fillStaff();
-		assertEquals(myStaff, act.staff1);
-	}
-	
-	public void testAddVolunteer(){
-		act.vol1 = null;
-		act.vol2 = null;
-		act.vol3 = null;
-		act.vol4 = null;
-		act.vol5 = null;
-		
-		String vol1 = "Mary";
-		volunteer1.enterText(vol1);
-		
-		String vol2 = "Lary";
-		EditText vol2Text = (EditText) act.findViewById(edu.upenn.cis350.project.R.id.volunteer2);
-		vol2Text.enterText(vol2);
-		
-		String vol3 = "Gary";
-		EditText vol3Text = (EditText) act.findViewById(edu.upenn.cis350.project.R.id.volunteer3);
-		vol2Text.enterText(vol3);
-		
-		String vol4 = "Bary";
-		EditText vol2Text = (EditText) act.findViewById(edu.upenn.cis350.project.R.id.volunteer4);
-		vol2Text.enterText(vol4);
-		
-		addVolunteer.performClick();
-		String myVol = "Jerry";
-		EditText vol5Text = (EditText) act.findViewById(edu.upenn.cis350.project.R.id.5);
-		vol5Text.enterText(myVol);
-		act.fillVolunteers();
-		
-		assertEquals(vol1, act.vol1);
-		assertEquals(vol2, act.vol2);
-		assertEquals(vol3, act.vol3);
-		assertEquals(vol4, act.vol4);
-		assertEquals(vol5, act.vol5);
-	}
-	
-	public void testAddStaff(){
-		act.staff1 = null;
-		act.staff2 = null;
-		act.staff3 = null;
-		
-		String staff1 = "Mary";
-		EditText staff1Text = (EditText) act.findViewById(edu.upenn.cis350.project.R.id.staff1);
-		staff1Text.enterText(staff1);
-		
-		String staff2 = "Miss";
-		EditText staff2Text = (EditText) act.findViewById(edu.upenn.cis350.project.R.id.staff2);
-		staff2Text.enterText(staff2);
-		
-		addStaff.performClick();
-		String staff3 = "Mack";
-		EditText staff3Text = (EditText) act.findViewById(edu.upenn.cis350.project.R.id.-3);
-		staff3Text.enterText(staff3);
-		act.fillStaff();
-		
-		assertEquals(staff1, act.staff1);
-		assertEquals(staff2, act.staff2);
-		assertEquals(staff3, act.staff3);
+		activity.runOnUiThread(
+				new Runnable() {
+					public void run() {
+						changeDate.requestFocus();         
+				    }
+				} 
+			);
+			this.sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+			for (int i = 0; i < mySelection; i++) {
+				this.sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
+			} 
+			this.sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
 	}
 	*/
+	
 }

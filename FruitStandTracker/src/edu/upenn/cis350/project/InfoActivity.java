@@ -194,7 +194,7 @@ public class InfoActivity extends Activity {
 					//I'm only going to allow for 8 volunteers at this time
 					//four original volunteers, plus 4 volunteers that may be added
 					//in addition
-					if(id < 9){
+					if(id < 8){
 						moreVolunteers();
 					}
 				}
@@ -217,7 +217,7 @@ public class InfoActivity extends Activity {
 		}
 	
 		private void addListenerAddStaff(){
-			sId = -2;
+			sId = 12;
 			addStaff = (Button) findViewById(R.id.add_staff);
 			
 			addStaff.setOnClickListener(new View.OnClickListener(){
@@ -226,7 +226,7 @@ public class InfoActivity extends Activity {
 					//I'm only going to allow for 4 staff members at this time
 					//two original staff members, plus 2 staff members that may be
 					//added in addition
-					if(sId > -5){
+					if(sId < 14){
 						moreStaff();
 					}					
 				}
@@ -236,9 +236,10 @@ public class InfoActivity extends Activity {
 		
 		//method that adds a staff edittext
 		private void moreStaff(){
+			Log.i("more staff", "got here");
 			EditText newStaff = new EditText(this);
 			newStaff.setId(sId);
-			sId--;
+			sId++;
 			newStaff.setWidth(LayoutParams.MATCH_PARENT);
 			newStaff.setHeight(LayoutParams.WRAP_CONTENT);
 			newStaff.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
@@ -268,19 +269,14 @@ public class InfoActivity extends Activity {
 				vol3 = ((EditText) findViewById(R.id.volunteer3)).getText().toString();
 			if(((EditText) findViewById(R.id.volunteer4)).getText() != null)
 				vol4 = ((EditText) findViewById(R.id.volunteer4)).getText().toString();
-			if(id > 5 && ((EditText) findViewById(5)).getText() != null)
-				vol5 = ((EditText) findViewById(5)).getText().toString();
-			if(id > 6 && ((EditText) findViewById(6)).getText() != null)
-				vol6 = ((EditText) findViewById(6)).getText().toString();
-			if(id > 7 && ((EditText) findViewById(7)).getText() != null)
-				vol7 = ((EditText) findViewById(7)).getText().toString();
-			if(id > 8 && ((EditText) findViewById(8)).getText() != null)
-				vol8 = ((EditText) findViewById(8)).getText().toString();
-		}
-		
-		//getter method for number of volunteer edittexts exist
-		public int getVolunteers(){
-			return id;
+			if(id >= 5 && ((EditText) findViewById(4)).getText() != null)
+				vol5 = ((EditText) findViewById(4)).getText().toString();
+			if(id > 6 && ((EditText) findViewById(5)).getText() != null)
+				vol6 = ((EditText) findViewById(5)).getText().toString();
+			if(id > 7 && ((EditText) findViewById(6)).getText() != null)
+				vol7 = ((EditText) findViewById(6)).getText().toString();
+			if(id >= 8 && ((EditText) findViewById(7)).getText() != null)
+				vol8 = ((EditText) findViewById(7)).getText().toString();
 		}
 		
 		//fills the staff string variables for later usage
@@ -289,15 +285,10 @@ public class InfoActivity extends Activity {
 				staff1 = ((EditText) findViewById(R.id.staff1)).getText().toString();
 			if(((EditText) findViewById(R.id.staff2)).getText() != null)
 				staff2 = ((EditText) findViewById(R.id.staff2)).getText().toString();
-			if(sId < -3 && ((EditText) findViewById(-3)).getText() != null)
-				staff3 = ((EditText) findViewById(-3)).getText().toString();
-			if(sId < -4 && ((EditText) findViewById(-4)).getText() != null)
-				staff4 = ((EditText) findViewById(-4)).getText().toString();
-		}
-		
-		//getter method for number of staff edittexts exist
-		public int getStaff(){
-			return 0 - sId;
+			if(sId >= 13 && ((EditText) findViewById(12)).getText() != null)
+				staff3 = ((EditText) findViewById(12)).getText().toString();
+			if(sId >= 14 && ((EditText) findViewById(13)).getText() != null)
+				staff4 = ((EditText) findViewById(13)).getText().toString();
 		}
 		
 		public String getYear(){
@@ -325,29 +316,24 @@ public class InfoActivity extends Activity {
 		public boolean verifyVolunteers(String[] volunteers){
 			//check to see that there are 8 volunteer slots in the array
 			if(volunteers.length != 8){
-				Log.i("one", "fail 1");
 				return false;
 			}
 			fillVolunteers();
 			if(vol1 == null){
 				if(volunteers[0] != null){
-					Log.i("two", "fail 2");
 					return false;
 				}
 			}
 			if(vol1 != null && volunteers[0] != null && !volunteers[0].equals(vol1)){
-				Log.i("three", "fail 3");
 				return false;
 			}
 			
 			if(vol2 == null){
 				if(volunteers[1] != null){
-					Log.i("four", "fail 4");
 					return false;
 				}
 			}
 			if(vol2 != null && volunteers[1] != null && !volunteers[1].equals(vol2)){
-				Log.i("five", "fail 5");
 				return false;
 			}
 			
@@ -357,73 +343,96 @@ public class InfoActivity extends Activity {
 				}
 			}
 			if(vol3 != null && volunteers[2] != null && !vol3.equals(volunteers[2])){
-				Log.i("seven", "fail 7");
 				return false;
 			}
 			
 			if(vol4 == null){
 				if(volunteers[3] != null){
-					Log.i("eight", "fail 8");
 					return false;
 				}
 			}
 			if(vol4 != null && volunteers[3] != null && !vol4.equals(volunteers[3])){
-				Log.i("nine", "fail 9");
 				return false;
 			}
 			
-			
-			
 			if(vol5 == null){
 				if(volunteers[4] != null){
-					Log.i("ten", "fail 10");
 					return false;
 				}
 			}
 			if(vol5 != null && volunteers[4] != null && !vol5.equals(volunteers[4])){
-				Log.i("eleven", "fail 11");
 				return false;
 			}
 			
 			if(vol6 == null){
 				if(volunteers[5] != null){
-					Log.i("twelve", "fail 12");
 					return false;
 				}
 			}
 			if(vol6 != null && volunteers[5] != null && !vol6.equals(volunteers[5])){
-				Log.i("thirteen", "fail 13");
 				return false;
 			}
 			
 			if(vol7 == null){
 				if(volunteers[6] != null){
-					Log.i("fourteen", "fail 14");
 					return false;
 				}
 			}
 			if(vol7 != null && volunteers[6] != null && !vol7.equals(volunteers[6])){ 
-				Log.i("fifteen", "fail 15");
 				return false;
 			}
 			
 			if(vol8 == null){
 				if(volunteers[7] != null){
-					Log.i("sixteen", "fail 16");
 					return false;
 				}
 			}
 			if(vol8 != null && volunteers[7] != null && !vol8.equals(volunteers[7])){ 
-				Log.i("seventeen", "fail 17");
 				return false;
 			}
-			Log.i("eigteen", "true 18");
 			return true;
 		}
 		
 		public boolean verifyStaff(String[] staff){
 			if(staff.length != 4) return false;
-			return false;
+			fillStaff();
+			
+			if(staff1 == null){
+				if(staff[0] != null){
+					return false;
+				}
+			}
+			if(staff1 != null && staff[0] != null && !staff[0].equals(staff1)){
+				return false;
+			}
+			
+			if(staff2 == null){
+				if(staff[1] != null){
+					return false;
+				}
+			}
+			if(staff2 != null && staff[1] != null && !staff[1].equals(staff2)){
+				return false;
+			}
+			
+			if(staff3 == null){
+				if(staff[2] != null){
+					return false;
+				}
+			}
+			if(staff3 != null && staff[2] != null && !staff[2].equals(staff3)){
+				return false;
+			}
+			
+			if(staff4 == null){
+				if(staff[3] != null){
+					return false;
+				}
+			}
+			if(staff4 != null && staff[3] != null && !staff[3].equals(staff4)){
+				return false;
+			}
+			return true;
 		}
 	
     public void continueToWeather(View v){
@@ -447,20 +456,20 @@ public class InfoActivity extends Activity {
     		dataBaser.addInfo("vol2", vol2);
     		dataBaser.addInfo("vol3", vol3);
     		dataBaser.addInfo("vol4", vol4);
-    		if(id > 5)
+    		if(id >= 5)
     			dataBaser.addInfo("vol5", vol5);
     		if(id > 6)
     			dataBaser.addInfo("vol6", vol6);
     		if(id > 7)
     			dataBaser.addInfo("vol7", vol7);
-    		if(id > 8)
+    		if(id >= 8)
     			dataBaser.addInfo("vol8", vol8);
 		
     		dataBaser.addInfo("staff1", staff1);
     		dataBaser.addInfo("staff2", staff2);
-    		if(sId < -3)
+    		if(sId >= 13)
     			dataBaser.addInfo("staff3", staff3);
-    		if(sId < -4)
+    		if(sId >= 14)
     			dataBaser.addInfo("staff4", staff4);
     	
     		this.startActivity(i);

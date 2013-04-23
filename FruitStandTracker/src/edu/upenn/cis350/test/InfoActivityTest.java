@@ -38,12 +38,12 @@ public class InfoActivityTest extends ActivityInstrumentationTestCase2<InfoActiv
 		//item 3 on the list is Bartram High School
 		int mySelection = 2;
 	    activity.runOnUiThread(
-	      new Runnable() {
-	        public void run() {
-	          mySpinner.requestFocus();
-	          mySpinner.setSelection(0);          
-	        } 
-	      } 
+	    		new Runnable() {
+	    			public void run() {
+	    				mySpinner.requestFocus();
+	    				mySpinner.setSelection(0);          
+	    			} 
+	    		} 
 	    ); 
 	    this.sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
 	    for (int i = 0; i < mySelection; i++) {

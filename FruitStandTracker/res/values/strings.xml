@@ -71,6 +71,10 @@
     <string name="calcProfit">Great job! Are you readying to start using your business savvy and calculate your profit?</string>
 	<string name="sellFruit">Great job! Are you readying to start selling the best fruit in the world?</string>
 
+	
+	
+	
+	
     <string-array name="grade_list">
         <item>Elementary (K-5)</item>
         <item>Middle School (6—8)</item>
@@ -79,6 +83,31 @@
         <item>Parent</item>
         <item>Other</item>
     </string-array>
+    <string-array name="gender">
+        <item>Boys</item>
+        <item>Girls</item>
+    </string-array>
+    <string name="boys">Boys</string>
+    <string name="girls">Girls</string>
+    <string name="whole_fruit">Whole Fruit</string>
+    <string name="medium_text">Medium Text</string>
+    <string name="x0">x0</string>
+    <string name="apple">Apple</string>
+    <string name="orange">Orange</string>
+    <string name="banana">Banana</string>
+    <string name="kiwi">Kiwi</string>
+    <string name="pear">Pear</string>
+    <string name="grapes">Grapes</string>
+    <string name="other">Other</string>
+    <string name="smoothie">Smoothie</string>
+    <string name="mixed">Mixed Bag</string>
+    <string name="granola">Granola Bar</string>
+    <string name="clear">Clear All</string>
+    
+    
+    
+    
+    
 
     <string name="inventory_instructions_future">Record your inventory before making mixed bags.
          Tap on the top half of the picture of the fruit to increase the quantity.
@@ -101,11 +130,6 @@
     <string name="person_title">Who\'s buying?</string>
     <string name="purchase_choice">What are they buying?</string>
     <string name="payment_option">How are they paying?</string>
-
-    <string-array name="gender">
-        <item>Boys</item>
-        <item>Girls</item>
-    </string-array>
 
     <string name="total_sold">Total Sales:       </string>
     <string name="whole_fruit_sold">Whole Fruit Sold:    </string>

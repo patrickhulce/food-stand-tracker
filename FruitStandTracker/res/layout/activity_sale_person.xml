@@ -33,14 +33,14 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:onClick="gender_button"
-	            android:text="Boys" />
+	            android:text="@string/boys" />
 
 	        <RadioButton
 	            android:id="@+id/girls"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:onClick="gender_button"
-	            android:text="Girls" />
+	            android:text="@string/girls" />
 	    </RadioGroup>
 
 	    <View
@@ -61,24 +61,24 @@
 
 	        <Button
 	            android:id="@+id/whole_fruit_button"
-	            android:layout_width="wrap_content"
+	            android:layout_width="0dip"
 	            android:layout_height="wrap_content"
 	            android:layout_weight="0.73"
 	            android:onClick="whole_fruit_clicked"
-	            android:text="Whole Fruit" />
+	            android:text="@string/whole_fruit" />
 
 	        <TextView
 	            android:id="@+id/whole_fruit_label"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="Medium Text"
+	            android:text="@string/medium_text"
 	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    </LinearLayout>
 
 	    <LinearLayout
 	        android:id="@+id/fruitchoice"
 	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
+	        android:layout_height="0dip"
 	        android:layout_weight="1"
 	        android:orientation="vertical"
 	        android:visibility="gone" >
@@ -92,27 +92,27 @@
 	                android:layout_width="130dp"
 	                android:layout_height="wrap_content"
 	                android:onClick="apples_button"
-	                android:text="Apple" />
+	                android:text="@string/apple" />
 
 	            <TextView
 	                android:id="@+id/apple_label"
 	                android:layout_width="35dp"
 	                android:layout_height="wrap_content"
-	                android:text="x0"
+	                android:text="@string/x0"
 	                android:textAppearance="?android:attr/textAppearanceMedium" />
 
 	            <Button
-	                android:id="@+id/peaches"
+	                android:id="@+id/oranges"
 	                android:layout_width="130dp"
 	                android:layout_height="wrap_content"
-	                android:onClick="peaches_button"
-	                android:text="Peach" />
+	                android:onClick="oranges_button"
+	                android:text="@string/orange" />
 
 	            <TextView
-	                android:id="@+id/peach_label"
+	                android:id="@+id/orange_label"
 	                android:layout_width="35dp"
 	                android:layout_height="wrap_content"
-	                android:text="x0"
+	                android:text="@string/x0"
 	                android:textAppearance="?android:attr/textAppearanceMedium" />
 	        </LinearLayout>
 
@@ -125,13 +125,13 @@
 	                android:layout_width="130dp"
 	                android:layout_height="wrap_content"
 	                android:onClick="bananas_button"
-	                android:text="Banana" />
+	                android:text="@string/banana" />
 
 	            <TextView
 	                android:id="@+id/banana_label"
 	                android:layout_width="35dp"
 	                android:layout_height="wrap_content"
-	                android:text="x0"
+	                android:text="@string/x0"
 	                android:textAppearance="?android:attr/textAppearanceMedium" />
 
 	            <Button
@@ -139,13 +139,13 @@
 	                android:layout_width="130dp"
 	                android:layout_height="wrap_content"
 	                android:onClick="kiwis_button"
-	                android:text="Kiwi" />
+	                android:text="@string/kiwi" />
 
 	            <TextView
 	                android:id="@+id/kiwi_label"
 	                android:layout_width="35dp"
 	                android:layout_height="wrap_content"
-	                android:text="x0"
+	                android:text="@string/x0"
 	                android:textAppearance="?android:attr/textAppearanceMedium" />
 	        </LinearLayout>
 
@@ -158,13 +158,13 @@
 	                android:layout_width="130dp"
 	                android:layout_height="wrap_content"
 	                android:onClick="pears_button"
-	                android:text="Pear" />
+	                android:text="@string/pear" />
 
 	            <TextView
 	                android:id="@+id/pear_label"
 	                android:layout_width="35dp"
 	                android:layout_height="wrap_content"
-	                android:text="x0"
+	                android:text="@string/x0"
 	                android:textAppearance="?android:attr/textAppearanceMedium" />
 
 	            <Button
@@ -172,13 +172,13 @@
 	                android:layout_width="130dp"
 	                android:layout_height="wrap_content"
 	                android:onClick="grapes_button"
-	                android:text="Grapes" />
+	                android:text="@string/grapes" />
 
 	            <TextView
 	                android:id="@+id/grape_label"
 	                android:layout_width="35dp"
 	                android:layout_height="wrap_content"
-	                android:text="x0"
+	                android:text="@string/x0"
 	                android:textAppearance="?android:attr/textAppearanceMedium" />
 	        </LinearLayout>
 
@@ -192,13 +192,13 @@
 	                android:layout_width="172dp"
 	                android:layout_height="wrap_content"
 	                android:onClick="others_button"
-	                android:text="Other" />
+	                android:text="@string/other" />
 
 	            <TextView
 	                android:id="@+id/other_label"
 	                android:layout_width="35dp"
 	                android:layout_height="wrap_content"
-	                android:text="x0"
+	                android:text="@string/x0"
 	                android:textAppearance="?android:attr/textAppearanceMedium" />
 	        </LinearLayout>
 	    </LinearLayout>
@@ -209,17 +209,17 @@
 
 	        <Button
 	            android:id="@+id/smoothie_button"
-	            android:layout_width="wrap_content"
+	            android:layout_width="0dip"
 	            android:layout_height="wrap_content"
 	            android:layout_weight="0.95"
 	            android:onClick="smoothie_clicked"
-	            android:text="Smoothie" />
+	            android:text="@string/smoothie" />
 
 	        <TextView
 	            android:id="@+id/smoothie_label"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="Medium Text"
+	            android:text="@string/medium_text"
 	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    </LinearLayout>
 
@@ -229,17 +229,17 @@
 
 	        <Button
 	            android:id="@+id/mixed_bag_button"
-	            android:layout_width="wrap_content"
+	            android:layout_width="0dip"
 	            android:layout_height="wrap_content"
 	            android:layout_weight="0.96"
 	            android:onClick="mixed_bag_clicked"
-	            android:text="Mixed Bag" />
+	            android:text="@string/mixed" />
 
 	        <TextView
 	            android:id="@+id/mixed_bag_label"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="Medium Text"
+	            android:text="@string/medium_text"
 	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    </LinearLayout>
 	    
@@ -249,17 +249,17 @@
 
 	        <Button
 	            android:id="@+id/granola_button"
-	            android:layout_width="wrap_content"
+	            android:layout_width="0dip"
 	            android:layout_height="wrap_content"
 	            android:layout_weight="0.96"
 	            android:onClick="granola_clicked"
-	            android:text="Granola Bar" />
+	            android:text="@string/granola" />
 
 	        <TextView
 	            android:id="@+id/granola_label"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="Medium Text"
+	            android:text="@string/medium_text"
 	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    </LinearLayout>
 	    
@@ -268,7 +268,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:onClick="clear_entries"
-	        android:text="Clear All" />
+	        android:text="@string/clear" />
 
 	    <View
 	        android:id="@+id/view1"

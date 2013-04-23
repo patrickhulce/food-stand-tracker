@@ -143,6 +143,9 @@ public class InventoryActivity extends Activity {
     	fruitQtys[6] = getQty(R.id.granolaQty);
     	fruitQtys[7] = getQty(R.id.frozenQty);
     	
+    	
+    	//TODO should databaser be called here to save the preinventory to parse? 
+    	
     	i.putExtra("fruit_quantities", fruitQtys);
     	i.putExtras(this.getIntent().getExtras());
     	

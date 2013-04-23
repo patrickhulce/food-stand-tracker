@@ -1,8 +1,8 @@
 package edu.upenn.cis350.test;
 
 import edu.upenn.cis350.project.SaleActivity;
+import android.app.Instrumentation;
 import android.test.ActivityInstrumentationTestCase2;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -10,13 +10,8 @@ import android.widget.TextView;
 public class SaleActivityTest extends ActivityInstrumentationTestCase2<SaleActivity> {
 	
 	private SaleActivity activity;
-	private Button appleButton;
-	private Button wholeFruit;
-	private Button bananaButton;
-	private Button grapeButton;
-	private Button kiwiButton;
-	private Button mixedButton;
-	private Button smoothieButton;
+	Instrumentation myIns;
+
 	
 	public SaleActivityTest() {
 		super("edu.upenn.cis350.project",SaleActivity.class);
@@ -25,54 +20,43 @@ public class SaleActivityTest extends ActivityInstrumentationTestCase2<SaleActiv
 	protected void setUp() throws Exception {
 		super.setUp();
 		activity = getActivity();
-		wholeFruit = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.whole_fruit_button);
-		appleButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.apples);
-		bananaButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.bananas);
-		grapeButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.grapes);
-		kiwiButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.kiwis);
-		mixedButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.mixed_bag_button);
-		smoothieButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.smoothie_button);
-		//act.data = new Bundle();
+		myIns = getInstrumentation();
+	}
+	
+	protected void tearDown() throws Exception{
+		super.tearDown();
+		activity = null;
 	}
 	
 	public void testUpdateWholeFruitSimple() {
 		final int appleClicks = 10;
 		final int bananaClicks = 5;
 		final int grapeClicks = 2;
-		int totalFruit = 17;
+		final int totalFruit = 17;
 		activity.runOnUiThread(
 			      new Runnable() {
 			        public void run() {
-			        	wholeFruit.requestFocus();
-			        	wholeFruit.performClick();
-			        	appleButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.apples);
-			        	appleButton.requestFocus();
-			        	Log.i("got into", "apple");
+			        	activity.whole_fruit_clicked(null);
 			        	for(int i = 0; i < appleClicks; i++){
-			    			appleButton.performClick();
-			    		}
-			    		bananaButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.bananas);
-			        	bananaButton.requestFocus();
-			        	Log.i("got into", "banana");
+			        		activity.apples_button(null);
+			        	}
 			        	for(int i = 0; i < bananaClicks; i++){
-			        		bananaButton.performClick();
+			        		activity.bananas_button(null);
 			        	}
-			    		grapeButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.grapes);
-			        	grapeButton.requestFocus();
-			        	Log.i("got into", "grape");
 			        	for(int i = 0; i < grapeClicks; i++){
-			        		grapeButton.performClick();
+			        		activity.grapes_button(null);
 			        	}
-			        	activity.updateWholeFruit();
 			        } 
 			      } 
 			    );
-		assertEquals(appleClicks, activity.getApples());
-		assertEquals(bananaClicks, activity.getBananas());
+		myIns.waitForIdleSync();
+		
 		assertEquals(grapeClicks, activity.getGrapes());
+    	assertEquals(bananaClicks, activity.getBananas());
 		assertEquals(totalFruit, activity.getWholeFruit());
+		assertEquals(appleClicks, activity.getApples());
 		TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.whole_fruit_label);
-    	assertEquals("x17",text.getText());
+    	assertEquals("x" + "" + Integer.toString(totalFruit),text.getText());
 	}
 	
 
@@ -84,47 +68,41 @@ public class SaleActivityTest extends ActivityInstrumentationTestCase2<SaleActiv
 		final int kiwiClicks = 1;
 		final int mixedBagClicks = 100;
 		final int kiwiClicksTwo = 3;
+		int totalFruit = appleClicks + bananaClicks + grapeClicks + kiwiClicks + kiwiClicksTwo;
 		activity.runOnUiThread(
 			      new Runnable() {
 			        public void run() {
-			        	wholeFruit.requestFocus();
-			        	wholeFruit.performClick();
-			        	appleButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.apples);
-			        	appleButton.requestFocus();
+			        	activity.whole_fruit_clicked(null);
 			        	for(int i = 0; i < appleClicks; i++){
-			        		appleButton.performClick();
+			        		activity.apples_button(null);
 			        	}
-			    		bananaButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.bananas);
-			        	bananaButton.requestFocus();
 			        	for(int i = 0; i < bananaClicks; i++){
-			        		bananaButton.performClick();
+			        		activity.bananas_button(null);
 			        	}
-			    		grapeButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.grapes);
-			        	grapeButton.requestFocus();
 			        	for(int i = 0; i < grapeClicks; i++){
-			        		grapeButton.performClick();
+			        		activity.grapes_button(null);
 			        	}
-			    		kiwiButton = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.kiwis);
-			    		kiwiButton.requestFocus();
 			    		for(int i = 0; i < kiwiClicks; i++){
-			    			kiwiButton.performClick();
+			    			activity.kiwis_button(null);
 			    		}
-			    		mixedButton.requestFocus();
 			    		for(int i = 0; i < mixedBagClicks; i++){
-			    			mixedButton.performClick();
+			    			activity.mixed_bag_clicked(null);
 			    		}
-			    		kiwiButton.requestFocus();
 			    		for(int i = 0; i < kiwiClicksTwo; i++){
-			    			kiwiButton.performClick();
+			    			activity.kiwis_button(null);
 			    		}
-			    		activity.updateWholeFruit();
+			    		Button gender = (Button)activity.findViewById(edu.upenn.cis350.project.R.id.girls);
+			    		gender.requestFocus();
+			    		gender.performClick();
 			        }
 			      }
 		);
+		myIns.waitForIdleSync();
 		assertEquals(21,activity.getWholeFruit());
     	TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.whole_fruit_label);
-    	assertEquals("x21",text.getText());
-        Button submit_button = (Button) activity.findViewById(edu.upenn.cis350.project.R.id.button_continue);
+    	assertEquals("x" + "" + Integer.toString(totalFruit),text.getText());
+    	assertEquals("F", activity.getGender());
+        Button submit_button = (Button) activity.findViewById(edu.upenn.cis350.project.R.id.button_continue);       
         assertTrue(submit_button.isEnabled());
 	}
 	
@@ -133,98 +111,152 @@ public class SaleActivityTest extends ActivityInstrumentationTestCase2<SaleActiv
 		activity.runOnUiThread(
 			      new Runnable() {
 			        public void run() {
-			        	smoothieButton.requestFocus();
-			        	Log.i("got to", "smoothies");
 			        	for(int i = 0; i < smoothieClicks; i++){
-			        		smoothieButton.performClick();
-			        		Log.i("clicked a", "smoothie");
+			        		activity.smoothie_clicked(null);
 			        	}
 			        }
 			      }
 		);
+		myIns.waitForIdleSync();
 		assertEquals(3,activity.getSmoothies());
     	TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.smoothie_label);
-    	assertEquals("x3",text.getText());
+    	assertEquals("x" + "" + Integer.toString(smoothieClicks),text.getText());
 	}
-	/*
+	
 	public void testMixedBagClicked() {
-		act.temp_mixed_bag = 0;
-		act.mixed_bag_clicked(null);
-		act.mixed_bag_clicked(null);
-		act.mixed_bag_clicked(null);
-		assertEquals(3,act.temp_mixed_bag);
-    	TextView text = (TextView) act.findViewById(R.id.mixed_bag_label);
-    	assertEquals("x3",text.getText());
+		final int bagClicks = 3;
+		activity.runOnUiThread(
+				new Runnable(){
+					public void run(){
+						for(int i = 0; i < bagClicks; i++){
+							activity.mixed_bag_clicked(null);
+						}
+					}
+				}
+		);
+		myIns.waitForIdleSync();
+		assertEquals(3,activity.getMixedBags());
+		TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.mixed_bag_label);
+		assertEquals("x" + "" + Integer.toString(bagClicks),text.getText());
 	}
 	
 	public void testApplesButton() {
-		act.apples = 0;
-		act.apples_button(null);
-		act.apples_button(null);
-		act.apples_button(null);
-		assertEquals(3,act.apples);
-    	TextView text = (TextView) act.findViewById(R.id.apple_label);
-    	assertEquals("x3",text.getText());
+		final int appleClicks = 3;
+		activity.runOnUiThread(
+				new Runnable(){
+					public void run(){
+						for(int i = 0; i < appleClicks; i++){
+							activity.apples_button(null);
+						}
+					}
+				}
+			);
+		myIns.waitForIdleSync();
+		assertEquals(appleClicks,activity.getApples());
+    	TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.apple_label);
+    	assertEquals("x" + "" + Integer.toString(appleClicks),text.getText());
 	}
 	
-	public void testPeachesButton() {
-		act.peaches = 0;
-		act.peaches_button(null);
-		act.peaches_button(null);
-		act.peaches_button(null);
-		assertEquals(3,act.peaches);
-    	TextView text = (TextView) act.findViewById(R.id.peach_label);
-    	assertEquals("x3",text.getText());
+	public void testOrangesButton() {
+		final int orangeClicks = 3;
+		activity.runOnUiThread(
+				new Runnable(){
+					public void run(){
+						for(int i = 0; i < orangeClicks; i++){
+							activity.oranges_button(null);
+						}
+					}
+				}
+			);
+		myIns.waitForIdleSync();
+		assertEquals(orangeClicks,activity.getOranges());
+    	TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.orange_label);
+    	assertEquals("x" + "" + Integer.toString(orangeClicks),text.getText());
 	}
 	
 	public void testBananasButton() {
-		act.bananas = 0;
-		act.bananas_button(null);
-		act.bananas_button(null);
-		act.bananas_button(null);
-		assertEquals(3,act.bananas);
-    	TextView text = (TextView) act.findViewById(R.id.banana_label);
-    	assertEquals("x3",text.getText());
+		final int bananaClicks = 5;
+		activity.runOnUiThread(
+				new Runnable(){
+					public void run(){
+						for(int i = 0; i < bananaClicks; i++){
+							activity.bananas_button(null);
+						}
+					}
+				}
+			);
+		myIns.waitForIdleSync();
+		assertEquals(bananaClicks,activity.getBananas());
+    	TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.banana_label);
+    	assertEquals("x" + "" + Integer.toString(bananaClicks),text.getText());
 	}
 	
 	public void testGrapesButton() {
-		act.grapes = 0;
-		act.grapes_button(null);
-		act.grapes_button(null);
-		act.grapes_button(null);
-		assertEquals(3,act.grapes);
-    	TextView text = (TextView) act.findViewById(R.id.grape_label);
-    	assertEquals("x3",text.getText());
+		final int grapeClicks = 27;
+		activity.runOnUiThread(
+				new Runnable(){
+					public void run(){
+						for(int i = 0; i < grapeClicks; i++){
+							activity.grapes_button(null);
+						}
+					}
+				}
+			);
+		myIns.waitForIdleSync();
+		assertEquals(grapeClicks,activity.getGrapes());
+    	TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.grape_label);
+    	assertEquals("x" + "" + Integer.toString(grapeClicks),text.getText());
 	}
 	
 	public void testKiwisButton() {
-		act.kiwis = 0;
-		act.kiwis_button(null);
-		act.kiwis_button(null);
-		act.kiwis_button(null);
-		assertEquals(3,act.kiwis);
-    	TextView text = (TextView) act.findViewById(R.id.kiwi_label);
-    	assertEquals("x3",text.getText());
+		final int kiwiClicks = 8;
+		activity.runOnUiThread(
+				new Runnable(){
+					public void run(){
+						for(int i = 0; i < kiwiClicks; i++){
+							activity.kiwis_button(null);
+						}
+					}
+				}
+			);
+		myIns.waitForIdleSync();
+		assertEquals(kiwiClicks,activity.getKiwis());
+    	TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.kiwi_label);
+    	assertEquals("x" + "" + Integer.toString(kiwiClicks),text.getText());
 	}
 	
 	public void testPearsButton() {
-		act.pears = 0;
-		act.pears_button(null);
-		act.pears_button(null);
-		act.pears_button(null);
-		assertEquals(3,act.pears);
-    	TextView text = (TextView) act.findViewById(R.id.pear_label);
-    	assertEquals("x3",text.getText());
+		final int pearClicks = 21;
+		activity.runOnUiThread(
+				new Runnable(){
+					public void run(){
+						for(int i = 0; i < pearClicks; i++){
+							activity.pears_button(null);
+						}
+					}
+				}
+			);
+		myIns.waitForIdleSync();
+		assertEquals(pearClicks,activity.getPears());
+    	TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.pear_label);
+    	assertEquals("x" + "" + Integer.toString(pearClicks),text.getText());
 	}
 	
 	public void testOthersButton() {
-		act.others = 0;
-		act.others_button(null);
-		act.others_button(null);
-		act.others_button(null);
-		assertEquals(3,act.others);
-    	TextView text = (TextView) act.findViewById(R.id.other_label);
-    	assertEquals("x3",text.getText());
+		final int otherClicks = 5;
+		activity.runOnUiThread(
+				new Runnable(){
+					public void run(){
+						for(int i = 0; i< otherClicks; i++){
+							activity.others_button(null);
+						}
+					}
+				}
+			);	
+		myIns.waitForIdleSync();
+		assertEquals(otherClicks,activity.getOthers());
+    	TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.other_label);
+    	assertEquals("x" + "" + Integer.toString(otherClicks),text.getText());
 	}
-*/
+
 }

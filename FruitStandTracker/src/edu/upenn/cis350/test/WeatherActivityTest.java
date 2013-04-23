@@ -1,12 +1,11 @@
 package edu.upenn.cis350.test;
 
+import android.app.Instrumentation;
 import android.test.ActivityInstrumentationTestCase2;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import edu.upenn.cis350.project.WeatherActivity;
 
 public class WeatherActivityTest extends ActivityInstrumentationTestCase2<WeatherActivity> {
@@ -15,6 +14,7 @@ public class WeatherActivityTest extends ActivityInstrumentationTestCase2<Weathe
 	SeekBar tempBar;
 	RadioButton snowy;
 	RadioGroup weather;
+	Instrumentation myIns;
 	
 	public WeatherActivityTest(){
 		super("edu.upenn.cis350.project", WeatherActivity.class);
@@ -22,8 +22,9 @@ public class WeatherActivityTest extends ActivityInstrumentationTestCase2<Weathe
 	
 	protected void setup() throws Exception{
 		super.setUp();
-		activity = this.getActivity();
-		
+		activity = getActivity();
+		tempBar = (SeekBar)activity.findViewById(edu.upenn.cis350.project.R.id.temp_bar);
+		myIns = getInstrumentation();
 	}
 	
 	protected void tearDown() throws Exception{
@@ -31,34 +32,40 @@ public class WeatherActivityTest extends ActivityInstrumentationTestCase2<Weathe
 	}
 	
 	public void testTempNoChange(){
-		//if the original temperature is 50, plus 30 degrees 
-		//should b 80 degrees
-		activity = this.getActivity();
-		tempBar = (SeekBar)activity.findViewById(edu.upenn.cis350.project.R.id.temp_bar);	
 		final int degreesRight = 0;
 		String myTemp = "Temperature: 50F";
-		activity.runOnUiThread(new Runnable(){
-			public void run(){
-				tempBar.incrementProgressBy(degreesRight);
-			}
-		}); 
-		Log.i("temp is:", activity.getTemp());
+		activity = getActivity();
+		myIns = getInstrumentation();
+		tempBar = (SeekBar)activity.findViewById(edu.upenn.cis350.project.R.id.temp_bar);
+		activity.runOnUiThread(
+				new Runnable(){
+					public void run(){
+						tempBar.incrementProgressBy(degreesRight);
+					}
+				}
+		); 
+		myIns.waitForIdleSync();
 	    assertEquals(myTemp, activity.getTemp());
 	}
 	
 	public void testTemp20(){
 		//if the original temperature is 50, plus 30 degrees 
 		//should b 80 degrees
-		activity = this.getActivity();
-		tempBar = (SeekBar)activity.findViewById(edu.upenn.cis350.project.R.id.temp_bar);	
+		activity = getActivity();
+		tempBar = (SeekBar)activity.findViewById(edu.upenn.cis350.project.R.id.temp_bar);
+		myIns = getInstrumentation();
 		final int degreesRight = 20;
 		String myTemp = "Temperature: 70F";
-		activity.runOnUiThread(new Runnable(){
-			public void run(){
-				tempBar.incrementProgressBy(degreesRight);
-			}
-		}); 
-		Log.i("temp is:", activity.getTemp());
+		activity.runOnUiThread(
+				new Runnable(){
+					public void run(){
+						tempBar.incrementProgressBy(degreesRight);
+					}
+				}
+		); 
+		myIns.waitForIdleSync();
+		Log.i("expected outcome", myTemp);
+		Log.i("outcome", activity.getTemp());
 	    assertEquals(myTemp, activity.getTemp());
 	}
 	
@@ -66,17 +73,17 @@ public class WeatherActivityTest extends ActivityInstrumentationTestCase2<Weathe
 		activity = this.getActivity();
 		weather = (RadioGroup)activity.findViewById(edu.upenn.cis350.project.R.id.weatherRadio);
 		snowy = (RadioButton)activity.findViewById(edu.upenn.cis350.project.R.id.snowy);
+		myIns = getInstrumentation();
 		int snowId = edu.upenn.cis350.project.R.id.snowy;
-		activity.runOnUiThread(new Runnable(){
-			public void run(){
-				weather.requestFocus();
-				weather.check(edu.upenn.cis350.project.R.id.snowy);
-			}
-		}); 
+		activity.runOnUiThread(
+				new Runnable(){
+					public void run(){
+						weather.requestFocus();
+						weather.check(edu.upenn.cis350.project.R.id.snowy);
+					}
+				}
+		); 
+		myIns.waitForIdleSync();
 		assertEquals(snowId, weather.getCheckedRadioButtonId());
 	}
-	
-	
-	
-	
 }

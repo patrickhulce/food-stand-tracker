@@ -5,6 +5,7 @@ import java.util.HashMap;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -55,6 +56,7 @@ public class SaleActivity extends Activity {
         return true;
     }
     
+    //method to expand button menu of the app -> show the fruit
     public void whole_fruit_clicked(View view){
     	LinearLayout fruitview = (LinearLayout)findViewById(R.id.fruitchoice);
     	if(fruitview.getVisibility() == View.VISIBLE){
@@ -62,7 +64,8 @@ public class SaleActivity extends Activity {
     	} else { fruitview.setVisibility(View.VISIBLE); }
     }
     
-    public void updateWholeFruit(){
+    //called by other methods in this class
+    private void updateWholeFruit(){
     	TextView text = (TextView)findViewById(R.id.whole_fruit_label);
     	temp_whole_fruit = apples+pears+bananas+kiwis+oranges+others+grapes;
     	text.setText("x" + temp_whole_fruit);
@@ -238,11 +241,13 @@ public class SaleActivity extends Activity {
     	return temp_smoothie;
     }
     
-    public int getMixedBages(){
+    public int getMixedBags(){
     	return temp_mixed_bag;
     }
     
-    
+    public String getGender(){
+    	return gender;
+    }
     
     
     

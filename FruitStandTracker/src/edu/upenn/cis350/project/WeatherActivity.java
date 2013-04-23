@@ -1,11 +1,5 @@
 package edu.upenn.cis350.project;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.PushService;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -18,6 +12,7 @@ import android.widget.TextView;
 public class WeatherActivity extends Activity {
 	SeekBar seekBar;
 	String w = "sunny";
+	String tempText;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +24,15 @@ public class WeatherActivity extends Activity {
 		seekBar.incrementProgressBy(1);
 		seekBar.setMax(100);
 		final TextView seekBarValue = (TextView) findViewById(R.id.temp_reading);
-		seekBarValue.setText("Temperature: 50F");
+		tempText = "Temperature: 50F";
+		seekBarValue.setText(tempText);
 
 		seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
 		    @Override
 		    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-		        seekBarValue.setText("Temperature: " + String.valueOf(progress) + "F");
+		    	tempText = "Temperature: " + String.valueOf(progress) + "F";
+		        seekBarValue.setText(tempText);
 		    }
 
 			@Override
@@ -60,6 +57,10 @@ public class WeatherActivity extends Activity {
 		return true;
 	}
 	
+	public String getTemp(){
+		return tempText;
+	}
+	
 	public void setWeather(View v) {
 		switch(v.getId()) {
 		case R.id.sunny:
@@ -75,6 +76,10 @@ public class WeatherActivity extends Activity {
 			w = "snowy";
 			break;
 		}
+	}
+	
+	public String getWeather(){
+		return w;
 	}
 
 	public void continueToPricing(View v) {

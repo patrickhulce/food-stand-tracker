@@ -9,7 +9,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What's the weather like?" />
+        android:text="@string/weather_question" />
 
     <RadioGroup
         android:id="@+id/weatherRadio"
@@ -22,28 +22,28 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:onClick="setWeather"
-            android:text="Sunny" />
+            android:text="@string/sunny" />
 
         <RadioButton
             android:id="@+id/rainy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="setWeather"
-            android:text="Rainy" />
+            android:text="@string/rainy" />
 
         <RadioButton
             android:id="@+id/partly_cloudy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="setWeather"
-            android:text="Partly Cloudy" />
+            android:text="@string/cloudy" />
         
         <RadioButton
             android:id="@+id/snowy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="setWeather"
-            android:text="Snowy" />
+            android:text="@string/snowy" />
 
         
 
@@ -53,7 +53,7 @@
             android:id="@+id/temp_reading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="What's the temperature like?" />
+            android:text="@string/temp_question" />
 	
     <SeekBar
         android:id="@+id/temp_bar"
@@ -64,7 +64,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="How much money is in the cash box?" />
+        android:text="@string/money_question" />
 
     <EditText
         android:id="@+id/cashbox_starting"

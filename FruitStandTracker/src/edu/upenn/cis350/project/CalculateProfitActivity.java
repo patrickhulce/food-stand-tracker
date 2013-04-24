@@ -25,7 +25,14 @@ public class CalculateProfitActivity extends FragmentActivity {
 	    @Override
 	    public Dialog onCreateDialog(Bundle savedInstanceState) {
 	        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-	        builder.setMessage(msg);
+	        builder.setMessage(msg).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
 	        return builder.create();
 	    }
 	}

@@ -103,8 +103,14 @@ public class Inventory2Activity extends Activity {
 	// method that modifies fruit quantity depending on which button was pressed
 	private void changeQty(boolean pm, int fruit, int cid ) {
 		int qtyTemp = getQty(cid);
-		if (pm) { // increment fruit qty
-			if (qtyTemp < 99) qtyTemp++;
+		int preInv = inventory[fruit];
+		if (pm) { // increment fruit qty if it is not more than what was put in pre-processing inventory
+			if (qtyTemp < preInv) {
+				qtyTemp++;
+			} else {
+				String toastText = "You do not have enough of that fruit!";
+				Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_SHORT).show();
+			}
 		} else { // decrement fruit qty
 			if (qtyTemp > 0) qtyTemp--;
 		}

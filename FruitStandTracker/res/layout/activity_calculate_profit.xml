@@ -226,7 +226,7 @@
 		<LinearLayout 
 	    	android:id="@+id/labelLayout"
 	    	android:layout_width="wrap_content"
-	   	 	android:layout_height="40sp">
+	   	 	android:layout_height="45sp">
 	            <TextView
 	                android:id="@+id/donationsLabel"
 	                android:layout_width="wrap_content"

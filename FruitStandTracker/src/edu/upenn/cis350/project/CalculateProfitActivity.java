@@ -1,7 +1,5 @@
 package edu.upenn.cis350.project;
 
-import com.parse.ParseObject;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;

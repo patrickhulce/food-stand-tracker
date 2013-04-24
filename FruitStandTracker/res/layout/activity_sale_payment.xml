@@ -9,7 +9,7 @@
         android:id="@+id/items"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="Number of Items to Checkout:"
+        android:text="@string/items_checkout"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -28,13 +28,13 @@
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:onClick="cash_button"
-            android:text="Cash" />
+            android:text="@string/cash" />
 
         <TextView
             android:id="@+id/cash_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="x0"
+            android:text="@string/x0"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
@@ -47,13 +47,13 @@
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:onClick="coupon_button"
-            android:text="Coupons" />
+            android:text="@string/coupons" />
 
         <TextView
             android:id="@+id/coupon_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="x0"
+            android:text="@string/x0"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
@@ -66,13 +66,13 @@
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:onClick="junk_food_button"
-            android:text="Junk Food" />
+            android:text="@string/junk_food" />
 
         <TextView
             android:id="@+id/junk_food_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="x0"
+            android:text="@string/x0"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
@@ -81,7 +81,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="clear_button"
-        android:text="Clear All"
+        android:textColor="#EE4000"
+        android:text="@string/clear"
         android:visibility="visible" />
 
     <View
@@ -95,7 +96,7 @@
         android:layout_height="wrap_content"
         android:enabled="false"
         android:onClick="submit_button"
-        android:text="Submit"
+        android:text="@string/submit"
         android:visibility="visible" />
 
 </LinearLayout>

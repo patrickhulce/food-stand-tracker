@@ -23,14 +23,14 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Sales:         "
+                android:text="@string/total_sales"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/totalsales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="@string/zero"
                 android:maxEms="5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
@@ -56,7 +56,7 @@
                 android:id="@+id/wholefruit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="@string/zero"
                 android:maxEms="5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
@@ -82,7 +82,7 @@
                 android:id="@+id/mixedbags"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="@string/zero"
                 android:maxEms="5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
@@ -108,7 +108,7 @@
                 android:id="@+id/smoothies"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="@string/zero"
                 android:maxEms="5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
@@ -127,14 +127,14 @@
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text= "Granola Bars Sold:"
+                android:text= "@string/granola_sold"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/granolabars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="@string/zero"
                 android:maxEms="5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
@@ -161,7 +161,7 @@
                 android:id="@+id/transactions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="@string/zero"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
     </TableLayout>
@@ -176,13 +176,13 @@
         android:layout_width="match_parent"
         android:layout_height="149dp"
         android:onClick="newTransaction"
-        android:text="Start a new transaction" />
+        android:text="@string/start_new" />
 
     <Button
         android:id="@+id/submitbutton"
         android:layout_width="match_parent"
         android:layout_height="61dp"
-        android:text="Finish Session"
+        android:text="@string/finish_session"
         android:onClick="finishSession" />
 
 </LinearLayout>

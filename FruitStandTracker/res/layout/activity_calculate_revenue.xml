@@ -7,7 +7,7 @@
 	    
 	<RelativeLayout 
 	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
+	    android:layout_height="wrap_content"
 	    tools:context=".CalculateRevenueActivity" 
 	    android:background="@drawable/generic_screen">
 	
@@ -26,7 +26,7 @@
 	                android:id="@+id/wholeFruitTotalLabel"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:text="Whole Fruit: 10 x $0.50 = " />
+	                android:text="@string/whole_fruit_calc" />
 	
 	            <EditText
 	                android:id="@+id/wholeFruitRevenue"
@@ -45,7 +45,7 @@
 	                android:id="@+id/mixedBagTotalLabel"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:text="Mixed Bags: 10 x $0.50 = " />
+	                android:text="@string/mixed_bag_calc" />
 	
 	            <EditText
 	                android:id="@+id/mixedBagRevenue"
@@ -64,7 +64,7 @@
 	                android:id="@+id/smoothieTotalLabel"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:text="Smoothies: 10 x $0.50 = " />
+	                android:text="@string/smoothie_calc" />
 	
 	            <EditText
 	                android:id="@+id/smoothieRevenue"
@@ -83,7 +83,7 @@
 	                android:id="@+id/granolaTotalLabel"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:text="Granola: 10 x $0.50 = " />
+	                android:text="@string/granola_calc" />
 	
 	            <EditText
 	                android:id="@+id/granolaRevenue"
@@ -102,25 +102,23 @@
 	                android:id="@+id/couponLabel"
 	                android:layout_width="wrap_content"
 	                android:layout_height="30dp"
-	                android:gravity="center"
-	                android:text="Coupons: 10 x 0.50 = " />
+	                android:text="@string/coupon_calc" />
 	        </TableRow> 
 			
 			<TableRow
-	            android:id="@+id/tableRow5"
+	            android:id="@+id/tableRow6"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content" >
 	            <TextView
 	                android:id="@+id/junkfoodLabel"
 	                android:layout_width="wrap_content"
 	                android:layout_height="30dp"
-	                android:gravity="center"
-	                android:text="Junk Food: 10 x 0.50 = " />
+	                android:text="@string/junk_calc" />
 	        </TableRow>  
 	        
 	        
 	        <TableRow
-	            android:id="@+id/tableRow5"
+	            android:id="@+id/tableRow7"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content" >
 	            <TextView
@@ -131,7 +129,7 @@
 	        </TableRow>
 	        
 	        <TableRow
-	            android:id="@+id/tableRow5"
+	            android:id="@+id/tableRow8"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content" >
 	            <EditText
@@ -152,7 +150,7 @@
 	        android:layout_alignParentBottom="true"
 	        android:layout_centerHorizontal="true"
 	        android:onClick="submit_calculations"
-	        android:text="Submit" />
+	        android:text="@string/submit" />
 	
 	</RelativeLayout>
 </ScrollView>

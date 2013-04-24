@@ -5,7 +5,6 @@ import java.util.HashMap;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -112,7 +111,7 @@ public class SaleActivity extends Activity {
     	updateWholeFruit();
     }
     public void oranges_button(View view){
-    	TextView text = (TextView)findViewById(R.id.orange_label);//TODO
+    	TextView text = (TextView)findViewById(R.id.orange_label);
     	oranges += 1;
     	text.setText("x"+oranges);
     	updateWholeFruit();

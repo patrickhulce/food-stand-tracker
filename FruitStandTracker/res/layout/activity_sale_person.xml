@@ -267,6 +267,7 @@
 	        android:id="@+id/button_clear"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
+	        android:textColor="#EE4000"
 	        android:onClick="clear_entries"
 	        android:text="@string/clear" />
 

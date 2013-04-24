@@ -1,15 +1,9 @@
 package edu.upenn.cis350.project;
 
-import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.PushService;
-import java.util.HashMap;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class TransactionBaseActivity extends Activity {
@@ -19,9 +13,6 @@ public class TransactionBaseActivity extends Activity {
 	 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         data = getIntent().getExtras();
-        //for Parse
-        Parse.initialize(this, 
-        		getString(R.string.parseAPIkey), getString(R.string.parsesecretkey));
         
         String _wholefruit = "0", _smoothies = "0", _mixedbags = "0", _transactions = "0", _totalsales = "0", _granolabars = "0";
         

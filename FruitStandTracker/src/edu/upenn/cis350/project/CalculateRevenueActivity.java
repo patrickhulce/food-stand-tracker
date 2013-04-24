@@ -29,8 +29,8 @@ public class CalculateRevenueActivity extends Activity {
 		smoothielabel.setText("Smoothies: "+data.getInt("smoothies") + "x"+ data.getDouble("smoothies_price")+" =");
 		mixedbaglabel.setText("Mixed Bags: "+data.getInt("mixed_bags") + "x"+ data.getDouble("mixed_bags_price")+" =");
 		granolalabel.setText("Granola Bars: "+data.getInt("granolabars") + "x"+ data.getDouble("granola_bars_price")+" =");
-		couponlabel.setText("Coupons = "+ data.getDouble("coupons_value"));
-		junkfoodlabel.setText("Junk Food = "+ data.getDouble("junk_food_value"));
+		couponlabel.setText("Coupon Total Value =           $"+ data.getDouble("coupons_value"));
+		junkfoodlabel.setText("Junk Food Total Value =        $"+ data.getDouble("junk_food_value"));
 	}
 
 	@Override

@@ -68,12 +68,13 @@
     
     
     
-    <string name="calcProfit">Great job! Are you readying to start using your business savvy and calculate your profit?</string>
-	<string name="sellFruit">Great job! Are you readying to start selling the best fruit in the world?</string>
 
 	
-	
-	
+	<string name="total_sales">Total Sales:         </string>
+	<string name="zero">0</string>
+	<string name="granola_sold">Granola Bars Sold:</string>
+	<string name="start_new">Start a new transaction</string>
+	<string name="finish_session">Finish Session</string>
 	
     <string-array name="grade_list">
         <item>Elementary (K-5)</item>
@@ -105,8 +106,24 @@
     <string name="clear">Clear All</string>
     
     
+    <string name="items_checkout">Number of Items to Checkout:</string>
+    <string name="payment_option">How are they paying?</string>
+    <string name="cash">Cash</string>
+    <string name="coupons">Coupons</string>
+    <string name="junk_food">Junk Food</string>
     
     
+    
+    
+    <string name="calcProfit">Great job! Are you ready to use your business savvy to calculate your profit?</string>
+	<string name="sellFruit">Great job! Are you ready to start selling the best fruit in the world?</string>
+	<string name="smile_text">Remember to smile!</string>
+	<string name="ready">I\'m ready!</string>
+	<string name="smiley_description">Here is a picture of a smiley face</string>
+	
+	
+	
+	
     
 
     <string name="inventory_instructions_future">Record your inventory before making mixed bags.
@@ -129,7 +146,7 @@
     <string name="mixed_label">Mixed Bags</string>
     <string name="person_title">Who\'s buying?</string>
     <string name="purchase_choice">What are they buying?</string>
-    <string name="payment_option">How are they paying?</string>
+    
 
     <string name="total_sold">Total Sales:       </string>
     <string name="whole_fruit_sold">Whole Fruit Sold:    </string>
@@ -138,7 +155,35 @@
     <string name="total_transactions"># of Transactions:    </string>
     <string name="title_activity_calculate_profit">CalculateProfitActivity</string>
     <string name="title_activity_pricing">PricingActivity</string>
-    <string name="total_revenue">Total = \n Whole Fruit + Smoothies + Granola \n + Mixed Bags - Coupons - Junk Food </string>
     <string name="title_activity_pre_sales_pep">PreSalesPepActivity</string>
+    
+    
+    <string name="whole_fruit_calc">Whole Fruit: 10 x $0.50 = </string>
+    <string name="mixed_bag_calc">Mixed Bags: 10 x $0.50 = </string>
+    <string name="smoothie_calc">Smoothies: 10 x $0.50 = </string>
+    <string name="granola_calc">Granola: 10 x $0.50 = </string>
+    <string name="coupon_calc">Coupon Total Value =      $0.50</string>
+    <string name="junk_calc">Junk Food Total Value =   $0.50</string>
+   	<string name="total_revenue">Total = \n Whole Fruit \n + Smoothies \n + Granola \n + Mixed Bags \n - Coupons \n - Junk Food</string>
+    <string name="submit">Submit</string>
+    
+    
+    
+    
+    <string name="revenue">Total Revenue : </string>
+    <string name="ten">$10.00</string>
+    <string name="fruit_cost">Fruit Costs : </string>
+    <string name="fruit_cost_hint">What size fruit stand do you have? \n Small = $8.00 \n Medium = $11.00 \n Large = $14.00 \n Jumbo = $20.00</string>
+    <string name="smoothie_cost">Smoothie Costs : </string>
+    <string name="smoothie_hint">What is the size \n of your smoothie stock?</string>
+    <string name="other_cost">Other Costs : </string>
+    <string name="other_cost_hint">What other costs do you \n need to remember?</string>
+    <string name="total_cost">Total Costs :</string>
+    <string name="total_cost_hint">Fruit + Smoothie + Other Costs=</string>
+    <string name="donations">Donations : </string>
+    <string name="profit">Profit :</string>
+    <string name="profit_hint">Revenue + Donations - Total Costs=</string>
+    <string name="current_cash">Current Cashbox Amount: </string>
+    <string name="current_cash_hint">Coutn the money in your cashbox!</string>
 
 </resources>

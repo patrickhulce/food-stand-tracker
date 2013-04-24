@@ -131,8 +131,7 @@
          Tap the bottom half to decrease quantity.</string>
     <string name="inventory_instructions">Record your inventory before making mixed bags.
          Tap the pictures of fruit to increase quantity.</string>
-    <string name="inventory2_instructions">Record the quantity of mixed bags of fruits 
-        made, and the quantity of fruits that went into making them.</string>
+    <string name="inventory2_instructions">Record the number of mixed bags you made and the number of fruits you used in them.</string>
     <string name="inventory_summary">Summary of Inventory</string>
     <string name="apple_label">Apples</string>
     <string name="pear_label">Pears</string>
@@ -175,9 +174,9 @@
     <string name="fruit_cost">Fruit Costs : </string>
     <string name="fruit_cost_hint">What size fruit stand do you have? \n Small = $8.00 \n Medium = $11.00 \n Large = $14.00 \n Jumbo = $20.00</string>
     <string name="smoothie_cost">Smoothie Costs : </string>
-    <string name="smoothie_hint">What is the size \n of your smoothie stock?</string>
+    <string name="smoothie_hint">How much did you\n pay for smoothies?</string>
     <string name="other_cost">Other Costs : </string>
-    <string name="other_cost_hint">What other costs do you \n need to remember?</string>
+    <string name="other_cost_hint">What else did you\n pay for?</string>
     <string name="total_cost">Total Costs :</string>
     <string name="total_cost_hint">Fruit + Smoothie + Other Costs=</string>
     <string name="donations">Donations : </string>
@@ -186,6 +185,7 @@
     <string name="current_cash">Current Cashbox Amount: </string>
     <string name="current_cash_hint">Count the money in your cashbox!</string>
     <string name="original_cash">Originally, you had $37.50 \n in the cash box</string>
+    <string name="pricing_instructions">Enter the prices you\'re charging for each fruit.</string>
 
 
 </resources>

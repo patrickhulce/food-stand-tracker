@@ -19,7 +19,7 @@ public class FinishedPepActivity extends Activity {
 		if (data.getBoolean("profitable")) {
 			txtv.setText("Great Job! You made money today! Hold your head high and brag about it!");
 		} else {
-			txtv.setText("Good Job! You risked it all, and while you didn't make money today, you can hold your head high and be proud of your work.");
+			txtv.setText("Good Job! While you didn't make money today, you worked hard and it will pay off soon!");
 		}
 	}
 
@@ -30,8 +30,6 @@ public class FinishedPepActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_pre_sales_pep, menu);
 		return true;
 	}
 

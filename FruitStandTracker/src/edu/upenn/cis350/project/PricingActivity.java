@@ -65,7 +65,7 @@ public class PricingActivity extends Activity {
     	
     	i.putExtra("apple_price", applePrice);
     	i.putExtra("banana_price", bananaPrice);
-    	i.putExtra("grapes_price", grapesPrice);
+    	i.putExtra("grape_price", grapesPrice);
     	i.putExtra("kiwi_price", kiwiPrice);
     	i.putExtra("orange_price", orangePrice);
     	i.putExtra("pear_price", pearPrice);

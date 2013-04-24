@@ -8,6 +8,7 @@ import com.parse.ParseObject;
 
 public class DataBaser {
 	private static final DataBaser instance = new DataBaser();
+	
 	HashMap<String,String> info;
 	ArrayList<Transaction> transactions;
 	HashMap<String,Integer> inventory1;

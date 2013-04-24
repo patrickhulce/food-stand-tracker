@@ -8,8 +8,7 @@
 	<RelativeLayout    
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    tools:context=".CalculateProfitActivity" 
-	    android:background="@drawable/generic_screen">
+	    tools:context=".CalculateProfitActivity" >
 	
 	    <TableLayout
 	        android:id="@+id/tableLayout1"
@@ -27,6 +26,7 @@
 	                android:id="@+id/revenue"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
+	                android:textColor="#000000"
 	                android:text="@string/revenue" />
 	
 	            <TextView
@@ -51,6 +51,7 @@
 	                	android:id="@+id/fruitStandCostLabel"
 	                	android:layout_width="wrap_content"
 	                	android:layout_height="wrap_content"
+	                	android:textColor="#000000"
 	                	android:text="@string/fruit_cost" />
 	            	
 	            	<TextView 
@@ -83,6 +84,7 @@
 	                	android:id="@+id/smoothieCostLabel"
 	                	android:layout_width="wrap_content"
 	                	android:layout_height="wrap_content"
+	                	android:textColor="#000000"
 	                	android:text="@string/smoothie_cost" />
 	            	
 	            	<TextView 
@@ -116,6 +118,7 @@
 	                	android:id="@+id/otherCostsLabel"
 	                	android:layout_width="wrap_content"
 	                	android:layout_height="wrap_content"
+	                	android:textColor="#000000"
 	                	android:text="@string/other_cost" />
 	            	
 	            	<TextView
@@ -148,6 +151,7 @@
 	                    android:id="@+id/totalCostsLabel"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
+	                    android:textColor="#000000"
 	                    android:text="@string/total_cost" />
 	
 	                <TextView
@@ -176,6 +180,7 @@
 	                android:id="@+id/donationsLabel"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
+	                android:textColor="#000000"
 	                android:text="@string/donations" />
 	
 	            <EditText
@@ -201,6 +206,7 @@
 	                android:id="@+id/profitLabel"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
+	                android:textColor="#000000"
 	                android:text="@string/profit" />
 	
 	                <TextView
@@ -234,6 +240,7 @@
 	                	android:id="@+id/endingCashboxLabel"
 	                	android:layout_width="wrap_content"
 	                	android:layout_height="wrap_content"
+	                	android:textColor="#000000"
 	                	android:text="@string/current_cash" />
 	            	
 	            	<TextView
@@ -241,6 +248,12 @@
 	                	android:layout_width="wrap_content"
 	                	android:layout_height="wrap_content"
 	                	android:text="@string/current_cash_hint"/>
+	            	<TextView
+	            	    android:id="@+id/originalCash"
+	                	android:layout_width="wrap_content"
+	                	android:layout_height="wrap_content"
+	                	android:text="@string/original_cash"
+	            	    />
 				</LinearLayout>
 	            <EditText
 	                android:id="@+id/endingCashbox"
@@ -258,7 +271,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentBottom="true"
 	        android:layout_centerHorizontal="true"
-	        android:layout_marginBottom="19dp"
+	        android:layout_below="@id/tableLayout1"
 	        android:onClick="checkCalculations"
 	        android:text="@string/submit" />
 	

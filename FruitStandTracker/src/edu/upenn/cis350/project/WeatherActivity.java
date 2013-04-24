@@ -3,6 +3,7 @@ package edu.upenn.cis350.project;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -10,14 +11,17 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class WeatherActivity extends Activity {
-	SeekBar seekBar;
-	String w = "sunny";
-	String tempText;
+	private SeekBar seekBar;
+	private String w = "sunny";
+	private String tempText;
+	private Bundle data;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_weather);
+		
+		data = getIntent().getExtras();
 		
 		seekBar = (SeekBar) findViewById(R.id.temp_bar);
 		seekBar.setProgress(50);
@@ -89,6 +93,8 @@ public class WeatherActivity extends Activity {
     	//Cashbox amount
     	EditText cshbx = (EditText) findViewById(R.id.cashbox_starting);
     	String amt = cshbx.getText().toString();
+    	Log.i("cshbx", ""+Double.parseDouble(amt));
+    	i.putExtra("cashbox_starting", Double.parseDouble(amt));
     	
     	//Save our info
     	if(w != null && amt != null && amt.length() > 1) {

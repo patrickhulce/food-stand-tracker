@@ -20,6 +20,9 @@ public class CalculateProfitActivity extends Activity {
 		setContentView(R.layout.activity_calculate_profit);
 		TextView revenuevalue = (TextView)findViewById(R.id.revenueValue);
 		revenuevalue.setText("$"+data.getDouble("total_cash"));
+		
+		TextView originalCash = (TextView)findViewById(R.id.originalCash);
+		originalCash.setText("Originally, you had $" + data.getDouble("cashbox_starting") + "\n in the cash box");
 
 	}
 

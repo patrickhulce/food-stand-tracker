@@ -130,22 +130,23 @@ public class CalculateProfitActivity extends FragmentActivity {
 				ErrorDialog errs = new ErrorDialog(toastText.toString());
 				errs.show(getSupportFragmentManager(), "Error");
 				return;
+			} else {
+				db.addInfo("revenue", String.valueOf(revenue));
+				db.addInfo("total_costs", String.valueOf(totalReal));
+				db.addInfo("donations", String.valueOf(donations));
+				db.addInfo("profit", String.valueOf(profitReal));
+				db.addInfo("ending_cashbox_amount", String.valueOf(endingCashbox));
+				//saves the data to Parse
+				for(String s: data.keySet()){
+					db.addInfo(s, data.get(s).toString());
+				}
+				db.databaseItThoroughly();
+				Intent i = new Intent(this, FinishedPepActivity.class);
+				i.putExtra("profitable", profitReal > 0);
+				this.startActivity(i);
 			}
-			db.addInfo("revenue", String.valueOf(revenue));
-			db.addInfo("total_costs", String.valueOf(totalReal));
-			db.addInfo("donations", String.valueOf(donations));
-			db.addInfo("profit", String.valueOf(profitReal));
-			db.addInfo("ending_cashbox_amount", String.valueOf(endingCashbox));
-			//saves the data to Parse
-			for(String s: data.keySet()){
-				db.addInfo(s, data.get(s).toString());
-			}
-			DataBaser.getInstance().databaseItThoroughly();
-			db.databaseItThoroughly();
-			Intent i = new Intent(this, FinishedPepActivity.class);
-			i.putExtra("profitable", profitReal > 0);
-			this.startActivity(i);
 		} catch (Exception e) {
+			e.printStackTrace();
 			String toastText = "Looks like you left a box blank, everything has to be filled in before submitting.";
 			Toast.makeText(getApplicationContext(), toastText.toString(), Toast.LENGTH_LONG).show();
 		}

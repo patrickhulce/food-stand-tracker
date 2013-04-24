@@ -69,6 +69,7 @@
         </activity>
         <activity android:name="edu.upenn.cis350.project.PreCalculationsPepActivity" >
         </activity>
+        <activity android:name="edu.upenn.cis350.project.FinishedPepActivity"></activity>
     </application>
 
 </manifest>

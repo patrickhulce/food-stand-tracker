@@ -241,22 +241,5 @@ public class SaleActivityTest extends ActivityInstrumentationTestCase2<SaleActiv
     	TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.pear_label);
     	assertEquals("x" + "" + Integer.toString(pearClicks),text.getText());
 	}
-	
-	public void testOthersButton() {
-		final int otherClicks = 5;
-		activity.runOnUiThread(
-				new Runnable(){
-					public void run(){
-						for(int i = 0; i< otherClicks; i++){
-							activity.others_button(null);
-						}
-					}
-				}
-			);	
-		myIns.waitForIdleSync();
-		assertEquals(otherClicks,activity.getOthers());
-    	TextView text = (TextView) activity.findViewById(edu.upenn.cis350.project.R.id.other_label);
-    	assertEquals("x" + "" + Integer.toString(otherClicks),text.getText());
-	}
 
 }

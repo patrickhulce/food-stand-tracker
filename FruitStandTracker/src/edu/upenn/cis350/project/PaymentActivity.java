@@ -102,8 +102,23 @@ public class PaymentActivity extends Activity {
 		HashMap<String, Integer> payment = new HashMap<String, Integer>();
 		ArrayList<Double> prices = new ArrayList<Double>();
 		
-		for(int i = 0; i < data.getInt("whole_fruit"); i++){
-			prices.add(data.getDouble("whole_fruit_price"));
+		for(int i = 0; i < data.getInt("temp_apples"); i++){
+			prices.add(data.getDouble("apple_price"));
+		}
+		for(int i = 0; i < data.getInt("temp_oranges"); i++){
+			prices.add(data.getDouble("orange_price"));
+		}
+		for(int i = 0; i < data.getInt("temp_pears"); i++){
+			prices.add(data.getDouble("pear_price"));
+		}
+		for(int i = 0; i < data.getInt("temp_kiwis"); i++){
+			prices.add(data.getDouble("kiwi_price"));
+		}
+		for(int i = 0; i < data.getInt("temp_grapes"); i++){
+			prices.add(data.getDouble("grape_price"));
+		}
+		for(int i = 0; i < data.getInt("temp_bananas"); i++){
+			prices.add(data.getDouble("banana_price"));
 		}
 		for(int i = 0; i < data.getInt("granolabars"); i++){
 			prices.add(data.getDouble("granola_bars_price"));
@@ -111,7 +126,7 @@ public class PaymentActivity extends Activity {
 		for(int i = 0; i < data.getInt("mixed_bags"); i++){
 			prices.add(data.getDouble("mixed_bags_price"));
 		}
-		for(int i = 0; i < data.getInt("smoothies"); i++){
+		for(int i = 0; i < data.getInt("temp_smoothie"); i++){
 			prices.add(data.getDouble("smoothies_price"));
 		}
 		Collections.sort(prices);

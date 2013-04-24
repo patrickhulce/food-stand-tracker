@@ -25,12 +25,10 @@ public class SaleActivity extends Activity {
 	private int kiwis = 0;
 	private int oranges = 0;
 	private int grapes = 0;
-	private int others = 0;
 	private int temp_whole_fruit = 0;
 	private int temp_granola = 0;
 	private int temp_smoothie = 0;
 	private int temp_mixed_bag = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +40,69 @@ public class SaleActivity extends Activity {
         TextView smoothietext = (TextView)findViewById(R.id.smoothie_label);
         TextView bagtext = (TextView)findViewById(R.id.mixed_bag_label);
         TextView granolatext = (TextView)findViewById(R.id.granola_label);
+        
+        Button apple_button = (Button)findViewById(R.id.apples);
+        Button orange_button = (Button)findViewById(R.id.oranges);
+        Button pear_button = (Button)findViewById(R.id.pears);
+        Button kiwi_button = (Button)findViewById(R.id.kiwis);
+        Button grape_button = (Button)findViewById(R.id.grapes);
+        Button banana_button = (Button)findViewById(R.id.bananas);
+        Button smoothie_button = (Button)findViewById(R.id.smoothie_button);
+        Button mixed_bag_button = (Button)findViewById(R.id.mixed_bag_button);
+        Button granola_button = (Button)findViewById(R.id.granola_button);
+    	TextView apple_text = (TextView)findViewById(R.id.apple_label);
+    	TextView orange_text = (TextView)findViewById(R.id.orange_label);
+    	TextView pear_text = (TextView)findViewById(R.id.pear_label);
+    	TextView kiwi_text = (TextView)findViewById(R.id.kiwi_label);
+    	TextView grape_text = (TextView)findViewById(R.id.grape_label);
+    	TextView banana_text = (TextView)findViewById(R.id.banana_label);
+    	TextView smoothie_text = (TextView)findViewById(R.id.smoothie_label);
+    	TextView mixed_bag_text = (TextView)findViewById(R.id.mixed_bag_label);
+    	TextView granola_text = (TextView)findViewById(R.id.granola_label);
+        
+    	HashMap<String, Integer> inv = DataBaser.getInstance().inventory2;
+    	if(inv.get("apples") == 0){
+    		apple_button.setVisibility(8);
+    		apple_text.setVisibility(8);
+    	}
+    	if(inv.get("oranges") == 0){
+    		orange_button.setVisibility(8);
+    		orange_text.setVisibility(8);
+    	}
+    	if(inv.get("pears") == 0){
+    		pear_button.setVisibility(8);
+    		pear_text.setVisibility(8);
+    	}
+    	if(inv.get("kiwis") == 0){
+    		kiwi_button.setVisibility(8);
+    		kiwi_text.setVisibility(8);
+    	}
+    	if(inv.get("grapes") == 0){
+    		grape_button.setVisibility(8);
+    		grape_text.setVisibility(8);
+    	}
+    	if(inv.get("bananas") == 0){
+    		banana_button.setVisibility(8);
+    		banana_text.setVisibility(8);
+    	}
+    	if(inv.get("smoothie") == 0){
+    		smoothie_button.setVisibility(8);
+    		smoothie_text.setVisibility(8);
+    	}
+    	if(inv.get("mixed") == 0){
+    		mixed_bag_button.setVisibility(8);
+    		mixed_bag_text.setVisibility(8);
+    	}
+    	if(inv.get("granolas") == 0){
+    		granola_button.setVisibility(8);
+    		granola_text.setVisibility(8);
+    	}
+        
         wholefruittext.setText("x" + temp_whole_fruit);
         smoothietext.setText("x" + temp_smoothie);
         bagtext.setText("x" + temp_mixed_bag);
         granolatext.setText("x" + temp_granola);
+        
     }
 
     @Override
@@ -66,7 +123,7 @@ public class SaleActivity extends Activity {
     //called by other methods in this class
     private void updateWholeFruit(){
     	TextView text = (TextView)findViewById(R.id.whole_fruit_label);
-    	temp_whole_fruit = apples+pears+bananas+kiwis+oranges+others+grapes;
+    	temp_whole_fruit = apples+pears+bananas+kiwis+oranges+grapes;
     	text.setText("x" + temp_whole_fruit);
         Button submit_button = (Button)findViewById(R.id.button_continue);
     	if(gender != ""){
@@ -145,13 +202,6 @@ public class SaleActivity extends Activity {
     	updateWholeFruit();
     }
     
-    public void others_button(View view){
-    	TextView text = (TextView)findViewById(R.id.other_label);
-    	others += 1;
-    	text.setText("x"+others);
-    	updateWholeFruit();
-    }
-    
     public void gender_button(View view){
     	 // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -180,7 +230,6 @@ public class SaleActivity extends Activity {
     	kiwis = 0;
     	oranges = 0;
     	grapes = 0;
-    	others = 0;
     	temp_whole_fruit = 0;
     	temp_granola = 0;
        	temp_smoothie = 0;
@@ -190,7 +239,6 @@ public class SaleActivity extends Activity {
     	int[] texts = {R.id.whole_fruit_label, R.id.apple_label,
     			R.id.orange_label, R.id.pear_label, R.id.kiwi_label,
     			R.id.banana_label, R.id.smoothie_label, R.id.mixed_bag_label,R.id.granola_label,
-    			R.id.other_label
     	};
     	for(int i: texts){
     		TextView text = (TextView)findViewById(i);
@@ -224,10 +272,6 @@ public class SaleActivity extends Activity {
     	return grapes;
     }
     
-    public int getOthers(){
-    	return others;
-    }
-    
     public int getWholeFruit(){
     	return temp_whole_fruit;
     }
@@ -259,35 +303,39 @@ public class SaleActivity extends Activity {
     	String grade = (String)age.getSelectedItem();
     	
     	i.putExtras(data);
-    	int tempapple = 0, temppeach = 0, temppear = 0, 
-    			tempbanana = 0, tempkiwi = 0, tempgrape = 0, tempother = 0;
+    	int tempapple = 0, temporange = 0, temppear = 0, 
+    			tempbanana = 0, tempkiwi = 0, tempgrape = 0;
 		HashMap<String, Integer> fruit = new HashMap<String, Integer>();
     	if(data.get("fruit") == null){
     		fruit = new HashMap<String, Integer>();	
     	} else {
     		fruit = (HashMap<String, Integer>) data.get("fruit");
     		tempapple = fruit.get("apple");
-    		temppeach = fruit.get("peach");
+    		temporange = fruit.get("orange");
     		temppear = fruit.get("pear");
     		tempbanana = fruit.get("banana");
     		tempkiwi = fruit.get("kiwi");
     		tempgrape = fruit.get("grape");
-    		tempother = fruit.get("other");
     	}
     	fruit.put("apple", apples+tempapple);
-    	fruit.put("orange", oranges+temppeach);
+    	fruit.put("orange", oranges+temporange);
     	fruit.put("pear", pears+temppear);
     	fruit.put("banana", bananas+tempbanana);
     	fruit.put("kiwi", kiwis+tempkiwi);
     	fruit.put("grape", grapes+tempgrape);
-    	fruit.put("other", others+tempother);
     	
     	i.putExtra("whole_fruit", data.getInt("whole_fruit") + temp_whole_fruit);
-    	i.putExtra("smoothies", data.getInt("smoothie") + temp_smoothie);
+    	i.putExtra("smoothies", data.getInt("smoothies") + temp_smoothie);
     	i.putExtra("mixed_bags", data.getInt("mixed_bag") + temp_mixed_bag);
     	i.putExtra("granolabars", data.getInt("granola") + temp_granola);
     	i.putExtra("total", temp_whole_fruit+temp_smoothie+temp_mixed_bag+temp_granola);
     	i.putExtra("temp_whole_fruit", temp_whole_fruit);
+    	i.putExtra("temp_apples", apples);
+    	i.putExtra("temp_oranges", oranges);
+    	i.putExtra("temp_pears", pears);
+    	i.putExtra("temp_kiwis", kiwis);
+    	i.putExtra("temp_grapes", grapes);
+    	i.putExtra("temp_bananas", bananas);
     	i.putExtra("temp_smoothie", temp_smoothie);
     	i.putExtra("temp_mixed_bag", temp_mixed_bag);
     	i.putExtra("temp_granola", temp_granola);

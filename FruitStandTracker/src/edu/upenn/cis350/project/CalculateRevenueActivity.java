@@ -1,6 +1,7 @@
 package edu.upenn.cis350.project;
 
 import edu.upenn.cis350.project.CalculateProfitActivity.ErrorDialog;
+import java.util.HashMap;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -28,9 +29,17 @@ public class CalculateRevenueActivity extends FragmentActivity {
 		TextView mixedbaglabel = (TextView)findViewById(R.id.mixedBagTotalLabel);
 		TextView granolalabel = (TextView)findViewById(R.id.granolaTotalLabel);
 		TextView couponlabel = (TextView)findViewById(R.id.couponLabel);
-		TextView junkfoodlabel = (TextView)findViewById(R.id.junkfoodLabel);
+		TextView junkfoodlabel = (TextView)findViewById(R.id.junkfoodLabel);		
+		HashMap<String, Integer> fruit = (HashMap<String,Integer>)data.get("fruit");
 		
-		wholefruitlabel.setText("Whole Fruit: "+ data.getInt("whole_fruit") + "x"+ data.getDouble("whole_fruit_price")+" =");
+		
+		String whole_fruit_equation = String.format("Whole Fruit: %d apples x %.2f +" +
+				"\n%d oranges x %.2f + \n%d pears x %.2f + \n%d kiwis x %.2f + \n%d grapes x %.2f + \n%d bananas x %.2f \n", fruit.get("apple"),
+				data.getDouble("apple_price"), fruit.get("orange"), data.getDouble("orange_price"), fruit.get("pear"), data.getDouble("pear_price"),
+				fruit.get("kiwi"), data.getDouble("kiwi_price"), fruit.get("grape"), data.getDouble("grape_price"), fruit.get("banana"),
+				data.getDouble("banana_price"));
+		
+		wholefruitlabel.setText(whole_fruit_equation);
 		smoothielabel.setText("Smoothies: "+data.getInt("smoothies") + "x"+ data.getDouble("smoothies_price")+" =");
 		mixedbaglabel.setText("Mixed Bags: "+data.getInt("mixed_bags") + "x"+ data.getDouble("mixed_bags_price")+" =");
 		granolalabel.setText("Granola Bars: "+data.getInt("granolabars") + "x"+ data.getDouble("granola_bars_price")+" =");

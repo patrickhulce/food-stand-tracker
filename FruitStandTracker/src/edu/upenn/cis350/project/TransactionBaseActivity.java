@@ -34,6 +34,17 @@ public class TransactionBaseActivity extends Activity {
         	data.putDouble("junk_food_value", 0);
         }
         
+        boolean debug = true;
+        
+        if(debug){
+        	data.putDouble("apple_price", 0.50);
+        	data.putDouble("orange_price", 0.10);
+        	data.putDouble("pear_price", 0.20);
+        	data.putDouble("kiwi_price", 0.30);
+        	data.putDouble("grape_price", 0.40);
+        	data.putDouble("banana_price", 0.25);
+        }
+        
         setContentView(R.layout.transaction_base_activity);
         
         TextView wholefruit = (TextView)findViewById(R.id.wholefruit);

@@ -3,16 +3,34 @@ package edu.upenn.cis350.project;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CalculateProfitActivity extends Activity {
+public class CalculateProfitActivity extends FragmentActivity {
+	
+	public static class ErrorDialog extends DialogFragment {
+		String msg;
+		public ErrorDialog(String msg) {
+			this.msg = msg;
+		}
+	    @Override
+	    public Dialog onCreateDialog(Bundle savedInstanceState) {
+	        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+	        builder.setMessage(msg);
+	        return builder.create();
+	    }
+	}
+	
+	
 	Bundle data;
 	int errors = 0;
 	private DataBaser db;
@@ -102,15 +120,8 @@ public class CalculateProfitActivity extends Activity {
 					toastText.append(errorMsgs[i]);
 				}
 				
-				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.setMessage(toastText);
-				builder.setPositiveButton("Fix Them",new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						//
-					}
-				});
-				builder.create();
+				ErrorDialog errs = new ErrorDialog(toastText.toString());
+				errs.show(getSupportFragmentManager(), "Error");
 				return;
 			}
 			db.addInfo("revenue", String.valueOf(revenue));

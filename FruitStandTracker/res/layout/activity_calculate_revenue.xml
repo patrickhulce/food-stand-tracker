@@ -25,16 +25,27 @@
 	            <TextView
 	                android:id="@+id/wholeFruitTotalLabel"
 	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
+	                android:layout_height="40sp"
 	                android:text="@string/whole_fruit_calc" />
-	
-	            <EditText
-	                android:id="@+id/wholeFruitRevenue"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:ems="4"
-	                android:inputType="numberDecimal" />
-	
+				<RelativeLayout 
+    				android:layout_width="match_parent"
+    				android:layout_height="match_parent"
+    				android:orientation="horizontal">
+        			<TextView
+            			android:id="@+id/dollarSign9"
+            			android:layout_width="wrap_content"
+            			android:layout_height="wrap_content"
+            			android:gravity="bottom"
+           	 			android:textSize="25sp"
+            			android:text="@string/dollarSign"/>
+	            	<EditText
+	                	android:id="@+id/wholeFruitRevenue"
+	                	android:layout_width="wrap_content"
+	                	android:layout_height="wrap_content"
+	                	android:layout_toRightOf="@id/dollarSign9"
+	                	android:ems="4"
+	                	android:inputType="numberDecimal" />
+				</RelativeLayout>
 	        </TableRow>
 	
 	        <TableRow
@@ -44,16 +55,28 @@
 	            <TextView
 	                android:id="@+id/mixedBagTotalLabel"
 	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
+	                android:layout_height="40sp"
 	                android:text="@string/mixed_bag_calc" />
-	
-	            <EditText
-	                android:id="@+id/mixedBagRevenue"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:ems="4"
-	                android:inputType="numberDecimal" >
-	            </EditText>
+				<RelativeLayout 
+    				android:layout_width="match_parent"
+    				android:layout_height="match_parent"
+    				android:orientation="horizontal">
+        			<TextView
+            			android:id="@+id/dollarSign8"
+            			android:layout_width="wrap_content"
+            			android:layout_height="wrap_content"
+            			android:gravity="bottom"
+           	 			android:textSize="25sp"
+            			android:text="@string/dollarSign"/>
+	            	<EditText
+	                	android:id="@+id/mixedBagRevenue"
+	                	android:layout_width="wrap_content"
+	                	android:layout_height="wrap_content"
+	                	android:layout_toRightOf="@id/dollarSign8"
+	                	android:ems="4"
+	                	android:inputType="numberDecimal" >
+	            	</EditText>
+	            </RelativeLayout>
 	        </TableRow>
 	
 	        <TableRow
@@ -63,16 +86,28 @@
 	            <TextView
 	                android:id="@+id/smoothieTotalLabel"
 	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
+	                android:layout_height="40sp"
 	                android:text="@string/smoothie_calc" />
-	
-	            <EditText
-	                android:id="@+id/smoothieRevenue"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:ems="4"
-	                android:inputType="numberDecimal" >
-	            </EditText>
+					<RelativeLayout 
+    					android:layout_width="match_parent"
+    					android:layout_height="match_parent"
+    					android:orientation="horizontal">
+        				<TextView
+            				android:id="@+id/dollarSign10"
+            				android:layout_width="wrap_content"
+            				android:layout_height="wrap_content"
+            				android:gravity="bottom"
+           	 				android:textSize="25sp"
+            				android:text="@string/dollarSign"/>
+	            		<EditText
+	                		android:id="@+id/smoothieRevenue"
+	                		android:layout_width="wrap_content"
+	                		android:layout_height="wrap_content"
+	                		android:layout_toRightOf="@id/dollarSign10"
+	                		android:ems="4"
+	                		android:inputType="numberDecimal" >
+	            		</EditText>
+	            	</RelativeLayout>
 	        </TableRow>
 	
 	        <TableRow
@@ -82,16 +117,28 @@
 	            <TextView
 	                android:id="@+id/granolaTotalLabel"
 	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
+	                android:layout_height="40sp"
 	                android:text="@string/granola_calc" />
-	
-	            <EditText
-	                android:id="@+id/granolaRevenue"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:ems="4"
-	                android:inputType="numberDecimal" >
-	            </EditText>
+				<RelativeLayout 
+    				android:layout_width="match_parent"
+    				android:layout_height="match_parent"
+    				android:orientation="horizontal">
+        			<TextView
+            			android:id="@+id/dollarSign11"
+            			android:layout_width="wrap_content"
+            			android:layout_height="wrap_content"
+            			android:gravity="bottom"
+           	 			android:textSize="25sp"
+            			android:text="@string/dollarSign"/>
+	            	<EditText
+	                	android:id="@+id/granolaRevenue"
+	                	android:layout_width="wrap_content"
+	                	android:layout_height="wrap_content"
+	                	android:layout_toRightOf="@id/dollarSign11"
+	                	android:ems="4"
+	                	android:inputType="numberDecimal" >
+	            	</EditText>
+	            	</RelativeLayout>
 	        </TableRow>
 	        
 	        <TableRow
@@ -132,13 +179,26 @@
 	            android:id="@+id/tableRow8"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content" >
+	            <RelativeLayout 
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="horizontal">
+	            <TextView
+            			android:id="@+id/dollarSign12"
+            			android:layout_width="wrap_content"
+            			android:layout_height="wrap_content"
+            			android:gravity="left"
+           	 			android:textSize="33sp"
+            			android:text="@string/dollarSign"/>
 	            <EditText
 	                android:id="@+id/totalRevenue"
 	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:ems="4"
+	                android:layout_height="fill_parent"
+	                android:layout_toRightOf="@id/dollarSign12"
+	                android:ems="10"
 	                android:inputType="numberDecimal" >
 	            </EditText>
+	            </RelativeLayout>
 	    	</TableRow>
 	    
 	    </TableLayout>

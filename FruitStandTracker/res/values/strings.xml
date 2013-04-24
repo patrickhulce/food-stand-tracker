@@ -64,7 +64,7 @@
     <string name="snowy">Snowy</string>
     <string name="temp_question">What\'s the temperature like?</string>
     <string name="money_question">How much money is in the cash box?</string>
-    
+    <string name="dollarSign">$</string>
     
     
     
@@ -166,6 +166,7 @@
     <string name="junk_calc">Junk Food Total Value =   $0.50</string>
    	<string name="total_revenue">Total = \n Whole Fruit \n + Smoothies \n + Granola \n + Mixed Bags \n - Coupons \n - Junk Food</string>
     <string name="submit">Submit</string>
+    <string name="blank">          </string>
     
     
     

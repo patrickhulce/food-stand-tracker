@@ -184,6 +184,6 @@
     <string name="profit">Profit :</string>
     <string name="profit_hint">Revenue + Donations - Total Costs=</string>
     <string name="current_cash">Current Cashbox Amount: </string>
-    <string name="current_cash_hint">Coutn the money in your cashbox!</string>
+    <string name="current_cash_hint">Count the money in your cashbox!</string>
 
 </resources>

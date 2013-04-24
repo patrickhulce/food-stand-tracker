@@ -2,7 +2,10 @@ package edu.upenn.cis350.project;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -11,7 +14,7 @@ import android.widget.Toast;
 
 public class CalculateProfitActivity extends Activity {
 	Bundle data;
-	boolean errors = false;
+	int errors = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +38,19 @@ public class CalculateProfitActivity extends Activity {
 		return Double.valueOf(et.getText().toString());
 	}
 
+	public void highlightEditTextById(int id, boolean on) {
+		EditText et = (EditText) findViewById(id);
+		et.setBackgroundColor(on ? Color.YELLOW : Color.WHITE);
+	}
+	
 	public void checkCalculations(View v) {
 		DataBaser db = DataBaser.getInstance();
 
 		// Get all the doubles from the user input
 		try {
+			highlightEditTextById(R.id.totalCosts,false);
+			highlightEditTextById(R.id.profit,false);
+			highlightEditTextById(R.id.endingCashbox,false);
 			double revenue = data.getDouble("total_cash");
 			double fruitCosts = getDoubleFromEditText(R.id.fruitStandCost);
 			double smoothieCosts = getDoubleFromEditText(R.id.smoothieCost);
@@ -50,20 +61,22 @@ public class CalculateProfitActivity extends Activity {
 			double endingCashbox = getDoubleFromEditText(R.id.endingCashbox);
 	
 			String[] errorMsgs = {
-					"Looks like there were some errors with your input!\n", "", "",
-					"", "Try again!\n" };
+					"Looks like there were some differences in your numbers!\n", "", "",
+					"", "Try again\n" };
 	
 			// Only prevent them from moving on the first time.
-			boolean preventCompletion = !errors;
+			boolean errors = false;
 			double totalReal = fruitCosts + smoothieCosts + otherCosts;
 			if (Math.abs(totalReal - totalComputed) > .05) {
 				errorMsgs[1] = "Total costs should be equal to fruit costs + smoothie costs + other costs.\n";
 				errors = true;
+				highlightEditTextById(R.id.totalCosts,true);
 			}
 			double profitReal = revenue + donations - totalReal;
 			if (Math.abs(profitReal - profitComputed) > .05) {
 				errorMsgs[2] = "Profit should equal revenue + donations - total costs\n";
 				errors = true;
+				highlightEditTextById(R.id.profit,true);
 			}
 			double realEndingCash = revenue + donations
 					+ db.getStartingCashboxAmount();
@@ -71,13 +84,28 @@ public class CalculateProfitActivity extends Activity {
 				errorMsgs[3] = "Ending cash should equal starting cash + revenue + donations\n"
 						+ "Are you sure you counted all of the cash?\n";
 				errors = true;
+				highlightEditTextById(R.id.endingCashbox,true);
 			}
-			if(preventCompletion) {
+			if(errors && this.errors < 3) {
+				this.errors++;
+				if(this.errors == 3) {
+					checkCalculations(null);
+					return;
+				}
 				StringBuffer toastText = new StringBuffer();
 				for(int i=0; i< errorMsgs.length;i++) {
 					toastText.append(errorMsgs[i]);
 				}
-				Toast.makeText(getApplicationContext(), toastText.toString(), Toast.LENGTH_LONG).show();
+				
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setMessage(toastText);
+				builder.setPositiveButton("Fix Them",new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						//
+					}
+				});
+				builder.create();
 				return;
 			}
 			db.addInfo("revenue", String.valueOf(revenue));

@@ -9,11 +9,13 @@ import android.view.View;
 import android.widget.EditText;
 
 public class PricingActivity extends Activity {
-
+	private Bundle data;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pricing);
+		data = getIntent().getExtras();
+
 	}
 
 	@Override

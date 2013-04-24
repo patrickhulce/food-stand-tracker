@@ -15,17 +15,19 @@ import android.widget.Toast;
 public class CalculateProfitActivity extends Activity {
 	Bundle data;
 	int errors = 0;
+	private DataBaser db;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		data = getIntent().getExtras();
+		db = DataBaser.getInstance();
 		setContentView(R.layout.activity_calculate_profit);
 		TextView revenuevalue = (TextView)findViewById(R.id.revenueValue);
 		revenuevalue.setText("$"+data.getDouble("total_cash"));
 		
 		TextView originalCash = (TextView)findViewById(R.id.originalCash);
-		originalCash.setText("Originally, you had $" + data.getDouble("cashbox_starting") + "\n in the cash box");
+		originalCash.setText("Originally, you had $" + db.getStartingCashboxAmount() + "\n in the cash box");
 
 	}
 
@@ -47,7 +49,7 @@ public class CalculateProfitActivity extends Activity {
 	}
 	
 	public void checkCalculations(View v) {
-		DataBaser db = DataBaser.getInstance();
+		
 
 		// Get all the doubles from the user input
 		try {

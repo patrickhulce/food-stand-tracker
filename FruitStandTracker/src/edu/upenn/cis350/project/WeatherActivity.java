@@ -91,7 +91,7 @@ public class WeatherActivity extends Activity {
     	String amt = cshbx.getText().toString();
     	
     	//Save our info
-    	if(w != null && amt != null && amt.length() > 1) {
+    	if(w != null && amt != null && amt.length() >= 1) {
             DataBaser db = DataBaser.getInstance();
             db.addInfo("weather", w);
             db.addInfo("temperature", String.valueOf(seekBar.getProgress()));

@@ -133,6 +133,18 @@ public class Inventory2Activity extends Activity {
 	}
 
     public void continueToTransactionBase(View v) {
+
+    	HashMap<String, Integer> preinv = new HashMap<String, Integer>();
+    	preinv.put("apples", inventory[0]);
+    	preinv.put("bananas", inventory[1]);
+    	preinv.put("grapes", inventory[2]);
+    	preinv.put("kiwis", inventory[3]);
+    	preinv.put("oranges", inventory[4]);
+    	preinv.put("pears", inventory[5]);
+    	preinv.put("granolas", inventory[6]);
+    	preinv.put("mixed", inventory[8]);
+    	preinv.put("smoothie", inventory[9]);
+    	DataBaser.getInstance().savePostInventory(preinv);
     	
     	// subtract fruits used to make mixed bags
     	for (int i=0; i<6; i++) {

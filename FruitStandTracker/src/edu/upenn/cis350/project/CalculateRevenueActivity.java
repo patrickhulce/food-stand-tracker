@@ -1,18 +1,20 @@
 package edu.upenn.cis350.project;
 
+import edu.upenn.cis350.project.CalculateProfitActivity.ErrorDialog;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CalculateRevenueActivity extends Activity {
+public class CalculateRevenueActivity extends FragmentActivity {
 	
 	Bundle data;
 	int tries;
@@ -47,6 +49,7 @@ public class CalculateRevenueActivity extends Activity {
 		EditText wholefruit = (EditText)findViewById(R.id.wholeFruitRevenue);
 		EditText smoothie = (EditText)findViewById(R.id.smoothieRevenue);
 		EditText mixedbag = (EditText)findViewById(R.id.mixedBagRevenue);
+		EditText granola = (EditText)findViewById(R.id.granolaRevenue);
 		EditText total = (EditText)findViewById(R.id.totalRevenue);
 		
 		try{
@@ -59,24 +62,20 @@ public class CalculateRevenueActivity extends Activity {
 			} else {
 				double real_smoothie = data.getInt("smoothies") * data.getDouble("smoothies_price");
 				double real_bags = data.getInt("mixed_bags") * data.getDouble("mixed_bags_price");
+				double real_gran = data.getInt("granolabars") * data.getDouble("granola_bars_price");
 				total.setBackgroundColor(Color.YELLOW);
 				boolean smoothie_wrong = Math.abs(real_smoothie - Double.parseDouble(smoothie.getText().toString())) > .01;
 				boolean bags_wrong = Math.abs(real_bags - Double.parseDouble(mixedbag.getText().toString())) > .01;
+				boolean gran_wrong = Math.abs(real_gran) - Double.parseDouble(granola.getText().toString()) > .01;
 				smoothie.setBackgroundColor(smoothie_wrong ? Color.YELLOW : Color.WHITE);
 				mixedbag.setBackgroundColor(bags_wrong ? Color.YELLOW : Color.WHITE);
+				granola.setBackgroundColor(gran_wrong ? Color.YELLOW : Color.WHITE);
 				
 				String toastText = "Looks like you made a mistake in your math...\n check that the total is equal to \n" +
 						"total fruit sold - coupons - junk food";
 				//Toast.makeText(getApplicationContext(), toastText.toString(), Toast.LENGTH_LONG).show();
-				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.setMessage(toastText);
-				builder.setPositiveButton("Fix Them",new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						//
-					}
-				});
-				builder.create();
+				ErrorDialog errs = new ErrorDialog(toastText.toString());
+				errs.show(getSupportFragmentManager(), "Error");
 				tries += 1;
 				return;
 			}

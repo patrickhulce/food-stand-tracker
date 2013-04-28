@@ -105,7 +105,7 @@ public class Inventory2Activity extends Activity {
 		int qtyTemp = getQty(cid);
 		int preInv = inventory[fruit];
 		if (pm) { // increment fruit qty if it is not more than what was put in pre-processing inventory
-			if (qtyTemp < preInv) {
+			if (fruit > 5 || qtyTemp < preInv) { // limit only applies to whole fruit
 				qtyTemp++;
 			} else {
 				String toastText = "You do not have enough of that fruit!";

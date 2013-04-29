@@ -140,6 +140,7 @@ public class Inventory2Activity extends Activity {
 
     public void continueToTransactionBase(View v) {
 
+    	//Use savePreInvetory to save info
     	HashMap<String, Integer> preinv = new HashMap<String, Integer>();
     	preinv.put("apples", inventory[0]);
     	preinv.put("bananas", inventory[1]);
@@ -148,9 +149,10 @@ public class Inventory2Activity extends Activity {
     	preinv.put("oranges", inventory[4]);
     	preinv.put("pears", inventory[5]);
     	preinv.put("granolas", inventory[6]);
+    	preinv.put("frozen", inventory[7]);
     	preinv.put("mixed", inventory[8]);
     	preinv.put("smoothie", inventory[9]);
-    	DataBaser.getInstance().savePostInventory(preinv);
+    	DataBaser.getInstance().savePreInventory(preinv);
     	
     	// subtract fruits used to make mixed bags
     	for (int i=0; i<6; i++) {
@@ -166,7 +168,7 @@ public class Inventory2Activity extends Activity {
     	//Launch to transaction base
     	Intent i = new Intent(this, PreSalesPepActivity.class);
     	
-    	//TODO Use savePostInventory to save info
+    	//Use savePostInventory to save info
     	HashMap<String, Integer> postinv = new HashMap<String, Integer>();
     	postinv.put("apples", inventory[0]);
     	postinv.put("bananas", inventory[1]);
@@ -175,9 +177,9 @@ public class Inventory2Activity extends Activity {
     	postinv.put("oranges", inventory[4]);
     	postinv.put("pears", inventory[5]);
     	postinv.put("granolas", inventory[6]);
+    	postinv.put("frozen", inventory[7]);
     	postinv.put("mixed", inventory[8]);
     	postinv.put("smoothie", inventory[9]);
-    	
     	DataBaser.getInstance().savePostInventory(postinv);
     	
     	i.putExtras(this.getIntent().getExtras());

@@ -137,6 +137,7 @@ public class CalculateProfitActivity extends FragmentActivity {
 				db.addInfo("profit", String.valueOf(profitReal));
 				db.addInfo("ending_cashbox_amount", String.valueOf(endingCashbox));
 				//saves the data to Parse
+				//TODO: IS THIS NECESSARY? Aren't we saving enough data as is? 
 				for(String s: data.keySet()){
 					db.addInfo(s, data.get(s).toString());
 				}

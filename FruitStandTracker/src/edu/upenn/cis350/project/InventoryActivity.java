@@ -142,7 +142,8 @@ public class InventoryActivity extends Activity {
     	fruitQtys[5] = getQty(R.id.pearQty);
     	fruitQtys[6] = getQty(R.id.granolaQty);
     	fruitQtys[7] = getQty(R.id.frozenQty);
-    	
+    	//fruitQtys[8] (mixed bags) is not filled in by this activity -> see next activity
+    	//fruitQtys[9] (smoothie) is not filled in by this activity -> see next activity
     	
     	i.putExtra("fruit_quantities", fruitQtys);
     	i.putExtras(this.getIntent().getExtras());

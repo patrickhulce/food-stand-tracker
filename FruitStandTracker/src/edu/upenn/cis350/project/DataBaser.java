@@ -45,7 +45,7 @@ public class DataBaser {
 			obj_t.add("gender", t.gender);
 			obj_t.add("purchases", t.purchases);
 			obj_t.add("payments", t.payments);
-			obj.saveInBackground();
+			obj_t.saveInBackground();
 		}
 	}
 	

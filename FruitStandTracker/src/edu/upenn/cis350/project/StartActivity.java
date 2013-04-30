@@ -18,8 +18,6 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState);
         data = getIntent().getExtras();
         setContentView(R.layout.activity_start);
-        Button resume = (Button)findViewById(R.id.buttonResume);
-        resume.setEnabled(data != null);
         
         //for Parse
         Parse.initialize(this, 
@@ -38,10 +36,5 @@ public class StartActivity extends Activity {
     	this.startActivity(i);
     }
     
-    public void resume_button(View view){
-    	Intent i = new Intent(this, InfoActivity.class);
-    	i.putExtras(data);
-    	this.startActivity(i);
-    }
     
 }

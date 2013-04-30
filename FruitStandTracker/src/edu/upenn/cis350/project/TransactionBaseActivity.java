@@ -63,7 +63,6 @@ public class TransactionBaseActivity extends Activity {
 	}
 	 
 	public void finishSession(View view){
-		DataBaser.getInstance().databaseItThoroughly();
 		//Continue on to calculations
 		Intent i = new Intent(this,PreCalculationsPepActivity.class);
 		i.putExtras(data);
